@@ -13,10 +13,6 @@ class Graph{
         this.adjList[node1].push({ node: node2, cost: cost });
         this.adjList[node2].push({ node: node1, cost: cost });
     }
-
-    setHeuristic(node, value) {
-        this.nodes[node].heuristic = value;
-    }
 }
 
 export default Graph;

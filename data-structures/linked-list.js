@@ -11,7 +11,7 @@ class linkedList {
         this.listSize = 0;
     }
 
-    append(element) {
+    insert(element) {
         let node = new Node(element);
         let current = this.head;
 
@@ -79,12 +79,12 @@ class linkedList {
         return false;
     }
 
-    remove(element) {
-        let index = this.indexOf(element);
+    delete(element) {
+        let index = this.search(element);
         return this.removeAt(index);
     }
 
-    indexOf(element) {
+    search(element) {
         let current = this.head;
         let index = 0;
 
@@ -130,9 +130,9 @@ class linkedList {
 
 let lista = new linkedList();
 
-lista.append('Elemento 1');
-lista.append('Elemento 2');
-lista.append('Elemento 3');
+lista.insert('Elemento 1');
+lista.insert('Elemento 2');
+lista.insert('Elemento 3');
 
 console.log('Lista después de añadir elementos:');
 lista.print();
@@ -145,9 +145,9 @@ lista.removeAt(2);
 console.log('Lista después de eliminar el elemento en la posición 2:');
 lista.print();
 
-console.log('Índice de "Elemento 3":', lista.indexOf('Elemento 3'));
+console.log('Índice de "Elemento 3":', lista.search('Elemento 3'));
 
-lista.remove('Elemento 1.5');
+lista.delete('Elemento 1.5');
 console.log('Lista después de eliminar "Elemento 1.5":');
 lista.print();
 
@@ -160,6 +160,3 @@ console.log('Lista después de limpiarla:');
 lista.print();
 
 console.log('¿La lista tiene elementos después de limpiarla?', lista.hasElements());
-
-// Uso: Las listas enlazadas son estructuras de datos dinámicas que consisten en nodos donde cada nodo contiene un valor y una referencia al siguiente nodo en la secuencia.
-// Propósito: Se utilizan principalmente cuando se necesita una estructura de datos flexible para insertar y eliminar elementos de manera eficiente en cualquier posición, a diferencia de los arrays donde las inserciones y eliminaciones pueden ser costosas en términos de rendimiento.

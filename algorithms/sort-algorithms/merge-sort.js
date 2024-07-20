@@ -44,6 +44,3 @@ function Merge(primeraMitad, segundaMitad) {
 }
 
 console.log(mergeSort([1, 0, 4, 7, 2 ,5 ,8, 7 ,9, 3]));
-
-// Descripción: Es un algoritmo de divide y vencerás. Divide la lista en dos mitades, las ordena de forma recursiva y luego fusiona las dos mitades ordenadas.
-// Uso: Eficiente y estable. Ideal para listas grandes. Requiere memoria adicional para la fusión.

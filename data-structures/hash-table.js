@@ -4,7 +4,7 @@ class hashTable {
         this.numbuckets = this.buckets.length;
     }
 
-    hash (key) {
+    hash(key) {
         let total = 0;
 
         for (let i = 0; i < key.length; i++) {
@@ -14,14 +14,14 @@ class hashTable {
         return total % this.numbuckets;
     }
 
-    insert (key, value) {
+    insert(key, value) {
         let index = this.hash(key);
         if (!this.buckets[index]) this.buckets[index] = [];
 
         this.buckets[index].push([key, value]);
     }
 
-    get(key) {
+    search(key) {
         let index = this.hash(key);
         if (!this.buckets[index]) return null;
 
@@ -35,7 +35,7 @@ class hashTable {
         return null;
     }
 
-    remove(key) {
+    delete(key) {
         let index = this.hash(key);
         
         for (let i = 0; i < this.buckets[index].length; i++) {
@@ -69,12 +69,12 @@ table.insert(
     }
 );
 
-console.log(table.get("Andres"));
-console.log(table.get("Wendy"));
-console.log(table.get("Tommy"));
+console.log(table.search("Andres"));
+console.log(table.search("Wendy"));
+console.log(table.search("Tommy"));
 
-table.remove("Wendy");
+table.delete("Wendy");
 
-console.log(table.get("Andres"));
-console.log(table.get("Wendy"));
-console.log(table.get("Tommy"));
+console.log(table.search("Andres"));
+console.log(table.search("Wendy"));
+console.log(table.search("Tommy"));

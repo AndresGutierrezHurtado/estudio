@@ -1,25 +1,25 @@
-class set {
+class Set {
     constructor() {
         this.items = {};
     }
 
     add(element) {
-        if (!this.has(element)) {
+        if (!this.contains(element)) {
             this.items[element] = element;
             return true;
         }
         return false;
     }
 
-    delete(element) {
-        if (this.has(element)) {
+    remove(element) {
+        if (this.contains(element)) {
             delete this.items[element];
             return true;
         }
         return false;
     }
 
-    has(element) {
+    contains(element) {
         return Object.prototype.hasOwnProperty.call(this.items, element);
     }
 
@@ -45,7 +45,7 @@ class set {
     intersection(otherSet) {
         const intersectionSet = new Set();
         this.values().forEach(value => {
-            if (otherSet.has(value)) {
+            if (otherSet.contains(value)) {
                 intersectionSet.add(value);
             }
         });
@@ -55,7 +55,7 @@ class set {
     difference(otherSet) {
         const differenceSet = new Set();
         this.values().forEach(value => {
-            if (!otherSet.has(value)) {
+            if (!otherSet.contains(value)) {
                 differenceSet.add(value);
             }
         });
@@ -63,12 +63,12 @@ class set {
     }
 
     isSubsetOf(otherSet) {
-        return this.values().every(value => otherSet.has(value));
+        return this.values().every(value => otherSet.contains(value));
     }
 }
 
-let conjuntoA = new set();
-let conjuntoB = new set();
+let conjuntoA = new Set();
+let conjuntoB = new Set();
 
 conjuntoA.add(1);
 conjuntoA.add(2);
@@ -97,7 +97,7 @@ let conjuntoC = new Set();
 conjuntoC.add(3);
 console.log('¿Conjunto C es un subconjunto de B?', conjuntoC.isSubsetOf(conjuntoB));
 
-conjuntoA.delete(3);
+conjuntoA.remove(3);
 console.log('Conjunto A después de eliminar 3:', conjuntoA.values());
 
 conjuntoA.clear();
@@ -105,5 +105,5 @@ console.log('Conjunto A después de limpiarlo:', conjuntoA.values())
 
 console.log('Tamaño del conjunto B:', conjuntoB.size());
 
-console.log('¿Conjunto B tiene el elemento 4?', conjuntoB.has(4));
-console.log('¿Conjunto B tiene el elemento 10?', conjuntoB.has(10));
+console.log('¿Conjunto B tiene el elemento 4?', conjuntoB.contains(4));
+console.log('¿Conjunto B tiene el elemento 10?', conjuntoB.contains(10));

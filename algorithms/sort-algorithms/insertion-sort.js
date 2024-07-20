@@ -1,4 +1,5 @@
 function insertionSort(array) {
+    // recorre el array y si el elemento anterior es mayor lo intercambia
     for (let i = 0; i < array.length; i++) {
         let key = array[i];
         
@@ -15,6 +16,3 @@ function insertionSort(array) {
 }
 
 console.log(insertionSort([1, 4, 3, 6, 7, 0, 3, 2, 5, -4]));
-
-// Descripción: Ordena la lista construyendo la lista ordenada uno a uno. Toma cada elemento y lo inserta en la posición correcta dentro de los elementos ya ordenados.
-// Uso: Eficiente para listas pequeñas o casi ordenadas. Fácil de implementar y eficiente en casos específicos.

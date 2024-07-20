@@ -34,6 +34,3 @@ function radixSort(array) {
 }
 
 console.log(radixSort([170, 45, 75, 90, 802, 24, 2, 66]));
-
-// Descripción: Ordena los números digit by digit comenzando desde el dígito menos significativo al más significativo utilizando un algoritmo de ordenación estable (como Counting Sort).
-// Uso: Eficiente para listas de números enteros con un rango limitado de dígitos. No es comparativo y puede ser más rápido que 𝑂(𝑛 log 𝑛) en algunos casos.
