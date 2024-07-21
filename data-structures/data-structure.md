@@ -28,7 +28,7 @@ Un conjunto es una colección de elementos únicos, sin orden específico. Se us
 - **Remove:** Retirar un elemento del conjunto.
 - **Contains:** Verificar si un elemento está en el conjunto.
 
-[Link del archivo](./set.js "archivo")
+[Link del archivo](./set.mjs "archivo")
 
 ## 4. Linked Lists (Listas Enlazadas)
 Una lista enlazada es una secuencia de nodos donde cada nodo contiene un valor y una referencia al siguiente nodo en la secuencia. Se usa para situaciones donde necesitas insertar o eliminar elementos con frecuencia.
