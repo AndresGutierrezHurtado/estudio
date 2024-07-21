@@ -1,56 +1,80 @@
 class Node {
-    constructor (value) {
+    constructor(value) {
         this.value = value;
+        this.left = null;
         this.right = null;
-        this.left = null
-    }    
+    }
 }
 
 class BinaryTree {
-    constructor () {
+    constructor() {
         this.root = null;
     }
 
-    insert (value) {
+    insert(value) {
         let node = new Node(value);
-
-        if (this.root == null) {
+        if (this.root == null){ 
             this.root = node;
-        } else {
+        } else {   
             this.insertNode(this.root, node);
         }
     }
 
-    insertNode(node, newNode) {
-        if (node.value > newNode.value) {
+    // fix this function
+    insertNode (node, newNode) {
+        if (node.left == null || node.right == null) {
             if (node.left == null) {
                 node.left = newNode;
+                return true;
             } else {
-                this.insertNode(node.left, newNode);
+                node.right = newNode;
+                return true;
             }
         } else {
-            if (node.right == null) {
-                node.right = newNode;
-            } else {
-                this.insertNode(node.right, newNode);
-            }
+            if(this.insertNode(node.left, newNode)) return true;
+            if(this.insertNode(node.right, newNode)) return true;
         }
     }
 
-    print(node) {
-        if (node !== null) {
-            this.print(node.left);
+    inOrder(node) {
+        if (node != null || node) {
+            this.inOrder(node.left);
             console.log(node.value);
-            this.print(node.right);
+            this.inOrder(node.right);
+        }
+    }
+
+    preOrder(node) {
+        if (node != null || node) {
+            console.log(node.value);
+            this.preOrder(node.left);
+            this.preOrder(node.right);
+        }
+    }
+
+    postOrder(node) {
+        if (node != null || node) {
+            this.postOrder(node.left);
+            this.postOrder(node.right);
+            console.log(node.value);
         }
     }
 }
 
-const tree = new BinaryTree();
-tree.insert(8);
-tree.insert(5);
-tree.insert(10);
-tree.insert(1);
-tree.insert(6);
+let arbol = new BinaryTree();
+arbol.insert(10);
+arbol.insert(5);
+arbol.insert(15);
+arbol.insert(2);
+arbol.insert(7);
+arbol.insert(13);
+arbol.insert(17);
 
-tree.print(tree.root);
+console.log("-- Recorrido in-order --");
+arbol.inOrder(arbol.root);
+
+console.log("-- Recorrido pre-order --");
+arbol.preOrder(arbol.root);
+
+console.log("-- Recorrido post-order --");
+arbol.postOrder(arbol.root);

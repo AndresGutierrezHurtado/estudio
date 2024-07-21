@@ -1,12 +1,9 @@
 function busquedaBinaria(array, buscar) {
-    if (array.length < 0) {
-        return false;
-    }
+    if (array.length < 0) return false;
 
     array.sort();
     
     while (array.length > 0) {
-
         mitad = Math.ceil(array.length / 2);
 
         if (array[mitad] == buscar) {

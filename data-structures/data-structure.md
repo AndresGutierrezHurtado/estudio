@@ -8,7 +8,7 @@ Una pila es una estructura de datos que sigue el principio **LIFO** (Last In, Fi
 - **Pop:** Retirar el elemento de la cima de la pila.
 - **Peek:** Ver el elemento en la cima sin retirarlo.
 
-[Link del archivo](./stack.js "archivo")
+[Link del archivo](./stack.mjs "archivo")
 
 ## 2. Queues (Colas)
 Una cola es una estructura de datos que sigue el principio **FIFO** (First In, First Out). Esto significa que el primer elemento en ser añadido es el primero en ser retirado.

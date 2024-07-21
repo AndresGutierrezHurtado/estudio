@@ -1,27 +1,28 @@
+// Crear una funcion dikstra para hacer un pathfinder de un grafo
+
 import Graph from '../../data-structures/graph.mjs';
 
-export default function aStarSearch(graph, start, goal) {
+export default function dijkstraSearch(graph, start, goal) {
     let visited = [];
-    let routes = [{route: start.node, fScore: 0}];
+    let routes = [{route: start.node, cost: 0}];
 
     while (routes.length > 0) {
         let current = routes[0];
 
-        // Obtiene el elemento con menor costo F
-        routes.map(element => { if (element.fScore < current.fScore) current = element; });
-        current.node = (current.route[current.route.length - 1]);
-        
-        // Verifica si es el objetivo, y si no elimina el elemento de la lista de rutas y lo agrega a la lista de nodos visitados
-        if (current.node === goal.node) return current;
-        if(!visited.includes(current.node)) visited.push(current);
-        routes = routes.filter(element => element.route !== current.route);
-
-        // Recorre sus conexiones, donde se agrega a la lista de rutas con su costo F
-        graph.adjList[current.node].forEach(element => {
-            if(visited.includes(element.node)) return;
-            routes.push({route: current.route + element.node, fScore: current.fScore + element.cost + graph.nodes[element.node].heuristic });
+        routes.map(element => {
+            if (element.cost < current.cost) current = element;
         });
+        current.node = (current.route[current.route.length - 1]);
+
+        if (current.node === goal.node) return current;
+
+        visited.push(current.node);
+        routes = routes.filter(element => element.route !== current.route);
         
+        graph.adjList[current.node].forEach(element => {
+            if (visited.includes(element.node)) return;
+            routes.push({route: current.route + element.node, cost: current.cost + element.cost});
+        });
     }
 }
 
@@ -54,4 +55,4 @@ graph.addEdge('X', 'I', 3);
 graph.addEdge('F', 'I', 8);
 graph.addEdge('F', 'D', 2);
 
-console.log(aStarSearch(graph, graph.nodes.S, graph.nodes.X));
+console.log(dijkstraSearch(graph, graph.nodes.S, graph.nodes.X));
