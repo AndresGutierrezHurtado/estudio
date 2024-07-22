@@ -108,10 +108,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         const botones = document.querySelectorAll('.boton-carrito');
-
+        
         botones.forEach(boton => {
+            // Funcion que muestra una alerta por 2 segundos
             boton.addEventListener('click', () => {
-                // quiero que la alerta se muestre por 2 segundos
                 document.getElementById('alerta').classList.toggle('d-none');
                 setTimeout(() => {
                     document.getElementById('alerta').classList.toggle('d-none');
