@@ -1,5 +1,4 @@
-// create a dfs function that makes the depth first search
-import Graph from '../../data-structures/graph.mjs';
+import UndirectedGraph from '../../data-structures/undirected-graph.mjs';
 import Stack from '../../data-structures/stack.mjs';
 import Set from '../../data-structures/set.mjs';
 
@@ -30,7 +29,7 @@ function depthFirstSearch(graph, startNode) {
 }
 
 // Crear el grafo
-let graph = new Graph();
+let graph = new UndirectedGraph();
 
 graph.addNode("A", 14);
 graph.addNode("B", 12);

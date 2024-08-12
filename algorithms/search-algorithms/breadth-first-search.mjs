@@ -1,4 +1,4 @@
-import Graph from '../../data-structures/graph.mjs';
+import UndirectedGraph from '../../data-structures/undirected-graph.mjs';
 
 function breadthFirstSearch(graph, source) {
     let values = [{node: source.node, distance: 0}];
@@ -15,7 +15,7 @@ function breadthFirstSearch(graph, source) {
     return values.reverse();
 }
 
-let graph = new Graph();
+let graph = new UndirectedGraph();
 
 graph.addNode("A", 14);
 graph.addNode("B", 12);

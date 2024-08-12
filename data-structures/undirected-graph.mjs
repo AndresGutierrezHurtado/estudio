@@ -1,4 +1,4 @@
-class Graph{
+class UndirectedGraph{
     constructor() {
         this.nodes = [];
         this.adjList = [];
@@ -15,4 +15,4 @@ class Graph{
     }
 }
 
-export default Graph;
+export default UndirectedGraph;

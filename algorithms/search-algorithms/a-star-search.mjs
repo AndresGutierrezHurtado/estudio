@@ -1,4 +1,4 @@
-import Graph from '../../data-structures/graph.mjs';
+import UndirectedGraph from '../../data-structures/undirected-graph.mjs';
 
 export default function aStarSearch(graph, start, goal) {
     let visited = [];
@@ -25,7 +25,7 @@ export default function aStarSearch(graph, start, goal) {
     }
 }
 
-let graph = new Graph();
+let graph = new UndirectedGraph();
 graph.addNode('S', 5);
 graph.addNode('A', 8);
 graph.addNode('B', 4);
