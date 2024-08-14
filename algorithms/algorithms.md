@@ -101,3 +101,9 @@ El algoritmo de Dijkstra encuentra el camino más corto desde un nodo inicial a 
 La búsqueda A* es un algoritmo heurístico que se utiliza para encontrar el camino más corto entre dos nodos en un grafo. Utiliza una combinación de la distancia acumulada desde el nodo de inicio y una estimación heurística de la distancia al nodo objetivo.
 
 [Link del archivo](./search-algorithms/a-star-search.mjs "archivo")
+
+### Algoritmo de Bellman-Ford (Bellman-Ford Algorithm):
+
+El algoritmo de Bellman-Ford es un algoritmo que calcula los caminos más cortos desde un nodo de origen a todos los otros nodos en un grafo, incluso si el grafo contiene aristas con pesos negativos.
+
+[Link del archivo](./search-algorithms/bellman-ford.mjs "archivo")
