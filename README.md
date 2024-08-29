@@ -20,9 +20,9 @@ Estos algoritmos son fundamentales para resolver problemas de manera eficiente, 
 
 
 ### 2. Programación
-En esta sección, exploro varios lenguajes de programación y paradigmas, además de enfocarme en las mejores prácticas para escribir código de calidad. El objetivo es proporcionar una base sólida en diferentes aspectos de la programación para desarrollar habilidades completas y efectivas en el desarrollo de software.
+En esta sección, se exploran paradigmas de programación, además se encofa en las mejores prácticas para escribir código de calidad. El objetivo es proporcionar una base sólida en diferentes aspectos de la programación para desarrollar habilidades completas y efectivas en el desarrollo de software.
 
-#### [Paradigmas de Programación]()
+#### [Paradigmas de Programación](./programming/paradigms/paradigms.md)
 Exploro diversos paradigmas de programación, que son enfoques o estilos que influyen en cómo se estructura y organiza el código:
 
 #### [Buenas Prácticas de Programación]()
