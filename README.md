@@ -25,7 +25,7 @@ En esta sección, se exploran paradigmas de programación, además se encofa en 
 #### [Paradigmas de Programación](./programming/paradigms/paradigms.md)
 Exploro diversos paradigmas de programación, que son enfoques o estilos que influyen en cómo se estructura y organiza el código:
 
-#### [Buenas Prácticas de Programación]()
+#### [Buenas Prácticas de Programación](./programming/practices.md)
 Aquí enfatizo la importancia de escribir código limpio y mantenible.
 
 
