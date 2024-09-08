@@ -15,7 +15,8 @@ class PageController extends Controller
         require_once(__DIR__ . "/../views/layouts/app.layout.php");
     }
 
-    public function products() {
+    public function products()
+    {
         $title = "";
         $content = __DIR__ . "/../views/pages/products.view.php";
 
@@ -42,14 +43,24 @@ class PageController extends Controller
 
     public function profile()
     {
-        $user = isset($_GET['usuario']) 
-        ? $this->userModel->getById($_GET['usuario'], "*", "INNER JOIN roles ON roles.rol_id = usuarios.usuario_id") 
-        : $_SESSION['usuario'];
+        $user = isset($_GET['usuario'])
+            ? $this->userModel->getById($_GET['usuario'], "*", "INNER JOIN roles ON roles.rol_id = usuarios.usuario_id")
+            : $_SESSION['usuario'];
 
         $title = "Perfil de " . $user['usuario_nombre'];
 
         $content = __DIR__ . "/../views/pages/profile.view.php";
 
         require_once(__DIR__ . "/../views/layouts/app.layout.php");
+    }
+
+    public function changeTheme()
+    {
+        $_SESSION['theme'] = $_POST['theme'];
+
+        echo json_encode([
+            'success' => true,
+            'message' => "Tema cambiado " . $_SESSION['theme']
+        ]);
     }
 }

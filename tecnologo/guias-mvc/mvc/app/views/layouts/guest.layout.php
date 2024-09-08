@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="<?= isset($_SESSION['theme']) && $_SESSION['theme'] == 'light' ? 'light' : 'dark' ?>">
 
 <head>
     <meta charset="UTF-8">

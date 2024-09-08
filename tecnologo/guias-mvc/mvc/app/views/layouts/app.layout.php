@@ -22,6 +22,7 @@
 
     <script>
         const forms = document.querySelectorAll('.fetch-form');
+        const themeController = document.querySelector('.theme-controller');
 
         forms.forEach(form => {
             form.addEventListener('submit', event => {
@@ -48,6 +49,33 @@
                         }
                     })
             })
+        })
+
+        function cambiarValor(checkbox) {
+            if (checkbox.checked) {
+                checkbox.value = "light"; 
+            } else {
+                checkbox.value = "dark"; 
+            }
+        }
+
+        themeController.addEventListener('change', event => {
+            const data = new FormData();
+
+            data.append('theme', event.target.value);
+
+            fetch('/page/changeTheme', {
+                    method: 'POST',
+                    body: data
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        console.log(`Info: ${data.message}`);
+                    } else {
+                        console.info('El error es: '.data.error);
+                    }
+                });
         })
     </script>
 </body>
