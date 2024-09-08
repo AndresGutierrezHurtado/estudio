@@ -64,6 +64,18 @@ class PageController extends Controller
                 'description' => 'Pa qué monda?',
                 'initials' => 'S',
                 'github' => 'https://github.com/',
+            ],
+            [
+                'name' => 'Alejandro Suárez',
+                'description' => 'El que se asusta, se quema',
+                'initials' => 'AS',
+                'github' => 'https://github.com/',
+            ],
+            [
+                'name' => 'Diego Alejandro Paloma Díaz',
+                'description' => 'A palabras recocheras, oidos parchados: Sócrates 2013',
+                'initials' => 'AS',
+                'github' => 'https://github.com/',
             ]
         ];
 

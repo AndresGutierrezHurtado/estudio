@@ -28,7 +28,6 @@
                 <ul class="menu menu-horizontal">
                     <!-- Navbar menu content here -->
                     <li><a href="/">Inicio</a></li>
-                    <li><a href="/page/products">Productos</a></li>
                     <li><a href="/#who">Quienes somos</a></li>
                 </ul>
             </div>
@@ -92,7 +91,6 @@
         <ul class="menu bg-base-200 min-h-full w-80 p-4">
             <!-- Sidebar content here -->
             <li><a href="/">Inicio</a></li>
-            <li><a href="/page/products">Productos</a></li>
             <li><a href="/#who">Quienes somos</a></li>
         </ul>
     </div>

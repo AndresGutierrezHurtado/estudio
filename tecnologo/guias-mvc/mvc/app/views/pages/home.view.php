@@ -220,7 +220,7 @@
     document.addEventListener('DOMContentLoaded', function() {
 
         function handleHashChange() {
-            var url = window.location.hash;
+            var url = window.location.hash == '' || window.location.hash == '#who' ? '#slide1' : window.location.hash;
 
             document.querySelectorAll('.pagination > a').forEach(element => {
                 element.classList.remove('btn-primary');
@@ -229,6 +229,7 @@
                 }
             })
         }
+
         window.addEventListener('hashchange', handleHashChange);
 
         handleHashChange();
