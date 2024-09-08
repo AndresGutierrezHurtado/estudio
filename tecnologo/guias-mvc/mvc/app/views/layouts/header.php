@@ -21,7 +21,7 @@
             </div>
 
             <!-- Brand -->
-            <div class="mx-2 px-2">Modelo Vista Controlador</div>
+            <div class="mx-2 px-2 font-extrabold text-2xl">Modelo Vista Controlador</div>
 
             <!-- Navigation -->
             <div class="hidden lg:block">
@@ -86,7 +86,6 @@
 
         </div>
         <!-- Page content here -->
-        Content
     </div>
     <div class="drawer-side">
         <label for="my-drawer-3" aria-label="close sidebar" class="drawer-overlay"></label>
