@@ -1,50 +1,3 @@
-<?php
-$team = [
-    [
-        'name' => 'Andrés Gutiérrez Hurtado',
-        'description' => 'Me apasiona el desarrollo de software, espero ser un gran desarrollador en el futuro.',
-        'initials' => 'AG',
-        'github' => 'https://github.com/AndresGutierrezHurtado',
-    ],
-    [
-        'name' => 'David Fernando Diaz Niausa',
-        'description' => 'Me apasiona el desarrollo de software, espero ser un gran desarrollador en el futuro.',
-        'initials' => 'DD',
-        'github' => 'https://github.com/',
-    ],
-    [
-        'name' => 'Juan Sebastián Bernal Gamboa',
-        'description' => 'Aprendiz del sena, especializado en el desarrollo backend, además de los estilos.',
-        'initials' => 'JB',
-        'github' => 'https://github.com/',
-    ],
-    [
-        'name' => 'Julián David Gonzáles Bayona',
-        'description' => 'Camaron que se parcha se lo lleva la recocha',
-        'initials' => 'JG',
-        'github' => 'https://github.com/',
-    ],
-    [
-        'name' => 'Kevin Meza',
-        'description' => 'El único que puede hacer que \'Meza\' suene como una fiesta en lugar de una mesa.😜😜',
-        'initials' => 'KM',
-        'github' => 'https://github.com/',
-    ],
-    [
-        'name' => 'Kevin Santiago Cordoba Daza',
-        'description' => 'El que no recocha no come chocha, y el que se parcha con el rifle las engancha.👻',
-        'initials' => 'KC',
-        'github' => 'https://github.com/',
-    ],
-    [
-        'name' => 'Jose David Parra Quiroga',
-        'description' => '¿Comando estelar, adelante comando estelar? soy Buzz Lightyear',
-        'initials' => 'JP',
-        'github' => 'https://github.com/',
-    ]
-]
-?>
-
 <section
     class="hero"
     style="background-image: url(https://images.pexels.com/photos/2653362/pexels-photo-2653362.jpeg?cs=srgb&dl=pexels-harold-vasquez-853421-2653362.jpg&fm=jpg);">
@@ -267,7 +220,7 @@ $team = [
     document.addEventListener('DOMContentLoaded', function() {
 
         function handleHashChange() {
-            var url = window.location.hash;
+            var url = window.location.hash == '' || window.location.hash == '#who' ? '#slide1' : window.location.hash;
 
             document.querySelectorAll('.pagination > a').forEach(element => {
                 element.classList.remove('btn-primary');
@@ -276,6 +229,7 @@ $team = [
                 }
             })
         }
+
         window.addEventListener('hashchange', handleHashChange);
 
         handleHashChange();

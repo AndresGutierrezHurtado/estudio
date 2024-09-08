@@ -29,18 +29,6 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ---------------------------------------------------------------
--- Tabla de Productos
-CREATE TABLE `productos` (
-    `producto_id` INT PRIMARY KEY AUTO_INCREMENT,
-    `producto_nombre` VARCHAR(255) NOT NULL,
-    `producto_descripcion` TEXT NOT NULL,
-    `producto_cantidad` INT NOT NULL,
-    `producto_precio` DECIMAL(10, 2) NOT NULL,
-    `producto_imagen_url` VARCHAR(255) DEFAULT '/public/images/products/default.jpg',
-    `producto_fecha` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- ---------------------------------------------------------------
 -- Inserciones para la tabla de Roles
 INSERT INTO `roles` (`rol_id`, `rol_nombre`)
 VALUES 
@@ -53,11 +41,3 @@ INSERT INTO `usuarios` (`usuario_nombre`, `usuario_apellido`, `usuario_correo`, 
 VALUES 
 ('Andrés', 'Gutiérrez Hurtado', 'andres52885241@gmail.com', '3209202177', 'El ensueño', '81dc9bdb52d04dc20036dbd8313ed055', 2),
 ('David Fernando', 'Diaz Niausa', 'davidfernandodiazniausa@gmail.com', '3209202177', 'El ensueño', '81dc9bdb52d04dc20036dbd8313ed055', 1);
-
--- ---------------------------------------------------------------
--- Inserciones para la tabla de Productos
-INSERT INTO `productos` (`producto_nombre`, `producto_descripcion`, `producto_cantidad`, `producto_precio`, `producto_imagen_url`)
-VALUES
-('Café Colombiano', 'Café de origen 100% colombiano, suave y con notas afrutadas.', 50, 25000.00, '/public/images/products/default.jpg'),
-('Sombrero Vueltiao', 'Sombrero tradicional de la región Caribe, hecho a mano.', 20, 150000.00, '/public/images/products/default.jpg'),
-('Artesanía Wayuu', 'Bolso tejido por artesanos Wayuu, de colores vibrantes.', 30, 120000.00, '/public/images/products/default.jpg');
