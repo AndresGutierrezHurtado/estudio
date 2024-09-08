@@ -1,26 +1,47 @@
-<?php 
+<?php
 $team = [
     [
         'name' => 'Andrés Gutiérrez Hurtado',
-        'role' => 'Aprendiz SENA',
         'description' => 'Me apasiona el desarrollo de software, espero ser un gran desarrollador en el futuro.',
-        'image' => 'https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp',
+        'initials' => 'AG',
         'github' => 'https://github.com/AndresGutierrezHurtado',
     ],
     [
         'name' => 'David Fernando Diaz Niausa',
-        'role' => 'Aprendiz SENA',
         'description' => 'Me apasiona el desarrollo de software, espero ser un gran desarrollador en el futuro.',
-        'image' => 'https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp',
-        'github' => 'https://github.com/AndresGutierrezHurtado',
+        'initials' => 'DD',
+        'github' => 'https://github.com/',
     ],
     [
-        'name' => 'Andrés Gutiérrez Hurtado',
-        'role' => 'Aprendiz SENA',
-        'description' => 'Me apasiona el desarrollo de software, espero ser un gran desarrollador en el futuro.',
-        'image' => 'https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp',
-        'github' => 'https://github.com/AndresGutierrezHurtado',
+        'name' => 'Juan Sebastián Bernal Gamboa',
+        'description' => 'Aprendiz del sena, especializado en el desarrollo backend, además de los estilos.',
+        'initials' => 'JB',
+        'github' => 'https://github.com/',
     ],
+    [
+        'name' => 'Julián David Gonzáles Bayona',
+        'description' => 'Camaron que se parcha se lo lleva la recocha',
+        'initials' => 'JG',
+        'github' => 'https://github.com/',
+    ],
+    [
+        'name' => 'Kevin Meza',
+        'description' => 'El único que puede hacer que \'Meza\' suene como una fiesta en lugar de una mesa.😜😜',
+        'initials' => 'KM',
+        'github' => 'https://github.com/',
+    ],
+    [
+        'name' => 'Kevin Santiago Cordoba Daza',
+        'description' => 'El que no recocha no come chocha, y el que se parcha con el rifle las engancha.👻',
+        'initials' => 'KC',
+        'github' => 'https://github.com/',
+    ],
+    [
+        'name' => 'Jose David Parra Quiroga',
+        'description' => '¿Comando estelar, adelante comando estelar? soy Buzz Lightyear',
+        'initials' => 'JP',
+        'github' => 'https://github.com/',
+    ]
 ]
 ?>
 
@@ -201,44 +222,62 @@ $team = [
         <h1 class="text-3xl font-extrabold tracking-tight text-center">Quienes somos</h1>
         <div class="carousel w-full">
             <?php foreach ($team as $index => $member) : ?>
-            <div id="slide<?= $index + 1 ?>" class="carousel-item relative w-full">
-                <!-- Contendio del slide 1 -->
-                <div class="w-full flex items-center justify-evenly my-8">
-                    <article class="text-center">
-                        <div class="avatar">
-                            <div class="w-20 rounded">
-                                <img
-                                    src="<?= $member['image'] ?>"
-                                    alt="Tailwind-CSS-Avatar-component" />
+                <div id="slide<?= $index + 1 ?>" class="carousel-item relative w-full">
+                    <!-- Contendio del slide 1 -->
+                    <div class="w-full flex items-center justify-evenly my-8">
+                        <article class="text-center">
+                            <div class="avatar placeholder">
+                                <div class="bg-neutral text-neutral-content w-16 rounded-full">
+                                    <span class="text-xl"><?= $member['initials'] ?></span>
+                                </div>
                             </div>
-                        </div>
-                        <h1 class="text-lg font-bold tracking-tight"><?= $member['name'] ?></h1>
-                        <p class="text-sm font-medium text-base-content/60"><?= $member['role'] ?></p>
-                    </article>
-                    <div class="card bg-base-100 w-96 shadow-lg ">
-                        <div class="card-body">
-                            <h2 class="card-title">Desarrollador de software</h2>
-                            <p class="text-balance"><?= $member['description'] ?></p>
-                            <div class="card-actions justify-start">
-                                <a href="<?= $member['github'] ?>" target="_blank" class="btn btn-primary btn-sm mt-2">
-                                    <i class="fab fa-github mr-2"></i> GitHub
-                                </a>
+                            <h1 class="text-lg font-bold tracking-tight"><?= $member['name'] ?></h1>
+                            <p class="text-sm font-medium text-base-content/60">Aprendiz SENA</p>
+                        </article>
+                        <div class="card bg-base-100 w-96 shadow-lg ">
+                            <div class="card-body">
+                                <h2 class="card-title">Desarrollador de software</h2>
+                                <p class="text-balance"><?= $member['description'] ?></p>
+                                <div class="card-actions justify-start">
+                                    <a href="<?= $member['github'] ?>" target="_blank" class="btn btn-primary btn-sm mt-2">
+                                        <i class="fab fa-github text-md"></i> GitHub
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                    <a href="#slide<?= $index == 0 ? count($team) : $index - 1 ?>" class="btn btn-circle">❮</a>
-                    <a href="#slide<?= $index == count($team) - 1 ? 1 : $index + 1 ?>" class="btn btn-circle">❯</a>
+                    <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+                        <a href="#slide<?= $index == 0 ? count($team) : $index ?>" class="btn btn-circle">❮</a>
+                        <a href="#slide<?= $index == count($team) - 1 ? 1 : $index + 2 ?>" class="btn btn-circle">❯</a>
+                    </div>
                 </div>
-            </div>
             <?php endforeach; ?>
         </div>
-        <div class="flex w-full justify-center gap-2 py-2">
+        <div class="pagination flex w-full justify-center gap-2 py-2">
             <?php foreach ($team as $index => $member) : ?>
+                <!-- Si la url tiene #slider1, el botón tendrá la clase btn-active -->
                 <a href="#slide<?= $index + 1 ?>" class="btn btn-xs"><?= $index + 1 ?></a>
             <?php endforeach; ?>
         </div>
     </div>
 </section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        function handleHashChange() {
+            var url = window.location.hash;
+
+            document.querySelectorAll('.pagination > a').forEach(element => {
+                element.classList.remove('btn-primary');
+                if (element.getAttribute('href') === url) {
+                    element.classList.add('btn-primary');
+                }
+            })
+        }
+        window.addEventListener('hashchange', handleHashChange);
+
+        handleHashChange();
+    });
+</script>
