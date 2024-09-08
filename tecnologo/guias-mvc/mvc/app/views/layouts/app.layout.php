@@ -37,7 +37,6 @@
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {
-                            console.log(form.dataset.redirect);
                             alert(data.message);
                             if (form.dataset.redirect !== undefined) {
                                 window.location.href = form.dataset.redirect;
@@ -45,7 +44,7 @@
                                 window.location.reload();
                             }
                         } else {
-                            alert('El error es: '.data.error);
+                            alert('Error: ' + data.error);
                         }
                     })
             })

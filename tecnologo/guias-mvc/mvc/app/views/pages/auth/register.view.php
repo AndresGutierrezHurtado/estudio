@@ -39,8 +39,8 @@
                     <label class="label">
                         <span class="label-text">Imagen</span>
                     </label>
-                    <label class="form-control w-full max-w-xs">
-                        <input type="file" name="imagen" class="file-input file-input-bordered w-full max-w-xs" />
+                    <label class="form-control w-full">
+                        <input type="file" name="usuario_imagen" class="file-input file-input-bordered w-full" accept="jpg, png, jpeg, webp" />
                     </label>
                 </div>
                 <div class="form-control">

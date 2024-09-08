@@ -111,6 +111,10 @@ class PageController extends Controller
             ? $this->userModel->getById($_GET['usuario'], "*", "INNER JOIN roles ON roles.rol_id = usuarios.usuario_id")
             : $_SESSION['usuario'];
 
+        if ( !isset($_SESSION['usuario_id']) || $user['usuario_id'] != $_SESSION['usuario_id'] && !$_SESSION['rol_id'] == 2) header('Location: /');
+
+        $roles = $this->conn->query("SELECT * FROM roles")->fetchAll(PDO::FETCH_ASSOC);
+
         $title = "Perfil de " . $user['usuario_nombre'];
 
         $content = __DIR__ . "/../views/pages/profile.view.php";
