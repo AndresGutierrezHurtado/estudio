@@ -73,14 +73,6 @@ class PageController extends Controller
         require_once(__DIR__ . "/../views/layouts/app.layout.php");
     }
 
-    public function products()
-    {
-        $title = "";
-        $content = __DIR__ . "/../views/pages/products.view.php";
-
-        require_once(__DIR__ . "/../views/layouts/app.layout.php");
-    }
-
     public function login()
     {
         if (isset($_SESSION["usuario_id"])) header('Location: /');
