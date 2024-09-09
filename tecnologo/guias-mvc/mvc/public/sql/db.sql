@@ -40,4 +40,13 @@ VALUES
 INSERT INTO `usuarios` (`usuario_nombre`, `usuario_apellido`, `usuario_correo`, `usuario_telefono`, `usuario_direccion`, `usuario_contra`, `rol_id`)
 VALUES 
 ('Andrés', 'Gutiérrez Hurtado', 'andres52885241@gmail.com', '3209202177', 'El ensueño', '81dc9bdb52d04dc20036dbd8313ed055', 2),
-('David Fernando', 'Diaz Niausa', 'davidfernandodiazniausa@gmail.com', '3209202177', 'El ensueño', '81dc9bdb52d04dc20036dbd8313ed055', 1);
+('David Fernando', 'Diaz Niausa', 'davidfernandodiazniausa@gmail.com', '3209202177', 'El ensueño', '81dc9bdb52d04dc20036dbd8313ed055', 1),
+('Juan Sebastián', 'Bernal Gamboa', 'juanbernal@gmail.com', '3209202178', 'El ensueño', '81dc9bdb52d04dc20036dbd8313ed055', 1),
+('Julián David', 'Gonzáles Bayona', 'juliangonzales@gmail.com', '3209202179', 'El ensueño', '81dc9bdb52d04dc20036dbd8313ed055', 1),
+('Kevin', 'Meza', 'kevinmeza@gmail.com', '3209202180', 'El ensueño', '81dc9bdb52d04dc20036dbd8313ed055', 1),
+('Kevin Santiago', 'Cordoba Daza', 'kevinsantiago@gmail.com', '3209202181', 'El ensueño', '81dc9bdb52d04dc20036dbd8313ed055', 1),
+('Jose David', 'Parra Quiroga', 'joseparra@gmail.com', '3209202182', 'El ensueño', '81dc9bdb52d04dc20036dbd8313ed055', 1),
+('Daniel Stiven', 'Casallas Hernández', 'danielcasallas@gmail.com', '3209202183', 'El ensueño', '81dc9bdb52d04dc20036dbd8313ed055', 1),
+('Santiago', '', 'santiago@gmail.com', '3209202184', 'El ensueño', '81dc9bdb52d04dc20036dbd8313ed055', 1),
+('Alejandro', 'Suárez', 'alejandrosuarez@gmail.com', '3209202185', 'El ensueño', '81dc9bdb52d04dc20036dbd8313ed055', 1),
+('Diego Alejandro', 'Paloma Díaz', 'diegoalejandro@gmail.com', '3209202186', 'El ensueño', '81dc9bdb52d04dc20036dbd8313ed055', 1);

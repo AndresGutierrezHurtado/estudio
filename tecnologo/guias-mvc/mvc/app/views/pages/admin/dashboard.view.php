@@ -14,15 +14,15 @@
                             <div class="dropdown dropdown-hover">
                                 <div tabindex="0" role="button" class="btn btn-neutral m-1">Ordenar por</div>
                                 <ul tabindex="0" class="dropdown-content menu bg-base-100 text-base-content rounded-box z-[1] w-52 p-2 shadow">
-                                    <li><a href="/page/dashboard/?sort=usuario_id">ID</a></li>
-                                    <li><a href="/page/dashboard/?sort=usuario_nombre">Nombre</a></li>
-                                    <li><a href="/page/dashboard/?sort=usuario_correo">Correo</a></li>
-                                    <li><a href="/page/dashboard/?sort=roles.rol_nombre">Rol</a></li>
+                                    <li><a href="/page/dashboard/?sort=usuario_id<?= isset($_GET['search']) ? '&search=' . $_GET['search'] : '' ?>">ID</a></li>
+                                    <li><a href="/page/dashboard/?sort=usuario_nombre<?= isset($_GET['search']) ? '&search=' . $_GET['search'] : '' ?>">Nombre</a></li>
+                                    <li><a href="/page/dashboard/?sort=usuario_correo<?= isset($_GET['search']) ? '&search=' . $_GET['search'] : '' ?>">Correo</a></li>
+                                    <li><a href="/page/dashboard/?sort=roles.rol_nombre<?= isset($_GET['search']) ? '&search=' . $_GET['search'] : '' ?>">Rol</a></li>
                                 </ul>
                             </div>
                         </span>
                         <form action="/page/dashboard/" method="get">
-                            <label class="input input-sm input-bordered text-neutral flex items-center gap-2">
+                            <label class="input input-sm input-bordered text-base-content flex items-center gap-2">
                                 <input type="text" class="grow" placeholder="Búsqueda" name="search" value="<?= $_GET['search'] ?? '' ?>" />
                                 <svg
                                     onclick="this.parentNode.parentNode.submit()"
@@ -47,7 +47,7 @@
                             <th>Nombre</th>
                             <th>Correo</th>
                             <th>Rol</th>
-                            <th>Acciones</th>
+                            <th class="text-center">Acciones</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-base-300 border-y border-base-300 [&>tr>td]:p-2">
@@ -57,7 +57,7 @@
                                 <td><?= $user['usuario_nombre'] ?></td>
                                 <td><?= $user['usuario_correo'] ?></td>
                                 <td><?= $user['rol_nombre'] ?></td>
-                                <td>
+                                <td class="flex justify-center">
                                     <a href="/page/profile/?usuario=<?= $user['usuario_id'] ?>" class="btn btn-primary btn-sm">
                                         <i class="fa-solid fa-pen-to-square"></i>
                                     </a>
@@ -67,10 +67,11 @@
                     </tbody>
                 </Table>
                 <div class="w-full flex justify-between items-center p-4 bg-neutral text-neutral-content rounded-b">
-                    <h2>Viendo <?= $users['page'] . '-' . $users['page'] * $users['limit']  ?> de <?= $users['rows'] ?></h2>
+                    <h2>Viendo <?= ($users['page'] * $users['limit']) - $users['limit'] + (count($users['data']) > 0 ? 1 : 0) . " - " . count($users['data']) + ($users['page'] * $users['limit']) - $users['limit'] ?>
+                    de <?= $users['rows'] ?></h2>
                     <div class="flex gap-2">
                         <?php for ($i = 1; $i <= $users['pages']; $i++): ?>
-                            <a href="/page/dashboard/?page=<?= $i ?><?= isset($_GET['sort']) ? '&sort=' . $_GET['sort'] : '' ?>" class="btn btn-neutral btn-sm">
+                            <a href="/page/dashboard/?page=<?= $i ?><?= isset($_GET['sort']) ? '&sort=' . $_GET['sort'] : '' ?><?= isset($_GET['search']) ? '&search=' . $_GET['search'] : '' ?>" class="btn btn-neutral btn-sm">
                                 <?= $i ?>
                             </a>
                         <?php endfor; ?>
