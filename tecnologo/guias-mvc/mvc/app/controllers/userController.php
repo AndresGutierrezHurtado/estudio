@@ -59,7 +59,7 @@ class userController extends Controller
             echo $e->getMessage();
         }
 
-        $result = $this->userModel->updateById($_POST['usuario_id'], $_POST, 'INNER JOIN roles ON usuarios.rol_id = roles.rol_id');
+        $result = $this->userModel->updateById($_POST['usuario_id'], $_POST);
 
         echo json_encode($result);
     }
@@ -67,7 +67,7 @@ class userController extends Controller
     public function delete()
     {
 
-        if (md5($_POST['usuario_contra']) == $_POST['contra_referencia']) {
+        if (md5($_POST['usuario_contra']) == $_POST['contra_referencia'] || $_SESSION['usuario']['rol_id'] == 2 && $_SESSION['usuario_id'] != $_POST['usuario_id']) {
             if ($_POST['usuario_id'] == $_SESSION['usuario_id']) {
                 session_destroy();
             }

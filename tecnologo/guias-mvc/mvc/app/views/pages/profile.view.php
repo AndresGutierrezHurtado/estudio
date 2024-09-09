@@ -188,11 +188,16 @@
                 </label>
                 <input placeholder="*****" name="usuario_contra" class="input input-bordered" />
             </div>
-            <div class="form-control">
-                <button type="submit" class="btn btn-error my-2 w-full py-2">
+            <div class="form-control flex flex-row gap-2">
+                <button type="submit" class="btn btn-error my-2 flex-grow py-2">
                     <i class="fa-solid fa-trash"></i>
                     Borrar
                 </button>
+                <?php if ($_SESSION['usuario']['rol_id'] == 2 && $_SESSION['usuario_id'] != $user['usuario_id']) : ?>
+                    <button type="submit" class="btn btn-info my-2 w-fit py-2 tooltip tooltip-left" data-tip="Eliminar como administrador">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                <?php endif; ?>
             </div>
         </form>
     </div>

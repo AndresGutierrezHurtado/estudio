@@ -108,18 +108,46 @@ class PageController extends Controller
     public function profile()
     {
         $user = isset($_GET['usuario'])
-            ? $this->userModel->getById($_GET['usuario'], "*", "INNER JOIN roles ON roles.rol_id = usuarios.usuario_id")
+            ? $this->userModel->getById($_GET['usuario'], "*", "INNER JOIN roles ON roles.rol_id = usuarios.rol_id")
             : $_SESSION['usuario'];
 
-        if ( !isset($_SESSION['usuario_id']) || $user['usuario_id'] != $_SESSION['usuario_id'] && !$_SESSION['rol_id'] == 2) header('Location: /');
+        if ($_SESSION['usuario']['rol_id'] != 2 && $_SESSION['usuario_id'] != $user['usuario_id'] || !isset($_SESSION['usuario_id'])) header('Location: /');
 
         $roles = $this->conn->query("SELECT * FROM roles")->fetchAll(PDO::FETCH_ASSOC);
 
         $title = "Perfil de " . $user['usuario_nombre'];
-
         $content = __DIR__ . "/../views/pages/profile.view.php";
 
         require_once(__DIR__ . "/../views/layouts/app.layout.php");
+    }
+
+    public function dashboard()
+    {
+
+        if (!isset($_SESSION['usuario_id']) || $_SESSION['usuario']['rol_id'] != 2) header('Location: /');
+
+        $search = isset($_GET['search']) ?
+            'usuario_nombre LIKE "%' . $_GET['search'] . '%" 
+            OR usuario_apellido LIKE "%' . $_GET['search'] . '%"
+            OR usuario_correo LIKE "%' . $_GET['search'] . '%"
+            OR roles.rol_nombre LIKE "%' . $_GET['search'] . '%"'
+            : "";
+        $page = isset($_GET['page']) ? $_GET['page'] : 1;
+        $sort = isset($_GET['sort']) ? $_GET['sort'] : "usuario_id";
+
+        $users = $this->userModel->paginate(
+            $page,
+            5,
+            "*",
+            "INNER JOIN roles ON roles.rol_id = usuarios.rol_id",
+            $search,
+            "$sort ASC"
+        );
+
+        $title = "Panel de administrador";
+        $content = __DIR__ . "/../views/pages/admin/dashboard.view.php";
+
+        require_once(__DIR__ . "/../views/layouts/guest.layout.php");
     }
 
     public function changeTheme()
