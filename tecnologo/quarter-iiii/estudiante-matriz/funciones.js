@@ -5,5 +5,8 @@ function hallarPromedio (array) {
         total += parseFloat(elemento);
     });
     
-    return (total / array.length).toFixed(1);
+    return {
+        total: (total / array.length),
+        fixed: (parseInt((total / array.length) * 10, 10) / 10),
+    };
 }

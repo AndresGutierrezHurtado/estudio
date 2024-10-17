@@ -13,18 +13,18 @@
 <body>
     <div class="hero bg-base-200 min-h-screen"
         style="background-image: url(https://img.freepik.com/fotos-premium/longitud-total-estudiantes-universitarios-felices-caminando-juntos-campus_763111-5348.jpg);">
-        <div class="hero-overlay bg-black/70"></div>
+        <div class="hero-overlay bg-black/70 backdrop-blur-sm"></div>
         <div class="hero-content flex-col lg:flex-row-reverse">
             <div class="text-center lg:text-left information text-gray-50">
                 <h1 class="text-5xl font-extrabold text-nowrap">Información del usuario</h1>
-                <p class="py-6 text-balance text-lg">
+                <div class="py-6 text-balance text-lg [&_strong]:capitalize">
                     Pendiente...
-                </p>
+                </div>
             </div>
             <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                 <form class="card-body">
-                    <div>
-                        <h2 class="text-xl font-bold">Ingresa el documento del estudiante:</h2>
+                    <div class="space-y-2">
+                        <h2 class="text-xl font-bold leading-none">Ingresa el documento del estudiante:</h2>
                         <p>Para ver la informacion del estudiante es necesario que ingreses su documento.</p>
                     </div>
                     <div class="form-control">
@@ -64,10 +64,10 @@
                 <p><strong>carrera:</strong> ${carrera}</p>
                 <p><strong>semestre:</strong> ${semestre}</p>
                 <p><strong>notas:</strong> ${notas.join(", ")}</p>
-                <p><strong>promedio:</strong> ${promedio}</p>
+                <p><strong>promedio:</strong> ${promedio.fixed} (${promedio.total})</p>
                 `;
 
-                document.querySelector(".information p").innerHTML = content;
+                document.querySelector(".information div").innerHTML = content;
             } catch (error) {
                 alert("No se encontró usuario.");
                 event.target.reset();
