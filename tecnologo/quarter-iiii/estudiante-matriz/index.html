@@ -64,7 +64,7 @@
                 <p><strong>carrera:</strong> ${carrera}</p>
                 <p><strong>semestre:</strong> ${semestre}</p>
                 <p><strong>notas:</strong> ${notas.join(", ")}</p>
-                <p><strong>promedio:</strong> ${promedio.fixed} (${promedio.total})</p>
+                <p><strong>promedio:</strong> ${promedio.fixed} (${promedio.total}) (${numeroATexto(promedio.total)})</p>
                 `;
 
                 document.querySelector(".information div").innerHTML = content;
