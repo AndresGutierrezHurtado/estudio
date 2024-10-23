@@ -97,9 +97,7 @@
                         </div>
                         <div class="form-control">
                             <label class="label">
-                                <span
-                                    class="label-text font-semibold after:content-['*'] after:ml-0.5 after:text-red-500"
-                                >
+                                <span class="label-text font-semibold">
                                     Segundo Apellido:
                                 </span>
                             </label>
@@ -177,36 +175,37 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
         <script src="./info.js"></script>
         <script>
-            document
-                .querySelector("form")
-                .addEventListener("submit", (event) => {
-                    event.preventDefault();
-                    resetForm();
+            const form = document.querySelector("form");
+            form.addEventListener("submit", (event) => {
+                event.preventDefault();
+                resetForm();
 
-                    const data = Object.fromEntries(new FormData(event.target));
-                    console.log(data);
+                const data = Object.fromEntries(new FormData(form));
+                console.log(data);
 
-                    const validation = validate(data, constraints);
-                    console.log(validation);
+                const validation = validate(data, constraints);
+                console.log(validation);
 
-                    if (validation) {
-                        for (const error in validation) {
-                            showError(validation[error], error);
-                        }
-                    } else {
-                        Swal.fire({
-                            icon: "success",
-                            title: "¡Gracias por registrarte!",
-                            text: "En breve nos pondremos en contacto contigo",
-                        });
+                if (validation) {
+                    for (const error in validation) {
+                        showError(validation[error], error);
                     }
-                });
+                } else {
+                    Swal.fire({
+                        icon: "success",
+                        title: "¡Gracias por registrarte!",
+                        text: "En breve nos pondremos en contacto contigo",
+                    });
+                }
+            });
             document.querySelectorAll("input").forEach((input) => {
                 input.addEventListener("blur", () => {
                     clearInput(input);
 
+                    const data = Object.fromEntries(new FormData(form));
+
                     const validation = validate(
-                        { [input.name]: input.value },
+                        { [input.name]: data[input.name] },
                         { [input.name]: constraints[input.name] }
                     );
 
