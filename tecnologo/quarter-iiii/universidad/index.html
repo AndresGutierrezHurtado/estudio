@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Gestión Academica | IBERO</title>
+
+        <link
+            href="https://cdn.jsdelivr.net/npm/daisyui@4.12.13/dist/full.min.css"
+            rel="stylesheet"
+            type="text/css"
+        />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </head>
+
+    <body>
+        <div
+            class="hero bg-base-200 min-h-screen bg-[url(https://img.gruporeforma.com/imagenes/960x640/5/747/4746327.jpg)]"
+        >
+            <div class="hero-overlay bg-black/80 backdrop-blur-sm"></div>
+            <div class="hero-content text-center text-white flex-col">
+                <figure class="w-[300px] h-[150px] mx-auto">
+                    <img
+                        src="./images/logo.png"
+                        alt="Imagen empresa"
+                        class="w-full h-full object-contain"
+                    />
+                </figure>
+                <div class="card bg-base-100 w-full max-w-lg">
+                    <div class="card-body">
+                        <div class="flex flex-col gap-5">
+                            <div class="space-y-2">
+                                <h1
+                                    class="text-5xl font-extrabold text-red-700"
+                                >
+                                    Gestión Académica
+                                </h1>
+                                <p class="text-pretty">
+                                    Para ver la información sus notas e
+                                    información es necesario que ingreses su
+                                    número de documento.
+                                </p>
+                            </div>
+                            <form class="space-y-2">
+                                <div class="form-control">
+                                    <label
+                                        class="label label-text w-fit font-semibold after:content-['*'] after:ml-1 after:text-red-500"
+                                    >
+                                        Documento:
+                                    </label>
+                                    <input
+                                        placeholder="Ingresa tu numero de documento"
+                                        class="input input-sm input-bordered w-full focus:outline-0 focus:border-blue-500"
+                                        name="usuario_documento"
+                                    />
+                                </div>
+                                <button
+                                    type="submit"
+                                    class="btn bg-red-700 text-red-300 hover:bg-red-800 hover:text-red-200"
+                                >
+                                    Ver informacion
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <dialog id="modal" class="modal">
+            <div class="modal-box">
+                <form method="dialog">
+                    <button
+                        class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+                    >
+                        ✕
+                    </button>
+                </form>
+                <h3 class="text-lg font-bold modal-title"></h3>
+                <div class="info"></div>
+
+                <div class="modal-action">
+                    <form method="dialog">
+                        <button
+                            class="btn bg-red-700 text-red-300 hover:bg-red-800 hover:text-red-200"
+                        >
+                            <span> < </span>
+                            Volver
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <form method="dialog" class="modal-backdrop">
+                <button>close</button>
+            </form>
+        </dialog>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+        <script src="./alumnos.js"></script>
+        <script src="./funciones.js"></script>
+        <script>
+            document.querySelector("input").addEventListener("blur", () => {
+                resetForm();
+                validateForm();
+            });
+
+            document
+                .querySelector("form")
+                .addEventListener("submit", (event) => {
+                    event.preventDefault();
+                    resetForm();
+                    if (validateForm()) {
+                        const user = findUser(
+                            document.querySelector("input").value
+                        );
+                        if (!user) {
+                            Swal.fire({
+                                icon: "error",
+                                title: "Oops...",
+                                text: "No se encontró usuario.",
+                            });
+                        } else {
+                            document.getElementById("modal").showModal();
+                            document.querySelector(
+                                ".modal-title"
+                            ).innerHTML = `Información de <span class="text-red-500">${user.usuario_nombre}</span>`;
+                            document.querySelector(".info").innerHTML = `
+                                <p class="pt-4 pb-1.5">La información del usuario es:</p>
+                                <p><strong>Documento:</strong> ${
+                                    user.usuario_id
+                                }</p> 
+                                <p><strong>Nombre:</strong> ${
+                                    user.usuario_nombre
+                                }</p>
+                                <p><strong>Carrera:</strong> ${
+                                    user.usuario_carrera
+                                }</p>
+                                <p><strong>Semestre:</strong> ${
+                                    user.usuario_semestre
+                                }</p>
+                                <p><strong>Notas:</strong> ${
+                                    user.usuario_notas
+                                }</p>
+                                <p><strong>Promedio:</strong> ${
+                                    hallarPromedio(user.usuario_notas).fixed
+                                } (${
+                                hallarPromedio(user.usuario_notas).total
+                            }) ${numeroATexto(
+                                hallarPromedio(user.usuario_notas).total
+                            )}</p>
+                            `;
+                        }
+                    }
+                });
+        </script>
+    </body>
+</html>
