@@ -198,9 +198,25 @@
                             icon: "success",
                             title: "¡Gracias por registrarte!",
                             text: "En breve nos pondremos en contacto contigo",
-                        })
+                        });
                     }
                 });
+            document.querySelectorAll("input").forEach((input) => {
+                input.addEventListener("blur", () => {
+                    clearInput(input);
+
+                    const validation = validate(
+                        { [input.name]: input.value },
+                        { [input.name]: constraints[input.name] }
+                    );
+
+                    if (validation) {
+                        for (const error in validation) {
+                            showError(validation[error], error);
+                        }
+                    }
+                });
+            });
         </script>
     </body>
 </html>

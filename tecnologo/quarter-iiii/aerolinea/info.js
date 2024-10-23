@@ -105,6 +105,15 @@ function resetForm() {
     });
 }
 
+function clearInput(input) {
+    const formControl = input.closest(".form-control");
+    if (formControl.querySelector("input"))
+        formControl.querySelector("input").classList.remove("border-red-500");
+    formControl.querySelectorAll(".error-message").forEach((error) => {
+        error.remove();
+    });
+}
+
 function showError(errors, field) {
     const element = document.getElementsByName(field)[0];
     element.classList.add("border-red-500");
