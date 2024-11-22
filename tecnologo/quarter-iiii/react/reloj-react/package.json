@@ -12,7 +12,8 @@
   "dependencies": {
     "@hoseinh/react-analog-clock": "^1.0.4",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "valibot": "^1.0.0-beta.8"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",

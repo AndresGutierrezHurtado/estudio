@@ -1,7 +1,8 @@
-import React from "react";
 import { AnalogClock } from "@hoseinh/react-analog-clock";
 
-export default function Clock({ hora, minuto, segundo }) {
+import React from "react";
+
+export default function Clock({hora, minuto, segundo}) {
     const options = {
         showMinuteHand: true,
         showSecondHand: true,
@@ -13,11 +14,26 @@ export default function Clock({ hora, minuto, segundo }) {
         numbersType: "numbersAndLines",
         borderColor: "#000000",
         handBaseColor: "#000000",
-        handColor: { hour: "#000000", minute: "#000000", second: "#e74c3c" },
-        handLength: { hour: "65px", minute: "90px", second: "90px" },
-        handThickness: { hour: "2px", minute: "2px", second: "2px" },
+        handColor: {
+            hour: "#000000",
+            minute: "#000000",
+            second: "#e74c3c",
+        },
+        handLength: { hour: "50px", minute: "60px", second: "70px" },
+        handThickness: { hour: "4px", minute: "3px", second: "2px" },
         size: "200px",
         backgroundColor: "#ffffff",
     };
-    return <AnalogClock staticDate={new Date(2024, 11, 21, hora, minuto, segundo)} {...options} />;
+
+    let time = new Date();
+    time.setHours(hora);
+    time.setMinutes(minuto);
+    time.setSeconds(segundo);
+
+    return (
+        <AnalogClock
+            staticDate={time}
+            {...options}
+        />
+    );
 }
