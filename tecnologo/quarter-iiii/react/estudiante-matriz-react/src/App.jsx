@@ -5,13 +5,23 @@ import { useFindAverage } from "./hooks/useFindAverage";
 
 export default function App() {
     const [student, setStudent] = useState("");
-    const [info, setInfo] = useState(data);
+    const [info, setInfo] = useState([]);
+    const [error, setError] = useState(null);
+
     useEffect(() => {
-        if (student !== "") {
-            setInfo(data.filter((item) => item[0] === student));
-        } else {
-            setInfo(data);
+        const result = data.filter((item) => item[0] === student);
+        if (student === "") {
+            setInfo([]);
+            return;
         }
+
+        if (result.length === 0) {
+            setInfo([]);
+            setError("No se encontró ningun alumno.");
+            return;
+        }
+        setInfo(data.filter((item) => item[0] === student));
+        setError(null);
     }, [student]);
 
     return (
@@ -40,54 +50,45 @@ export default function App() {
                             className="input input-bordered w-full"
                             placeholder="Ingresa el documento del alumno"
                         />
-                        {info.length === 0 && (
+                        {error && (
                             <label className="label">
                                 <span className="label-text text-red-500">
-                                    No se encontraron alumnos
+                                    {error}
                                 </span>
                             </label>
                         )}
                     </div>
                 </form>
                 {info.length > 0 && (
-                    <div className="card border w-full shadow-xl mx-auto">
-                        <div className="card-body">
-                            <table className="table border">
-                                <thead>
-                                    <tr>
-                                        <th>Documento</th>
-                                        <th>Nombre</th>
-                                        <th>Carrera</th>
-                                        <th>Semestre</th>
-                                        <th>Notas</th>
-                                        <th>Promedio</th>
+                    <table className="table border">
+                        <thead>
+                            <tr>
+                                <th>Documento</th>
+                                <th>Nombre</th>
+                                <th>Carrera</th>
+                                <th>Semestre</th>
+                                <th>Notas</th>
+                                <th>Promedio</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {info.map((item, index) => {
+                                const [id, name, course, semester, ...grades] =
+                                    item;
+                                const average = useFindAverage(grades);
+                                return (
+                                    <tr key={index}>
+                                        <td>{id}</td>
+                                        <td>{name}</td>
+                                        <td>{course}</td>
+                                        <td>{semester}</td>
+                                        <td>{grades.join(", ")}</td>
+                                        <td>{average}</td>
                                     </tr>
-                                </thead>
-                                <tbody>
-                                    {info.map((item, index) => {
-                                        const [
-                                            id,
-                                            name,
-                                            course,
-                                            semester,
-                                            ...grades
-                                        ] = item;
-                                        const average = useFindAverage(grades);
-                                        return (
-                                            <tr key={index}>
-                                                <td>{id}</td>
-                                                <td>{name}</td>
-                                                <td>{course}</td>
-                                                <td>{semester}</td>
-                                                <td>{grades.join(", ")}</td>
-                                                <td>{average}</td>
-                                            </tr>
-                                        );
-                                    })}
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                                );
+                            })}
+                        </tbody>
+                    </table>
                 )}
             </div>
         </div>
