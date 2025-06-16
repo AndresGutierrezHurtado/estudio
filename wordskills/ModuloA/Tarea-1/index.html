@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Cronómetro WordSkills 2024</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            .hidden {
+                display: none !important;
+            }
+
+            .section {
+                width: 100%;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 0px 50px;
+            }
+
+            .section__container {
+                width: 100%;
+                padding: 100px 0px;
+            }
+
+            .section__layout--hero {
+                display: flex;
+                justify-content: end;
+            }
+        </style>
+    </head>
+    <body>
+        <section class="section" id="guest-section">
+            <div class="section__container">
+                <div class="section__layout--hero">
+                    <div class="hero__image"></div>
+                    <form id="hero-form" class="hero__form">
+                        <fieldset>
+                            <input
+                                type="text"
+                                required
+                                name="timer_hability"
+                                placeholder="Nombre de la habilidad"
+                            />
+                        </fieldset>
+                        <fieldset>
+                            <input
+                                type="text"
+                                name="timer_module"
+                                required
+                                placeholder="Nombre del módulo"
+                            />
+                        </fieldset>
+                        <fieldset>
+                            <input
+                                type="number"
+                                min="0"
+                                max="23"
+                                required
+                                name="timer_hours"
+                                placeholder="Horas"
+                            />
+                            <input
+                                type="number"
+                                min="0"
+                                max="59"
+                                required
+                                name="timer_minutes"
+                                placeholder="Minutos"
+                            />
+                            <input
+                                type="number"
+                                min="0"
+                                max="69"
+                                required
+                                name="timer_seconds"
+                                placeholder="Segundos"
+                            />
+                        </fieldset>
+
+                        <fieldset>
+                            <button type="submit">Empezar</button>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="section hidden" id="timer-section">
+            <div class="section__container">
+                <div class="section__layout--timer">
+                    <div class="timer__image"></div>
+                    <div class="timer__data">
+                        <h1>Habilidad</h1>
+                        <p>Modulo</p>
+                    </div>
+                    <div class="timer__container">
+                        <div class="timer__hours">
+                            <h1 class="timer-title">00</h1>
+                            Horas
+                        </div>
+                        <div class="timer__minutes">
+                            <h1 class="timer-title">00</h1>
+                            Minutos
+                        </div>
+                        <div class="timer__seconds">
+                            <h1 class="timer-title">00</h1>
+                            Segundos
+                        </div>
+                    </div>
+                    <button class="timer__button" onclick="removeTimer()">Volver</button>
+                </div>
+            </div>
+        </section>
+
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+        <script>
+            document.getElementById("hero-form").addEventListener("submit", handleSubmit);
+
+            function removeTimer() {
+                window.location.reload();
+            }
+
+            function handleSubmit(e) {
+                e.preventDefault();
+
+                const data = Object.fromEntries(new FormData(e.target));
+
+                const $guestSection = document.getElementById("guest-section");
+                const $timerSection = document.getElementById("timer-section");
+
+                $guestSection.classList.add("hidden");
+                $timerSection.classList.remove("hidden");
+
+                e.target.reset();
+
+                const $hourTitle = document.querySelector(".timer__hours h1");
+                const $minuteTitle = document.querySelector(".timer__minutes h1");
+                const $secondTitle = document.querySelector(".timer__seconds h1");
+                const $timerHability = document.querySelector(".timer__data h1");
+                const $timerModule = document.querySelector(".timer__data p");
+
+                $hourTitle.innerHTML = data.timer_hours;
+                $minuteTitle.innerHTML = data.timer_minutes;
+                $secondTitle.innerHTML = data.timer_seconds;
+                $timerHability.innerHTML = data.timer_hability;
+                $timerModule.innerHTML = data.timer_module;
+
+                let secondsLeft =
+                    parseInt(data.timer_hours) * 60 * 60 +
+                    parseInt(data.timer_minutes) * 60 +
+                    parseInt(data.timer_seconds);
+
+                const interval = setInterval(() => {
+                    secondsLeft = secondsLeft > 0 ? secondsLeft - 1 : 0;
+
+                    const hours = Math.floor(secondsLeft / 60 / 60);
+                    const minutes = Math.floor(secondsLeft / 60 - hours * 60);
+                    const seconds = Math.floor(secondsLeft - minutes * 60 - hours * 60 * 60);
+
+                    $hourTitle.innerHTML = hours;
+                    $minuteTitle.innerHTML = minutes;
+                    $secondTitle.innerHTML = seconds;
+
+                    if (secondsLeft == 0) {
+                        clearInterval(interval);
+
+                        return swal({
+                            icon: "info",
+                            title: "Se acabo el tiempo",
+                            text: "Ya se acabo, puedes darle a acabar para empezar de nuevo con otro timer",
+                        });
+                    }
+                }, 1000);
+            }
+        </script>
+    </body>
+</html>
