@@ -8,8 +8,7 @@ function shiftedDiff(first, second) {
         currentIndex++;
 
         let letters = shiftedWord.split("");
-        letters.unshift(letters[letters.length - 1]);
-        letters.pop();
+        letters.unshift(letters.pop());
 
         shiftedWord = letters.join("");
     } while (currentIndex <= first.length);
