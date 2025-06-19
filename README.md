@@ -35,7 +35,7 @@ En esta sección, discuto patrones de diseño como Singleton, Factory, Observer 
 #### [Patrones de Diseño]()
 Los patrones de diseño son soluciones reutilizables para problemas comunes en el diseño de software. Estos patrones proporcionan una forma estandarizada de abordar desafíos de diseño y mejorar la arquitectura del software.
 
-#### [Principios SOLID]()
+#### [Principios SOLID](./programming/solid/solid.md)
 Los principios SOLID son un conjunto de directrices para diseñar software de manera que sea más fácil de mantener y extender. Estos principios ayudan a crear sistemas modulares y robustos. 
 
 #### [Arquitectura de Software]()
