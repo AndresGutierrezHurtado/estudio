@@ -53,6 +53,8 @@ Este módulo se enfoca en cómo estructurar tu aplicación para que sea mantenib
 🔹 Patrones de Arquitectura: Monolito, Microservicios, Event-Driven, Serverless.  
 🔹 Modelado arquitectónico: C4 Model, Diagramas de Componentes.
 
+---
+
 ### 📌 Módulo 5: Estructuras de Datos y Algoritmos para Ingeniería
 
 La eficiencia de un programa depende en gran parte de su estructura de datos y de los algoritmos implementados. Aunque no se usen directamente a diario en muchos frameworks, dominarlos marca la diferencia entre un programador promedio y uno capaz de optimizar soluciones reales.
@@ -70,6 +72,8 @@ No basta con que el software funcione: debe ser confiable. Este módulo aborda l
 🔹 Tipos: unitarias, integración, aceptación.  
 🔹 TDD: Desarrollo guiado por pruebas.  
 🔹 Herramientas: Jest, PHPUnit, etc.
+
+📄 [Ver Resumen Completo](./06-pruebas-software/resumen.md)
 
 ---
 
