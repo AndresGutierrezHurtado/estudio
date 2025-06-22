@@ -40,6 +40,8 @@ Antes de construir cualquier software, es esencial entender qué problema se qui
 🔹 Modelado de requisitos (Casos de uso, Historias de Usuario).  
 🔹 UML básico (Diagrama de Casos de Uso).
 
+📄 [Ver Resumen Completo](./03-analisis-requisitos/resumen.md)
+
 ---
 
 ### 📌 Módulo 4: Diseño y Arquitectura de Software
@@ -50,7 +52,6 @@ Este módulo se enfoca en cómo estructurar tu aplicación para que sea mantenib
 🔹 Patrones de Diseño (GoF): Factory, Singleton, Strategy, etc.  
 🔹 Patrones de Arquitectura: Monolito, Microservicios, Event-Driven, Serverless.  
 🔹 Modelado arquitectónico: C4 Model, Diagramas de Componentes.
-
 
 ### 📌 Módulo 5: Estructuras de Datos y Algoritmos para Ingeniería
 
