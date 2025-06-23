@@ -53,6 +53,8 @@ Este módulo se enfoca en cómo estructurar tu aplicación para que sea mantenib
 🔹 Patrones de Arquitectura: Monolito, Microservicios, Event-Driven, Serverless.  
 🔹 Modelado arquitectónico: C4 Model, Diagramas de Componentes.
 
+📄 [Ver Resumen Completo](./04-diseno-arquitectura/resume.md)
+
 ---
 
 ### 📌 Módulo 5: Estructuras de Datos y Algoritmos para Ingeniería
