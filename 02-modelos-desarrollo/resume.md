@@ -27,6 +27,8 @@ El modelo en cascada es una metodología de desarrollo de software de tipo secue
 -   **Ventajas:** Es un modelo simple de comprender y aplicar, facilita la generación de documentación clara y detallada en cada etapa.
 -   **Desventajas:** Presenta dificultad para adaptarse a cambios una vez iniciada la ejecución; si se detectan errores en etapas avanzadas, corregirlos implica un alto costo y riesgo para el proyecto.
 
+![Diagrama del modelo en cascada](https://miro.medium.com/v2/resize:fit:478/1*2UcWBItGxECz1i-AxkLh2w.jpeg)
+
 ### Modelo en V (V-Model)
 
 El modelo en V es una evolución del modelo en cascada que introduce actividades explícitas de verificación y validación en cada fase del ciclo de desarrollo. La **verificación** consiste en comprobar que cada fase se haya ejecutado correctamente según los estándares y métodos definidos, mientras que la **validación** garantiza que el producto final cumpla con los requisitos esperados por el cliente o usuario.
@@ -34,6 +36,7 @@ El modelo en V es una evolución del modelo en cascada que introduce actividades
 -   **Ventajas:** Proporciona un mayor enfoque en la calidad del producto final, ya que la validación y verificación se consideran desde el inicio del proceso.
 -   **Desventajas:** Comparte la misma rigidez que el modelo en cascada, lo que lo hace poco adaptable frente a cambios imprevistos o modificaciones en los requisitos.
 
+![Diagrama del modelo en v](https://visuresolutions.com/wp-content/uploads/2025/01/V-Model-1024x690.png)
 ---
 
 ## ♻️ Modelos Iterativos e Incrementales
@@ -49,12 +52,16 @@ El modelo de prototipos se centra en la creación de versiones preliminares del 
 -   **Ventajas:** Ayuda a reducir el riesgo de malentendidos o interpretaciones erróneas de los requisitos del cliente, ya que permite obtener retroalimentación directa desde las primeras etapas.
 -   **Desventajas:** Si no se comunica claramente que se trata solo de un prototipo, puede generar en el cliente expectativas irreales sobre el estado real del producto.
 
+![Diagrama modelo de prototipos](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0odYfkmlvpzRhoWVg5NSHM_HPYQpZmMFEfSWf4rX8SE2vrFGM51sDKsfEBHaFd4uT54VnEUUwTIpPeC5prZpgElTnWeCm_6xthroMSiNeKxQUJG3pkJszkv_IsHer2h1Z2iMtgUCv-Zg/w1200-h630-p-k-no-nu/prototipo.jpg)
+
 ### Modelo en Espiral
 
 El modelo en espiral combina características del modelo en cascada y de los modelos iterativos, incorporando además un fuerte enfoque en la gestión de riesgos. Cada ciclo de la espiral incluye actividades de planificación, análisis de riesgos, desarrollo y evaluación, lo que permite ajustar continuamente el proceso en función de los resultados obtenidos y los riesgos identificados.
 
 -   **Ventajas:** Es especialmente adecuado para proyectos complejos, de gran envergadura o con alta incertidumbre, ya que permite una gestión constante de riesgos y un desarrollo flexible.
 -   **Desventajas:** Su aplicación implica mayores costos y tiempos de desarrollo debido a la necesidad de realizar análisis y planificaciones detalladas en cada ciclo.
+
+![Diagrama modelo en espiral](https://www.researchgate.net/publication/310772154/figure/fig3/AS:670705091883010@1536919963317/Figura-44-El-modelo-en-espiral.png)
 
 ---
 
@@ -87,6 +94,8 @@ Scrum es una metodología ágil enfocada en la entrega incremental y continua de
 -   **Ventajas:** Alta capacidad de adaptación a cambios, fuerte orientación a la entrega de valor real para el negocio, mejora continua del equipo.
 -   **Desventajas:** Requiere un alto nivel de compromiso y disciplina tanto del equipo como del cliente; su éxito depende en gran medida de la colaboración constante.
 
+![Diagrama Scrum](https://www.arrobasolutions.com/wp-content/uploads/2020/04/metodologia-scrum-esquema.gif)
+
 ### Kanban
 
 Kanban es una metodología ágil que se enfoca en la mejora continua del flujo de trabajo y en la eliminación de actividades que no aportan valor. Utiliza un tablero visual (Kanban Board) donde cada columna representa una etapa del proceso de desarrollo, como: **Requisitos, Diseño, Implementación, Pruebas, Despliegue, Mantenimiento**.
@@ -95,6 +104,8 @@ Esta técnica promueve la visualización de tareas, la limitación del trabajo e
 
 -   **Ventajas:** Método simple de implementar, facilita la detección y resolución de problemas en el flujo de trabajo, promueve la mejora continua y ofrece alta visibilidad del estado de las tareas.
 -   **Desventajas:** Al ser menos estructurado que Scrum, no define roles específicos ni planificación estricta, lo que puede dificultar su aplicación en equipos que requieren más guía o dirección.
+
+![Diagrama Kanban](https://www.master-malaga.com/wp-content/uploads/2015/07/tablero-kanban-714x246.png)
 
 ### Extreme Programming (XP)
 
@@ -105,6 +116,8 @@ XP fomenta una comunicación constante con el cliente, la simplicidad en el dise
 -   **Ventajas:** Asegura un alto nivel de calidad técnica en el código, fomenta el feedback rápido y continuo, y mejora la capacidad de respuesta a cambios.
 -   **Desventajas:** Su adopción puede ser difícil en equipos con poca madurez técnica o sin una cultura de desarrollo colaborativo y disciplinado.
 
+![Diagrama XP](https://www.researchgate.net/publication/316976788/figure/fig1/AS:646073588645888@1531047355074/P-methodology-Source-Gonzalez-C-2012-Traduccion-de-la-imagen-XP-aplicado-Applied.png)
+
 ---
 
 ## ♾️ DevOps
@@ -114,6 +127,8 @@ DevOps no es simplemente un modelo de desarrollo adicional, sino una filosofía 
 Se basa en un conjunto de prácticas enfocadas en la **automatización de procesos clave** como el testing, la construcción (**build**) y el despliegue (**deploy**) de aplicaciones, con el objetivo de mejorar la eficiencia y reducir errores humanos en las tareas repetitivas.
 
 A diferencia de los enfoques tradicionales —donde las áreas de desarrollo, pruebas y operación trabajan de forma separada—, DevOps propone una integración constante entre estas disciplinas. Este enfoque promueve la **colaboración activa**, la automatización de flujos de trabajo y la mejora continua durante todo el ciclo de vida del software. Su adopción permite resolver desafíos comunes como retrasos en las entregas, fallos en entornos productivos, poca visibilidad de los procesos y dificultades para escalar aplicaciones de manera eficiente.
+
+![Diagrama DevOps](https://cacoo.com/wp-app/uploads/2021/06/continuous-development-visual.png)
 
 ### 🔑 Conceptos Clave de DevOps
 
