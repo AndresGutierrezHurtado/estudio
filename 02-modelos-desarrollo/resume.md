@@ -29,3 +29,21 @@ Son modelos secuenciales, donde las etapas del desarrollo están bien definidas 
 -   **Ventajas:** Mayor enfoque en la calidad y validación desde el inicio.
 -   **Desventajas:** Similar rigidez que Waterfall, poco flexible ante cambios.
 
+---
+
+## ♻️ Modelos Iterativos e Incrementales
+
+Permiten la construcción gradual del producto, a través de versiones o prototipos sucesivos que se validan y mejoran con el tiempo.
+
+### Modelo de Prototipos
+
+-   **Características:** Se desarrolla un prototipo rápido para validar requisitos o diseño.
+-   **Ventajas:** Reduce riesgos de mala interpretación de requisitos.
+-   **Desventajas:** Puede generar expectativas poco realistas si no se aclara que es solo un prototipo.
+
+### Modelo en Espiral
+
+-   **Características:** Combina elementos del modelo en cascada con iteraciones enfocadas en la gestión de riesgos.
+-   **Ventajas:** Adecuado para proyectos complejos y de alto riesgo.
+-   **Desventajas:** Mayor coste y tiempo debido a la planificación intensiva.
+
