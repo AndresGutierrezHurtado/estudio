@@ -18,81 +18,156 @@ Ignorar las buenas prácticas de diseño y arquitectura conduce con frecuencia a
 
 ## 🎯 Objetivo del módulo
 
-El objetivo principal de este módulo es proporcionar una comprensión sólida de los principios, prácticas y herramientas asociadas al diseño y la arquitectura de software. Al finalizar este módulo, serás capaz de:
+El objetivo principal de este módulo es proporcionar una comprensión integral de los principios, prácticas y herramientas clave para diseñar y estructurar software de forma profesional. Al finalizar este módulo, serás capaz de:
 
--   Aplicar los **principios SOLID** para escribir código limpio, modular y de fácil mantenimiento.
--   Reconocer y utilizar adecuadamente los principales **patrones de diseño (GoF)** para resolver problemas recurrentes de manera elegante y reutilizable.
--   Evaluar y seleccionar entre diferentes **patrones de arquitectura** (como Monolito, Microservicios, Event-Driven o Serverless) en función de los requisitos técnicos y de negocio de un proyecto.
--   Representar gráficamente la arquitectura de un sistema utilizando modelos como el **C4 Model** o diagramas UML de componentes, facilitando la comunicación técnica con otros miembros del equipo.
--   Diseñar sistemas preparados para el cambio, la escalabilidad y la evolución continua, reduciendo riesgos de obsolescencia o re-trabajo a futuro.
+-   Aplicar principios de diseño como **SOLID**, **KISS** ("Keep It Simple, Stupid") y **DRY** ("Don't Repeat Yourself") para escribir código limpio, simple, reutilizable y fácil de mantener.
+-   Reconocer y utilizar los principales **patrones de diseño (GoF)** para abordar problemas comunes de desarrollo con soluciones reutilizables y bien estructuradas.
+-   Evaluar y seleccionar adecuadamente **patrones de arquitectura** (como Monolito, Microservicios, Event-Driven o Serverless) según las necesidades técnicas y del negocio.
+-   Representar visualmente la arquitectura de sistemas mediante herramientas como el **C4 Model** o diagramas de componentes en UML, facilitando la comunicación técnica dentro del equipo.
+-   Diseñar soluciones preparadas para escalar, adaptarse a cambios y evolucionar con el tiempo, minimizando riesgos de deuda técnica y facilitando el mantenimiento.
 
-En definitiva, este módulo te capacitará para tomar decisiones de diseño y arquitectura con criterio profesional, elevando la calidad técnica de tus proyectos y fortaleciendo tu perfil como desarrollador o arquitecto de software.
+Este módulo te capacitará para tomar decisiones de diseño y arquitectura con criterio técnico y estratégico, mejorando la calidad de tus proyectos y fortaleciendo tu perfil como desarrollador profesional.
 
 ---
 
 ## 🏗️ Diferencias entre Diseño y Arquitectura de Software
 
 -   **Arquitectura de Software:**  
-    Es la visión de alto nivel del sistema. Define cómo se organizan los componentes principales, cómo se comunican entre sí y cómo se distribuyen las responsabilidades. Incluye decisiones tecnológicas clave, restricciones no funcionales (rendimiento, seguridad, escalabilidad) y patrones de organización global.
+    Es la **estructura general** del sistema. Se enfoca en el panorama completo: cómo se divide el sistema en partes (por ejemplo, módulos, servicios o capas), cómo se conectan entre sí y qué tecnologías se usarán. Incluye decisiones importantes como si usarás microservicios, cómo manejarás la seguridad o cómo escalará el sistema.
 
 -   **Diseño de Software:**  
-    Es la visión de detalle. Determina cómo se implementan los componentes definidos por la arquitectura, cómo se estructuran las clases, métodos, funciones, cómo se gestionan las dependencias y cómo se aplican patrones de diseño para resolver problemas técnicos específicos.
+    Es el **detalle de cómo construir cada parte**. Se encarga de decidir cómo serán las clases, funciones, nombres de métodos, qué patrones usar (como Factory o Strategy), y cómo se relacionan los objetos entre sí. Está más cerca del código que de la arquitectura.
 
 ---
 
-## 🧩 Principios SOLID
+## 🧩 Principios de diseño de Software
 
-Los principios SOLID son fundamentales para el diseño de software orientado a objetos y para mantener código limpio, flexible y fácil de mantener.
+Los principios de diseño son **buenas prácticas** que ayudan a escribir software más claro, ordenado y fácil de mantener. Aplicarlos correctamente nos permite evitar errores comunes que aparecen cuando un proyecto crece: código desorganizado, difícil de entender, costoso de modificar o lleno de duplicaciones.
 
-1. **S - Single Responsibility Principle (SRP):**  
-   Una clase debe tener una única razón para cambiar.  
-   _Evita que una clase asuma múltiples responsabilidades._
+Cuando seguimos estos principios, logramos construir sistemas que son:
 
-2. **O - Open/Closed Principle (OCP):**  
-   Las entidades de software deben estar abiertas para su extensión, pero cerradas para su modificación.  
-   _Permite añadir nuevas funcionalidades sin alterar el código existente._
+-   Más fáciles de leer y entender.
+-   Más simples de modificar o escalar.
+-   Menos propensos a fallos o errores inesperados.
+-   Reutilizables y adaptables a nuevas necesidades.
 
-3. **L - Liskov Substitution Principle (LSP):**  
-   Las clases derivadas deben ser sustituibles por sus clases base sin alterar el comportamiento esperado.  
-   _Garantiza una jerarquía de herencia correcta._
+A continuación, se presentan algunos de los principios más importantes:
 
-4. **I - Interface Segregation Principle (ISP):**  
-   Los clientes no deben verse forzados a depender de interfaces que no utilizan.  
-   _Promueve interfaces pequeñas y específicas._
+### KISS (Keep It Simple, Stupid)
 
-5. **D - Dependency Inversion Principle (DIP):**  
-   Las dependencias deben ser abstraídas. Los módulos de alto nivel no deben depender de módulos de bajo nivel, ambos deben depender de abstracciones.  
-   _Facilita la inversión de control (IoC) y la inyección de dependencias (DI)._
+Este principio nos recuerda que **la simplicidad es clave**. Cuanto más simple es el código, más fácil es de entender, mantener y corregir. No se trata de escribir código "tonto", sino de evitar soluciones innecesariamente complicadas.
+
+> ✅ Usa soluciones claras y directas.  
+> ❌ Evita sobreingeniería y estructuras rebuscadas que no aportan valor.
+
+### DRY (Don't Repeat Yourself)
+
+Este principio dice que **no deberíamos repetir lógica o datos en varias partes del código**. Si algo cambia, tenerlo duplicado puede causar errores difíciles de detectar.
+
+> ✅ Centraliza la lógica repetida en funciones, clases o módulos.  
+> ❌ Copiar y pegar código parecido varias veces solo complica el mantenimiento.
+
+### YAGNI (You Aren't Gonna Need It)
+
+Este principio nos invita a **no desarrollar funcionalidades que “quizás” se necesiten en el futuro**. La mayoría de las veces, esas suposiciones nunca se usan, y solo generan complejidad innecesaria.
+
+> ✅ Enfócate en lo que se necesita ahora.  
+> ❌ No anticipes requisitos que aún no existen.
+
+### Principios SOLID
+
+Los principios SOLID son un conjunto de cinco reglas clave para diseñar software orientado a objetos de forma flexible y bien estructurada:
+
+1. **S - Principio de Responsabilidad Única (SRP)**  
+   Cada clase debe encargarse de una sola cosa.
+
+    > Así evitamos clases que hacen “de todo” y se vuelven difíciles de modificar.
+
+2. **O - Principio Abierto/Cerrado (OCP)**  
+   El código debe poder **extenderse sin necesidad de modificar lo ya hecho**.
+
+    > Esto permite agregar nuevas funcionalidades sin romper lo anterior.
+
+3. **L - Principio de Sustitución de Liskov (LSP)**  
+   Las subclases deben poder usarse en lugar de sus clases padre **sin alterar el funcionamiento del sistema**.
+
+    > Esto garantiza que la herencia se usa correctamente.
+
+4. **I - Principio de Segregación de Interfaces (ISP)**  
+   Es mejor tener **interfaces pequeñas y específicas**, que grandes y genéricas.
+
+    > Así evitamos que una clase tenga que implementar métodos que no necesita.
+
+5. **D - Principio de Inversión de Dependencias (DIP)**  
+   El código debe depender de **abstracciones** (interfaces), no de implementaciones concretas.
+
+    > Esto facilita cambiar partes del sistema sin afectar a todo lo demás.
 
 ---
 
 ## 🏷️ Patrones de Diseño (GoF)
 
-Los **Patrones de Diseño** son soluciones comprobadas a problemas comunes de diseño en desarrollo de software. Se clasifican en tres grandes grupos:
+Los **Patrones de Diseño** son soluciones reutilizables, probadas y documentadas para resolver **problemas comunes en el diseño de software**. No son fragmentos de código, sino **formas de estructurar tu solución** para que sea flexible, mantenible y robusta.
 
-### Creacionales
+Estos patrones fueron popularizados por el libro _"Design Patterns: Elements of Reusable Object-Oriented Software"_ de la **banda de los cuatro (GoF)**. Se dividen en tres categorías principales:
 
--   **Singleton:** Garantiza que una clase tenga una única instancia global.
--   **Factory Method:** Define una interfaz para crear objetos, dejando a las subclases decidir qué clase instanciar.
--   **Abstract Factory:** Produce familias de objetos relacionados sin especificar sus clases concretas.
--   **Builder:** Permite construir un objeto paso a paso.
--   **Prototype:** Crea nuevos objetos copiando una instancia existente.
+### 🏗️ Creacionales
 
-### Estructurales
+Se enfocan en **cómo crear objetos** de forma controlada, desacoplada y flexible.
 
--   **Adapter:** Permite que interfaces incompatibles trabajen juntas.
--   **Composite:** Permite tratar objetos individuales y composiciones de objetos de manera uniforme.
--   **Decorator:** Agrega funcionalidades a un objeto de manera dinámica.
--   **Facade:** Proporciona una interfaz simplificada a un subsistema complejo.
--   **Proxy:** Controla el acceso a un objeto.
+-   **Singleton:** asegura que una clase solo tenga una única instancia en todo el sistema, y que dicha instancia sea accesible de forma global. Esto es útil, por ejemplo, cuando se maneja una sola conexión a base de datos o un gestor de configuración, ya que no tiene sentido tener múltiples copias de esos objetos.
 
-### Comportamiento
+-   **Factory Method:** Se crea una clase que define un método común que se encarga de crear objetos, pero deja que las subclases decidan qué tipo específico crear, lo cual da flexibilidad para trabajar con una familia de clases sin acoplarse a una en particular.
 
--   **Strategy:** Define una familia de algoritmos, encapsula cada uno y los hace intercambiables.
--   **Observer:** Permite que múltiples objetos se suscriban y reciban notificaciones de un objeto central.
--   **Command:** Encapsula una solicitud como un objeto, permitiendo parametrizar clientes.
--   **State:** Permite que un objeto altere su comportamiento cuando su estado interno cambia.
--   **Template Method:** Define el esqueleto de un algoritmo, dejando algunos pasos a subclases.
+-   **Abstract Factory:** lleva la idea anterior a otro nivel, ya que permite crear familias enteras de objetos relacionados sin saber exactamente qué clases se están usando internamente.
+
+-   **Builder:** es útil cuando un objeto tiene muchos atributos o pasos de construcción opcionales. En lugar de un constructor con 10 parámetros difíciles de leer, el Builder permite ir armando el objeto paso a paso de forma clara y flexible.
+
+-   **Prototype:** permite clonar objetos existentes para crear nuevos a partir de uno ya configurado. Esto es útil cuando crear un objeto desde cero es muy costoso o complejo.
+
+### 🧱 Estructurales
+
+Ayudan a **componer clases y objetos** para formar estructuras más grandes y flexibles, sin perder claridad ni eficiencia.
+
+-   **Adapter:** Permite que interfaces incompatibles trabajen juntas. Actúa como un traductor entre dos clases que de otro modo no podrían comunicarse. Es útil cuando quieres usar una clase existente pero su interfaz no es compatible con lo que necesitas.
+
+-   **Bridge:** Separa una abstracción de su implementación, permitiendo que ambas evolucionen de forma independiente. Es ideal cuando tienes diferentes variantes de una misma funcionalidad y no quieres una explosión de clases.
+
+-   **Composite:** Permite tratar objetos individuales y composiciones de objetos de manera uniforme. Muy útil cuando trabajas con estructuras jerárquicas como árboles o interfaces gráficas con contenedores y elementos.
+
+-   **Decorator:** Agrega funcionalidades a un objeto de manera dinámica, sin alterar su estructura interna. Es una alternativa flexible a la herencia cuando quieres extender comportamientos de forma controlada y reversible.
+
+-   **Facade:** Proporciona una interfaz simplificada a un subsistema complejo. Es útil para ocultar la complejidad interna de un conjunto de clases y ofrecer un punto de acceso más claro y amigable.
+
+-   **Flyweight:** Reduce el uso de memoria compartiendo instancias comunes entre múltiples objetos similares. Es útil cuando tienes una gran cantidad de objetos que comparten datos en común, como caracteres en un documento de texto.
+
+-   **Proxy:** Controla el acceso a un objeto, actuando como intermediario. Puede usarse para añadir lógica adicional como control de acceso, carga diferida (lazy loading), o registro de uso sin modificar el objeto real.
+
+### 🤝 Comportamiento
+
+Se centran en **cómo interactúan los objetos entre sí**, cómo se comunican y cómo se reparten responsabilidades.
+
+-   **Strategy:** Define una familia de algoritmos, encapsula cada uno y los hace intercambiables. El cliente puede elegir el algoritmo que necesite en tiempo de ejecución sin cambiar el código que lo usa.
+
+-   **Observer:** Permite que múltiples objetos se suscriban y reciban notificaciones de un objeto central. Es ideal para implementar sistemas de eventos o reaccionar a cambios de estado, como en interfaces gráficas o notificaciones.
+
+-   **Command:** Encapsula una solicitud como un objeto, permitiendo parametrizar clientes, almacenar y deshacer operaciones. Muy útil para construir sistemas que ejecutan comandos encolados, como menús, historial o acciones reversibles.
+
+-   **State:** Permite que un objeto altere su comportamiento cuando su estado interno cambia, como si cambiara su clase. Se evita el uso de condicionales extensos y se mejora la claridad del código.
+
+-   **Template Method:** Define el esqueleto de un algoritmo en una clase base, dejando que las subclases redefinan ciertos pasos sin cambiar la estructura general. Favorece el uso de herencia y promueve la reutilización de código.
+
+-   **Chain of Responsibility:** Permite que múltiples objetos tengan la oportunidad de manejar una solicitud, pasándola en cadena hasta que alguien se haga cargo. Útil para sistemas de procesamiento como validaciones, filtros o manejo de eventos.
+
+-   **Mediator:** Centraliza la comunicación entre objetos para reducir el acoplamiento directo entre ellos. En lugar de que cada objeto conozca a los demás, se comunican a través de un mediador que coordina sus interacciones.
+
+-   **Iterator:** Proporciona una forma de recorrer elementos de una colección sin exponer su estructura interna. Establece una interfaz común para recorrer estructuras complejas como listas, árboles o grafos.
+
+-   **Visitor:** Permite definir nuevas operaciones sobre una estructura de objetos sin cambiar las clases de esos objetos. Es útil cuando quieres realizar múltiples operaciones diferentes sobre una estructura de datos fija, como árboles sintácticos o nodos de un documento.
+
+-   **Interpreter:** Define una representación para un lenguaje y un intérprete que utiliza esa representación para evaluar expresiones. Se usa comúnmente en motores de reglas, lenguajes DSL o sistemas que interpretan comandos.
+
+-   **Memento:** Permite capturar y restaurar el estado interno de un objeto sin violar su encapsulamiento. Es útil para implementar funcionalidades como deshacer/rehacer o guardar puntos de control.
 
 ---
 
@@ -122,6 +197,7 @@ Para documentar y visualizar una arquitectura de software de forma clara y compa
 
 -   **Nivel 1 – Contexto:**  
     Muestra cómo el sistema interactúa con usuarios y otros sistemas.
+
 -   **Nivel 2 – Contenedores:**  
     Identifica las aplicaciones, servicios, bases de datos, etc., que componen el sistema.
 

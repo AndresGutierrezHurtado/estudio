@@ -13,10 +13,10 @@ Así, este proyecto personal me permitirá tomar decisiones técnicas y de negoc
 
 Este módulo introduce los principios básicos que diferencian el desarrollo de software profesional de la simple programación. Comprender qué es la ingeniería de software te permite construir soluciones con propósito, escalables y sostenibles, con base en procesos estructurados y buenas prácticas.
 
-🔹 ¿Qué es la Ingeniería de Software?  
-🔹 Principios de calidad de software (Modularidad, Abstracción, Cohesión, Acoplamiento).  
-🔹 Proceso de desarrollo de software (SDLC).  
-🔹 Diferencias con programación.
+-   ¿Qué es la Ingeniería de Software?
+-   Principios de calidad de software (Modularidad, Abstracción, Cohesión, Acoplamiento).
+-   Proceso de desarrollo de software (SDLC).
+-   Diferencias con programación.
 
 ---
 
@@ -24,10 +24,10 @@ Este módulo introduce los principios básicos que diferencian el desarrollo de 
 
 Los modelos de desarrollo definen cómo se organiza el trabajo dentro de un proyecto. Aprenderlos te permite adaptarte a distintos entornos laborales y metodologías, ya sean tradicionales, ágiles o híbridas, comprendiendo los beneficios y limitaciones de cada enfoque.
 
-🔹 Modelos predictivos: Cascada, V-Model.  
-🔹 Modelos iterativos: Prototipos, Espiral.  
-🔹 Modelos ágiles: Scrum, Kanban, XP.  
-🔹 DevOps: Conceptos y flujo continuo.
+-   Modelos predictivos: Cascada, V-Model.
+-   Modelos iterativos: Prototipos, Espiral.
+-   Modelos ágiles: Scrum, Kanban, XP.
+-   DevOps: Conceptos y flujo continuo.
 
 📄 [Ver Resumen Completo](./02-modelos-desarrollo/resume.md)
 
@@ -37,10 +37,10 @@ Los modelos de desarrollo definen cómo se organiza el trabajo dentro de un proy
 
 Antes de construir cualquier software, es esencial entender qué problema se quiere resolver. El análisis de requisitos permite obtener claridad, prevenir errores costosos y asegurar que el producto cumpla con las expectativas del usuario y los objetivos del negocio.
 
-🔹 Levantamiento de requisitos.  
-🔹 Tipos: funcionales, no funcionales.  
-🔹 Modelado de requisitos (Casos de uso, Historias de Usuario).  
-🔹 UML básico (Diagrama de Casos de Uso).
+-   Levantamiento de requisitos.
+-   Tipos: funcionales, no funcionales.
+-   Modelado de requisitos (Casos de uso, Historias de Usuario).
+-   UML básico (Diagrama de Casos de Uso).
 
 📄 [Ver Resumen Completo](./03-analisis-requisitos/resumen.md)
 
@@ -50,10 +50,10 @@ Antes de construir cualquier software, es esencial entender qué problema se qui
 
 Este módulo se enfoca en cómo estructurar tu aplicación para que sea mantenible, extensible y robusta. Conocer patrones y arquitecturas te permite construir software limpio, eficiente y alineado con las necesidades técnicas y del negocio.
 
-🔹 Principios SOLID.  
-🔹 Patrones de Diseño (GoF): Factory, Singleton, Strategy, etc.  
-🔹 Patrones de Arquitectura: Monolito, Microservicios, Event-Driven, Serverless.  
-🔹 Modelado arquitectónico: C4 Model, Diagramas de Componentes.
+-   Principios de diseño de software.
+-   Patrones de Diseño (GoF): Factory, Singleton, Strategy, etc.
+-   Patrones de Arquitectura: Monolito, Microservicios, Event-Driven, Serverless.
+-   Modelado arquitectónico: C4 Model, Diagramas de Componentes.
 
 📄 [Ver Resumen Completo](./04-diseno-arquitectura/resume.md)
 
@@ -63,9 +63,9 @@ Este módulo se enfoca en cómo estructurar tu aplicación para que sea mantenib
 
 La eficiencia de un programa depende en gran parte de su estructura de datos y de los algoritmos implementados. Aunque no se usen directamente a diario en muchos frameworks, dominarlos marca la diferencia entre un programador promedio y uno capaz de optimizar soluciones reales.
 
-🔹 Análisis de complejidad (Big O).  
-🔹 Estructuras: listas, pilas, colas, árboles, grafos.  
-🔹 Algoritmos: búsqueda, ordenamiento, recorrido de grafos.
+-   Análisis de complejidad (Big O).
+-   Estructuras: listas, pilas, colas, árboles, grafos.
+-   Algoritmos: búsqueda, ordenamiento, recorrido de grafos.
 
 ---
 
@@ -73,9 +73,9 @@ La eficiencia de un programa depende en gran parte de su estructura de datos y d
 
 No basta con que el software funcione: debe ser confiable. Este módulo aborda las pruebas como parte clave del desarrollo profesional, ayudando a prevenir errores, automatizar validaciones y mantener la calidad con el paso del tiempo.
 
-🔹 Tipos: unitarias, integración, aceptación.  
-🔹 TDD: Desarrollo guiado por pruebas.  
-🔹 Herramientas: Jest, PHPUnit, etc.
+-   Tipos: unitarias, integración, aceptación.
+-   TDD: Desarrollo guiado por pruebas.
+-   Herramientas: Jest, PHPUnit, etc.
 
 📄 [Ver Resumen Completo](./06-pruebas-software/resumen.md)
 
@@ -85,9 +85,9 @@ No basta con que el software funcione: debe ser confiable. Este módulo aborda l
 
 El verdadero costo del software está en su mantenimiento. Entender cómo gestionar deuda técnica, aplicar refactorizaciones y adaptar sistemas a nuevas necesidades es clave para construir productos sostenibles a largo plazo.
 
-🔹 Tipos de mantenimiento.  
-🔹 Deuda técnica y su gestión.  
-🔹 Refactorización continua.
+-   Tipos de mantenimiento.
+-   Deuda técnica y su gestión.
+-   Refactorización continua.
 
 ---
 
@@ -95,9 +95,9 @@ El verdadero costo del software está en su mantenimiento. Entender cómo gestio
 
 No importa cuán bien programes si el proyecto no se entrega a tiempo o dentro del presupuesto. Aprender gestión de proyectos te permite planificar, estimar y coordinar el desarrollo con enfoque profesional y orientado al resultado.
 
-🔹 Estimación de costos y tiempos (COCOMO, Puntos de función).  
-🔹 Gestión ágil: Scrum, Kanban.  
-🔹 Herramientas: Jira, Trello.
+-   Estimación de costos y tiempos (COCOMO, Puntos de función).
+-   Gestión ágil: Scrum, Kanban.
+-   Herramientas: Jira, Trello.
 
 ---
 
@@ -105,9 +105,9 @@ No importa cuán bien programes si el proyecto no se entrega a tiempo o dentro d
 
 La calidad no es solo estética o rendimiento. Este módulo cubre estándares internacionales, métricas y criterios que permiten evaluar y mejorar continuamente el producto, asegurando que cumpla con lo prometido.
 
-🔹 Estándares ISO/IEC 25010.  
-🔹 Factores de calidad: fiabilidad, usabilidad, eficiencia.  
-🔹 Métricas de software.
+-   Estándares ISO/IEC 25010.
+-   Factores de calidad: fiabilidad, usabilidad, eficiencia.
+-   Métricas de software.
 
 ---
 
@@ -115,9 +115,9 @@ La calidad no es solo estética o rendimiento. Este módulo cubre estándares in
 
 En un mundo donde los ataques informáticos son cada vez más frecuentes, la seguridad debe estar integrada en todo el ciclo de desarrollo. Aprender buenas prácticas desde temprano reduce riesgos y fortalece tu perfil profesional.
 
-🔹 Principios de seguridad.  
-🔹 OWASP Top 10.  
-🔹 Prácticas de desarrollo seguro.
+-   Principios de seguridad.
+-   OWASP Top 10.
+-   Prácticas de desarrollo seguro.
 
 ---
 
@@ -125,9 +125,9 @@ En un mundo donde los ataques informáticos son cada vez más frecuentes, la seg
 
 Un buen desarrollador no solo escribe código, también elige tecnologías y soluciones con criterio. Aquí se desarrollan habilidades para analizar trade-offs y justificar decisiones en base a contexto técnico y de negocio.
 
-🔹 Evaluación de trade-offs (rendimiento, costo, mantenimiento).  
-🔹 Análisis de impacto en negocio y producto.  
-🔹 Ejemplos: Monolito vs Microservicios, SQL vs NoSQL.
+-   Evaluación de trade-offs (rendimiento, costo, mantenimiento).
+-   Análisis de impacto en negocio y producto.
+-   Ejemplos: Monolito vs Microservicios, SQL vs NoSQL.
 
 ---
 
@@ -135,9 +135,9 @@ Un buen desarrollador no solo escribe código, también elige tecnologías y sol
 
 Un software sin documentación es difícil de mantener, escalar o entregar. Este módulo cubre cómo escribir documentación útil tanto para otros desarrolladores como para usuarios finales, incluyendo APIs y arquitectura.
 
-🔹 Documentación de APIs: Swagger.  
-🔹 Documentación de arquitectura: ADR, C4 Model.  
-🔹 Manuales de usuario.
+-   Documentación de APIs: Swagger.
+-   Documentación de arquitectura: ADR, C4 Model.
+-   Manuales de usuario.
 
 ---
 
