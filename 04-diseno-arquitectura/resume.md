@@ -30,7 +30,7 @@ En definitiva, este módulo te capacitará para tomar decisiones de diseño y ar
 
 ---
 
-## 🔶 Diferencias entre Diseño y Arquitectura de Software
+## Diferencias entre Diseño y Arquitectura de Software
 
 -   **Arquitectura de Software:**  
     Es la visión de alto nivel del sistema. Define cómo se organizan los componentes principales, cómo se comunican entre sí y cómo se distribuyen las responsabilidades. Incluye decisiones tecnológicas clave, restricciones no funcionales (rendimiento, seguridad, escalabilidad) y patrones de organización global.
@@ -40,7 +40,7 @@ En definitiva, este módulo te capacitará para tomar decisiones de diseño y ar
 
 ---
 
-## 🔶 Principios SOLID
+## Principios SOLID
 
 Los principios SOLID son fundamentales para el diseño de software orientado a objetos y para mantener código limpio, flexible y fácil de mantener.
 
@@ -66,7 +66,7 @@ Los principios SOLID son fundamentales para el diseño de software orientado a o
 
 ---
 
-## 🔶 Patrones de Diseño (GoF)
+## Patrones de Diseño (GoF)
 
 Los **Patrones de Diseño** son soluciones comprobadas a problemas comunes de diseño en desarrollo de software. Se clasifican en tres grandes grupos:
 
@@ -93,5 +93,51 @@ Los **Patrones de Diseño** son soluciones comprobadas a problemas comunes de di
 -   **Command:** Encapsula una solicitud como un objeto, permitiendo parametrizar clientes.
 -   **State:** Permite que un objeto altere su comportamiento cuando su estado interno cambia.
 -   **Template Method:** Define el esqueleto de un algoritmo, dejando algunos pasos a subclases.
+
+---
+
+## 🔶 Patrones de Arquitectura de Software
+
+Los **Patrones de Arquitectura** definen cómo se organizan los componentes de alto nivel de un sistema. Algunos de los más usados:
+
+-   **Monolito:**  
+    Toda la aplicación reside en un único proyecto desplegable. Fácil de desarrollar inicialmente pero puede volverse difícil de mantener a gran escala.
+
+-   **Microservicios:**  
+    El sistema se divide en pequeños servicios independientes que se comunican generalmente vía HTTP/REST o mensajería. Permite escalabilidad y despliegue independiente.
+
+-   **Event-Driven (Orientado a Eventos):**  
+    Los componentes reaccionan a eventos generados por otros componentes. Facilita el desacoplamiento y la escalabilidad.
+
+-   **Serverless:**  
+    Los componentes se ejecutan como funciones en la nube bajo demanda. Reduce la gestión de infraestructura, ideal para cargas variables.
+
+---
+
+## 🔶 Modelado Arquitectónico
+
+Para documentar y visualizar una arquitectura de software de forma clara y compartible, existen enfoques estandarizados:
+
+### 🔸 C4 Model (Context, Container, Component, Code)
+
+-   **Nivel 1 – Contexto:**  
+    Muestra cómo el sistema interactúa con usuarios y otros sistemas.
+-   **Nivel 2 – Contenedores:**  
+    Identifica las aplicaciones, servicios, bases de datos, etc., que componen el sistema.
+
+-   **Nivel 3 – Componentes:**  
+    Detalla los componentes principales dentro de cada contenedor.
+
+-   **Nivel 4 – Código:**  
+    Opcional. Describe clases, funciones o estructuras de código.
+
+### 🔸 UML (Unified Modeling Language)
+
+-   **Diagrama de Componentes:**  
+    Representa la estructura de alto nivel de un sistema y sus dependencias.
+
+-   **Diagrama de Clases:**  
+    Especifica las relaciones entre clases, atributos y métodos.
+
 
 ---
