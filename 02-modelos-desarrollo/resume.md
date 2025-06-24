@@ -107,16 +107,30 @@ XP fomenta una comunicación constante con el cliente, la simplicidad en el dise
 
 ---
 
-## 🚀 DevOps
+## ♾️ DevOps
 
-DevOps no es simplemente un modelo de desarrollo más, sino una filosofía y una práctica integral que transforma la forma en que los equipos de desarrollo (Dev) y operaciones (Ops) trabajan juntos para crear, entregar y mantener software de alta calidad de manera rápida, confiable y continua.
+DevOps no es simplemente un modelo de desarrollo adicional, sino una filosofía integral que transforma la manera en que los equipos de **Desarrollo (Dev)** y **Operaciones (Ops)** colaboran para crear, entregar y mantener software de alta calidad de forma rápida, confiable y continua.
 
-A diferencia de los modelos tradicionales que separan claramente el desarrollo del despliegue y la operación, DevOps propone una integración constante entre estas áreas, fomentando la colaboración, la automatización y la mejora continua en todo el ciclo de vida del software. Su adopción busca resolver problemas comunes como los retrasos en la entrega, errores en ambientes productivos, falta de visibilidad en los procesos y dificultades para escalar aplicaciones.
+Se basa en un conjunto de prácticas enfocadas en la **automatización de procesos clave** como el testing, la construcción (**build**) y el despliegue (**deploy**) de aplicaciones, con el objetivo de mejorar la eficiencia y reducir errores humanos en las tareas repetitivas.
+
+A diferencia de los enfoques tradicionales —donde las áreas de desarrollo, pruebas y operación trabajan de forma separada—, DevOps propone una integración constante entre estas disciplinas. Este enfoque promueve la **colaboración activa**, la automatización de flujos de trabajo y la mejora continua durante todo el ciclo de vida del software. Su adopción permite resolver desafíos comunes como retrasos en las entregas, fallos en entornos productivos, poca visibilidad de los procesos y dificultades para escalar aplicaciones de manera eficiente.
 
 ### 🔑 Conceptos Clave de DevOps
 
--   **CI/CD (Integración Continua / Entrega Continua):**  
-    Automatización de la integración y despliegue de código, permitiendo validar y entregar cambios frecuentemente con menor riesgo y esfuerzo manual.
+-   **CI (Integración Continua):**  
+    Es el proceso mediante el cual los desarrolladores integran frecuentemente su código en un repositorio compartido (por ejemplo, en GitHub). Cada vez que se detecta un cambio, un servidor de CI ejecuta automáticamente un conjunto de tareas definidas en un workflow, como la construcción del proyecto (**build**) y la ejecución de pruebas automáticas (**testing**), con el fin de garantizar que el código es funcional y no introduce errores. Los resultados de estas pruebas son notificados a los desarrolladores, y el código es inspeccionado principalmente por el **Product Owner** o el equipo de **QA**.
+
+-   **CD (Entrega Continua / Despliegue Continuo):**  
+    **CD** tiene dos posibles significados dentro de DevOps:
+
+    1. **Continuous Delivery (Entrega Continua):**  
+       El código que ha pasado todas las pruebas de CI queda listo para ser desplegado manualmente en producción. Esto permite al equipo decidir el momento exacto en que desea hacer el despliegue.
+
+    2. **Continuous Deployment (Despliegue Continuo):**  
+       El código que ha pasado las pruebas se despliega automáticamente en el entorno de producción sin intervención humana. Esto permite entregar nuevas versiones de forma continua y sin retrasos.
+
+    Ambos enfoques buscan reducir riesgos, disminuir esfuerzo manual y permitir entregas frecuentes y confiables del software.
+    era frecuente, con menor riesgo y sin intervención manual, garantizando que los cambios sean confiables, probados y listos para su uso.
 
 -   **Infraestructura como Código (IaC):**  
     Gestión y aprovisionamiento de infraestructuras (servidores, redes, bases de datos) mediante archivos de configuración versionables, facilitando reproducibilidad, escalabilidad y control de cambios.
