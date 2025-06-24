@@ -47,3 +47,27 @@ Permiten la construcción gradual del producto, a través de versiones o prototi
 -   **Ventajas:** Adecuado para proyectos complejos y de alto riesgo.
 -   **Desventajas:** Mayor coste y tiempo debido a la planificación intensiva.
 
+---
+
+## ⚡ Modelos Ágiles
+
+Se enfocan en la flexibilidad, la colaboración con el cliente y la entrega continua de valor. Son ideales para entornos cambiantes y proyectos donde los requisitos evolucionan.
+
+### Scrum
+
+-   **Características:** Basado en sprints (iteraciones de tiempo fijo), roles definidos (Product Owner, Scrum Master, Developers).
+-   **Ventajas:** Alta adaptabilidad, enfoque en valor de negocio.
+-   **Desventajas:** Requiere compromiso constante del equipo y del cliente.
+
+### Kanban
+
+-   **Características:** Visualización del flujo de trabajo mediante tableros, control del WIP (Work In Progress).
+-   **Ventajas:** Simplicidad, mejora continua, visibilidad de cuellos de botella.
+-   **Desventajas:** Menos prescriptivo en roles y planificación que Scrum.
+
+### Extreme Programming (XP)
+
+-   **Características:** Prácticas técnicas rigurosas (TDD, Pair Programming, Integración Continua).
+-   **Ventajas:** Alta calidad técnica del código, feedback constante.
+-   **Desventajas:** Difícil de adoptar sin cultura técnica sólida.
+
