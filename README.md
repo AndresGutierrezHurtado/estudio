@@ -29,6 +29,8 @@ Los modelos de desarrollo definen cómo se organiza el trabajo dentro de un proy
 🔹 Modelos ágiles: Scrum, Kanban, XP.  
 🔹 DevOps: Conceptos y flujo continuo.
 
+📄 [Ver Resumen Completo](./02-modelos-desarrollo/resume.md)
+
 ---
 
 ### 📌 Módulo 3: Análisis de Requisitos
