@@ -60,25 +60,50 @@ El modelo en espiral combina características del modelo en cascada y de los mod
 
 ## ⚡ Modelos Ágiles
 
-Se enfocan en la flexibilidad, la colaboración con el cliente y la entrega continua de valor. Son ideales para entornos cambiantes y proyectos donde los requisitos evolucionan.
+Los modelos ágiles se enfocan en la **flexibilidad**, la **adaptación al cambio** y la **entrega continua de valor** al cliente.  
+A diferencia de los enfoques predictivos o estrictamente planificados, los modelos ágiles permiten que los requisitos evolucionen de manera constante, incluso en etapas avanzadas del desarrollo. Esto los hace especialmente adecuados para proyectos donde los requerimientos no están completamente definidos desde el inicio o pueden cambiar según las necesidades del negocio o del cliente.
+
+En este enfoque, los equipos de trabajo colaboran estrechamente con el cliente, fomentando la comunicación directa y continua, para garantizar que el producto final refleje realmente lo que se necesita.  
+El trabajo se organiza en **ciclos cortos e iterativos** (conocidos como iteraciones o sprints) en los cuales se entrega una versión funcional y mejorada del producto, lista para ser evaluada y ajustada con base en el feedback recibido.
+
+El uso de modelos ágiles ayuda a reducir riesgos, detectar problemas de manera temprana, adaptarse a nuevas prioridades y maximizar el valor entregado al cliente en cada iteración.
 
 ### Scrum
 
--   **Características:** Basado en sprints (iteraciones de tiempo fijo), roles definidos (Product Owner, Scrum Master, Developers).
--   **Ventajas:** Alta adaptabilidad, enfoque en valor de negocio.
--   **Desventajas:** Requiere compromiso constante del equipo y del cliente.
+Scrum es una metodología ágil enfocada en la entrega incremental y continua de valor a través de iteraciones cortas llamadas **Sprints**, que suelen tener una duración de 2 a 4 semanas. Durante cada Sprint, el equipo trabaja en un conjunto específico de tareas priorizadas. Las reuniones diarias llamadas **Daily Scrum** permiten al equipo coordinarse, detectar bloqueos y ajustar su trabajo de manera eficiente.
+
+**Roles principales en Scrum:**
+
+-   **Product Owner:** Responsable de definir y priorizar los requisitos del producto (Product Backlog).
+-   **Scrum Master:** Facilita el proceso Scrum, elimina impedimentos y asegura el cumplimiento de la metodología.
+-   **Development Team:** Equipo encargado de diseñar, construir, probar e implementar el incremento de producto.
+
+**Términos clave:**
+
+-   **Sprint Backlog:** Conjunto de tareas seleccionadas para el Sprint actual.
+-   **Incremento:** Producto funcional entregable al final de cada Sprint.
+-   **Retrospective:** Reunión posterior al Sprint para evaluar y mejorar el proceso.
+
+-   **Ventajas:** Alta capacidad de adaptación a cambios, fuerte orientación a la entrega de valor real para el negocio, mejora continua del equipo.
+-   **Desventajas:** Requiere un alto nivel de compromiso y disciplina tanto del equipo como del cliente; su éxito depende en gran medida de la colaboración constante.
 
 ### Kanban
 
--   **Características:** Visualización del flujo de trabajo mediante tableros, control del WIP (Work In Progress).
--   **Ventajas:** Simplicidad, mejora continua, visibilidad de cuellos de botella.
--   **Desventajas:** Menos prescriptivo en roles y planificación que Scrum.
+Kanban es una metodología ágil que se enfoca en la mejora continua del flujo de trabajo y en la eliminación de actividades que no aportan valor. Utiliza un tablero visual (Kanban Board) donde cada columna representa una etapa del proceso de desarrollo, como: **Requisitos, Diseño, Implementación, Pruebas, Despliegue, Mantenimiento**.
+
+Esta técnica promueve la visualización de tareas, la limitación del trabajo en progreso (**WIP: Work In Progress**) y la identificación de cuellos de botella, fomentando la colaboración y la comunicación constante entre los miembros del equipo.
+
+-   **Ventajas:** Método simple de implementar, facilita la detección y resolución de problemas en el flujo de trabajo, promueve la mejora continua y ofrece alta visibilidad del estado de las tareas.
+-   **Desventajas:** Al ser menos estructurado que Scrum, no define roles específicos ni planificación estricta, lo que puede dificultar su aplicación en equipos que requieren más guía o dirección.
 
 ### Extreme Programming (XP)
 
--   **Características:** Prácticas técnicas rigurosas (TDD, Pair Programming, Integración Continua).
--   **Ventajas:** Alta calidad técnica del código, feedback constante.
--   **Desventajas:** Difícil de adoptar sin cultura técnica sólida.
+Extreme Programming (XP) es una metodología ágil orientada a la entrega rápida y continua de software de alta calidad. Se basa en una serie de prácticas técnicas rigurosas que buscan maximizar la eficiencia del equipo de desarrollo y asegurar la calidad del producto. Entre estas prácticas destacan: **Pair Programming (programación en parejas)**, **Test-Driven Development (desarrollo guiado por pruebas)** y la **integración continua**.
+
+XP fomenta una comunicación constante con el cliente, la simplicidad en el diseño y la capacidad de adaptación ante cambios frecuentes en los requisitos.
+
+-   **Ventajas:** Asegura un alto nivel de calidad técnica en el código, fomenta el feedback rápido y continuo, y mejora la capacidad de respuesta a cambios.
+-   **Desventajas:** Su adopción puede ser difícil en equipos con poca madurez técnica o sin una cultura de desarrollo colaborativo y disciplinado.
 
 ---
 
