@@ -71,3 +71,30 @@ Se enfocan en la flexibilidad, la colaboración con el cliente y la entrega cont
 -   **Ventajas:** Alta calidad técnica del código, feedback constante.
 -   **Desventajas:** Difícil de adoptar sin cultura técnica sólida.
 
+---
+
+## 🚀 DevOps
+
+DevOps no es simplemente un modelo de desarrollo más, sino una filosofía y una práctica integral que transforma la forma en que los equipos de desarrollo (Dev) y operaciones (Ops) trabajan juntos para crear, entregar y mantener software de alta calidad de manera rápida, confiable y continua.
+
+A diferencia de los modelos tradicionales que separan claramente el desarrollo del despliegue y la operación, DevOps propone una integración constante entre estas áreas, fomentando la colaboración, la automatización y la mejora continua en todo el ciclo de vida del software. Su adopción busca resolver problemas comunes como los retrasos en la entrega, errores en ambientes productivos, falta de visibilidad en los procesos y dificultades para escalar aplicaciones.
+
+### 🔑 Conceptos Clave de DevOps
+
+-   **CI/CD (Integración Continua / Entrega Continua):**  
+    Automatización de la integración y despliegue de código, permitiendo validar y entregar cambios frecuentemente con menor riesgo y esfuerzo manual.
+
+-   **Infraestructura como Código (IaC):**  
+    Gestión y aprovisionamiento de infraestructuras (servidores, redes, bases de datos) mediante archivos de configuración versionables, facilitando reproducibilidad, escalabilidad y control de cambios.
+
+-   **Automatización de Pruebas y Despliegue:**  
+    Las pruebas unitarias, de integración y de aceptación se ejecutan automáticamente en cada ciclo, asegurando calidad constante antes de cualquier despliegue.
+
+-   **Monitorización y Observabilidad:**  
+    Implementación de herramientas que permiten detectar fallos, analizar rendimiento y anticipar incidentes en producción, garantizando estabilidad operativa.
+
+-   **Feedback Continuo:**  
+    Retroalimentación temprana y constante desde producción hacia el equipo de desarrollo, permitiendo ajustes rápidos y mejoras oportunas.
+
+-   **Cultura Colaborativa:**  
+    Eliminación de silos organizacionales entre desarrollo, operaciones, seguridad y calidad, fomentando equipos multifuncionales responsables de todo el ciclo de vida de la aplicación.
