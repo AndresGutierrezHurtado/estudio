@@ -65,3 +65,33 @@ Los principios SOLID son fundamentales para el diseño de software orientado a o
    _Facilita la inversión de control (IoC) y la inyección de dependencias (DI)._
 
 ---
+
+## 🔶 Patrones de Diseño (GoF)
+
+Los **Patrones de Diseño** son soluciones comprobadas a problemas comunes de diseño en desarrollo de software. Se clasifican en tres grandes grupos:
+
+### Creacionales
+
+-   **Singleton:** Garantiza que una clase tenga una única instancia global.
+-   **Factory Method:** Define una interfaz para crear objetos, dejando a las subclases decidir qué clase instanciar.
+-   **Abstract Factory:** Produce familias de objetos relacionados sin especificar sus clases concretas.
+-   **Builder:** Permite construir un objeto paso a paso.
+-   **Prototype:** Crea nuevos objetos copiando una instancia existente.
+
+### Estructurales
+
+-   **Adapter:** Permite que interfaces incompatibles trabajen juntas.
+-   **Composite:** Permite tratar objetos individuales y composiciones de objetos de manera uniforme.
+-   **Decorator:** Agrega funcionalidades a un objeto de manera dinámica.
+-   **Facade:** Proporciona una interfaz simplificada a un subsistema complejo.
+-   **Proxy:** Controla el acceso a un objeto.
+
+### Comportamiento
+
+-   **Strategy:** Define una familia de algoritmos, encapsula cada uno y los hace intercambiables.
+-   **Observer:** Permite que múltiples objetos se suscriban y reciban notificaciones de un objeto central.
+-   **Command:** Encapsula una solicitud como un objeto, permitiendo parametrizar clientes.
+-   **State:** Permite que un objeto altere su comportamiento cuando su estado interno cambia.
+-   **Template Method:** Define el esqueleto de un algoritmo, dejando algunos pasos a subclases.
+
+---
