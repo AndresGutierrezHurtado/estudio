@@ -8,29 +8,29 @@ Ignorar las buenas prácticas de diseño y arquitectura conduce con frecuencia a
 
 ### ¿Por qué es importante este módulo?
 
-- Permite tomar **decisiones técnicas bien argumentadas**, evitando soluciones improvisadas o la aparición de anti-patrones que generan deuda técnica.
-- Facilita la creación de sistemas que son **fáciles de probar, mantener, escalar y extender**, incluso cuando el equipo o la funcionalidad del producto crecen con el tiempo.
-- Reduce el riesgo de incurrir en fallos de diseño o arquitectura que pueden derivar en costosas reescrituras, bloqueos tecnológicos o problemas de rendimiento.
-- Ayuda a construir software alineado con las **necesidades reales del negocio y del dominio del problema**, no limitado únicamente a los aspectos técnicos.
-- Mejora la comunicación entre los distintos perfiles del equipo de desarrollo (desarrolladores, arquitectos, líderes técnicos, DevOps), mediante diagramas, modelos y documentación clara que todos pueden entender.
+-   Permite tomar **decisiones técnicas bien argumentadas**, evitando soluciones improvisadas o la aparición de anti-patrones que generan deuda técnica.
+-   Facilita la creación de sistemas que son **fáciles de probar, mantener, escalar y extender**, incluso cuando el equipo o la funcionalidad del producto crecen con el tiempo.
+-   Reduce el riesgo de incurrir en fallos de diseño o arquitectura que pueden derivar en costosas reescrituras, bloqueos tecnológicos o problemas de rendimiento.
+-   Ayuda a construir software alineado con las **necesidades reales del negocio y del dominio del problema**, no limitado únicamente a los aspectos técnicos.
+-   Mejora la comunicación entre los distintos perfiles del equipo de desarrollo (desarrolladores, arquitectos, líderes técnicos, DevOps), mediante diagramas, modelos y documentación clara que todos pueden entender.
 
 ---
 
-### 🎯 Objetivo del módulo
+## 🎯 Objetivo del módulo
 
 El objetivo principal de este módulo es proporcionar una comprensión sólida de los principios, prácticas y herramientas asociadas al diseño y la arquitectura de software. Al finalizar este módulo, serás capaz de:
 
-- Aplicar los **principios SOLID** para escribir código limpio, modular y de fácil mantenimiento.
-- Reconocer y utilizar adecuadamente los principales **patrones de diseño (GoF)** para resolver problemas recurrentes de manera elegante y reutilizable.
-- Evaluar y seleccionar entre diferentes **patrones de arquitectura** (como Monolito, Microservicios, Event-Driven o Serverless) en función de los requisitos técnicos y de negocio de un proyecto.
-- Representar gráficamente la arquitectura de un sistema utilizando modelos como el **C4 Model** o diagramas UML de componentes, facilitando la comunicación técnica con otros miembros del equipo.
-- Diseñar sistemas preparados para el cambio, la escalabilidad y la evolución continua, reduciendo riesgos de obsolescencia o re-trabajo a futuro.
+-   Aplicar los **principios SOLID** para escribir código limpio, modular y de fácil mantenimiento.
+-   Reconocer y utilizar adecuadamente los principales **patrones de diseño (GoF)** para resolver problemas recurrentes de manera elegante y reutilizable.
+-   Evaluar y seleccionar entre diferentes **patrones de arquitectura** (como Monolito, Microservicios, Event-Driven o Serverless) en función de los requisitos técnicos y de negocio de un proyecto.
+-   Representar gráficamente la arquitectura de un sistema utilizando modelos como el **C4 Model** o diagramas UML de componentes, facilitando la comunicación técnica con otros miembros del equipo.
+-   Diseñar sistemas preparados para el cambio, la escalabilidad y la evolución continua, reduciendo riesgos de obsolescencia o re-trabajo a futuro.
 
 En definitiva, este módulo te capacitará para tomar decisiones de diseño y arquitectura con criterio profesional, elevando la calidad técnica de tus proyectos y fortaleciendo tu perfil como desarrollador o arquitecto de software.
 
 ---
 
-## Diferencias entre Diseño y Arquitectura de Software
+## 🏗️ Diferencias entre Diseño y Arquitectura de Software
 
 -   **Arquitectura de Software:**  
     Es la visión de alto nivel del sistema. Define cómo se organizan los componentes principales, cómo se comunican entre sí y cómo se distribuyen las responsabilidades. Incluye decisiones tecnológicas clave, restricciones no funcionales (rendimiento, seguridad, escalabilidad) y patrones de organización global.
@@ -40,7 +40,7 @@ En definitiva, este módulo te capacitará para tomar decisiones de diseño y ar
 
 ---
 
-## Principios SOLID
+## 🧩 Principios SOLID
 
 Los principios SOLID son fundamentales para el diseño de software orientado a objetos y para mantener código limpio, flexible y fácil de mantener.
 
@@ -66,7 +66,7 @@ Los principios SOLID son fundamentales para el diseño de software orientado a o
 
 ---
 
-## Patrones de Diseño (GoF)
+## 🏷️ Patrones de Diseño (GoF)
 
 Los **Patrones de Diseño** son soluciones comprobadas a problemas comunes de diseño en desarrollo de software. Se clasifican en tres grandes grupos:
 
@@ -96,7 +96,7 @@ Los **Patrones de Diseño** son soluciones comprobadas a problemas comunes de di
 
 ---
 
-## 🔶 Patrones de Arquitectura de Software
+## 🏛️ Patrones de Arquitectura de Software
 
 Los **Patrones de Arquitectura** definen cómo se organizan los componentes de alto nivel de un sistema. Algunos de los más usados:
 
@@ -114,7 +114,7 @@ Los **Patrones de Arquitectura** definen cómo se organizan los componentes de a
 
 ---
 
-## 🔶 Modelado Arquitectónico
+## 🗂️ Modelado Arquitectónico
 
 Para documentar y visualizar una arquitectura de software de forma clara y compartible, existen enfoques estandarizados:
 
@@ -138,6 +138,3 @@ Para documentar y visualizar una arquitectura de software de forma clara y compa
 
 -   **Diagrama de Clases:**  
     Especifica las relaciones entre clases, atributos y métodos.
-
-
----
