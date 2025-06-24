@@ -28,3 +28,40 @@ El objetivo principal de este módulo es proporcionar una comprensión sólida d
 
 En definitiva, este módulo te capacitará para tomar decisiones de diseño y arquitectura con criterio profesional, elevando la calidad técnica de tus proyectos y fortaleciendo tu perfil como desarrollador o arquitecto de software.
 
+---
+
+## 🔶 Diferencias entre Diseño y Arquitectura de Software
+
+-   **Arquitectura de Software:**  
+    Es la visión de alto nivel del sistema. Define cómo se organizan los componentes principales, cómo se comunican entre sí y cómo se distribuyen las responsabilidades. Incluye decisiones tecnológicas clave, restricciones no funcionales (rendimiento, seguridad, escalabilidad) y patrones de organización global.
+
+-   **Diseño de Software:**  
+    Es la visión de detalle. Determina cómo se implementan los componentes definidos por la arquitectura, cómo se estructuran las clases, métodos, funciones, cómo se gestionan las dependencias y cómo se aplican patrones de diseño para resolver problemas técnicos específicos.
+
+---
+
+## 🔶 Principios SOLID
+
+Los principios SOLID son fundamentales para el diseño de software orientado a objetos y para mantener código limpio, flexible y fácil de mantener.
+
+1. **S - Single Responsibility Principle (SRP):**  
+   Una clase debe tener una única razón para cambiar.  
+   _Evita que una clase asuma múltiples responsabilidades._
+
+2. **O - Open/Closed Principle (OCP):**  
+   Las entidades de software deben estar abiertas para su extensión, pero cerradas para su modificación.  
+   _Permite añadir nuevas funcionalidades sin alterar el código existente._
+
+3. **L - Liskov Substitution Principle (LSP):**  
+   Las clases derivadas deben ser sustituibles por sus clases base sin alterar el comportamiento esperado.  
+   _Garantiza una jerarquía de herencia correcta._
+
+4. **I - Interface Segregation Principle (ISP):**  
+   Los clientes no deben verse forzados a depender de interfaces que no utilizan.  
+   _Promueve interfaces pequeñas y específicas._
+
+5. **D - Dependency Inversion Principle (DIP):**  
+   Las dependencias deben ser abstraídas. Los módulos de alto nivel no deben depender de módulos de bajo nivel, ambos deben depender de abstracciones.  
+   _Facilita la inversión de control (IoC) y la inyección de dependencias (DI)._
+
+---
