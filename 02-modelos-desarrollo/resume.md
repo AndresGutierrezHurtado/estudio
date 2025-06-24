@@ -1,6 +1,6 @@
 # 📌 Módulo 2: Modelos de Desarrollo de Software
 
-Los modelos de desarrollo de software son marcos conceptuales que definen cómo se estructura, organiza y gestiona el proceso de creación de un producto software. Estos modelos establecen las fases, actividades y entregables que deben cumplirse en un proyecto, permitiendo adaptar el desarrollo a las necesidades del cliente, el equipo y el contexto de negocio.
+Los modelos de desarrollo de software son como "guias" o "caminos" que definen cómo se estructura, organiza y gestiona el proceso de creación de un producto software. Estos modelos establecen las fases, actividades y entregables que deben cumplirse en un proyecto, permitiendo adaptar el desarrollo a las necesidades del cliente, el equipo y el contexto de negocio.
 
 El uso de un modelo de desarrollo adecuado ayuda a reducir riesgos, mejorar la planificación, garantizar la calidad del producto y facilitar la comunicación entre los distintos actores del proyecto. Conocer estos modelos permite a un desarrollador adaptarse a diferentes entornos de trabajo y metodologías, desde enfoques tradicionales hasta los más ágiles y modernos.
 
@@ -16,36 +16,45 @@ Identificar y comprender los distintos modelos de desarrollo de software, sus pr
 
 Son modelos secuenciales, donde las etapas del desarrollo están bien definidas y deben completarse una tras otra. Se utilizan en proyectos con requisitos estables y bien conocidos desde el inicio.
 
+Se utilizan cuando el cliente sabe con exactitud lo que necesita desde el inicio.
+Sin embargo, estos modelos presentan dificultades para adaptarse a modificaciones o correcciones surgidas en etapas avanzadas, lo que puede aumentar el riesgo si se detectan errores tarde.
+
 ### Modelo en Cascada (Waterfall)
 
--   **Características:** Secuencial, rígido, fácil de gestionar.
+El modelo en cascada es una metodología de desarrollo de software de tipo secuencial. Su principio básico consiste en que cada fase del proyecto debe completarse en su totalidad antes de iniciar la siguiente. Esto asegura un flujo ordenado y estructurado, pero también limita la flexibilidad del proceso.
+
 -   **Fases:** Requisitos → Diseño → Implementación → Verificación → Mantenimiento.
--   **Ventajas:** Simplicidad, fácil documentación.
--   **Desventajas:** Dificultad para adaptarse a cambios, alto riesgo si se detectan errores tarde.
+-   **Ventajas:** Es un modelo simple de comprender y aplicar, facilita la generación de documentación clara y detallada en cada etapa.
+-   **Desventajas:** Presenta dificultad para adaptarse a cambios una vez iniciada la ejecución; si se detectan errores en etapas avanzadas, corregirlos implica un alto costo y riesgo para el proyecto.
 
 ### Modelo en V (V-Model)
 
--   **Características:** Extiende el modelo en cascada, relacionando cada fase de desarrollo con su fase de prueba correspondiente.
--   **Ventajas:** Mayor enfoque en la calidad y validación desde el inicio.
--   **Desventajas:** Similar rigidez que Waterfall, poco flexible ante cambios.
+El modelo en V es una evolución del modelo en cascada que introduce actividades explícitas de verificación y validación en cada fase del ciclo de desarrollo. La **verificación** consiste en comprobar que cada fase se haya ejecutado correctamente según los estándares y métodos definidos, mientras que la **validación** garantiza que el producto final cumpla con los requisitos esperados por el cliente o usuario.
+
+-   **Ventajas:** Proporciona un mayor enfoque en la calidad del producto final, ya que la validación y verificación se consideran desde el inicio del proceso.
+-   **Desventajas:** Comparte la misma rigidez que el modelo en cascada, lo que lo hace poco adaptable frente a cambios imprevistos o modificaciones en los requisitos.
 
 ---
 
 ## ♻️ Modelos Iterativos e Incrementales
 
-Permiten la construcción gradual del producto, a través de versiones o prototipos sucesivos que se validan y mejoran con el tiempo.
+Los modelos iterativos e incrementales se basan en la construcción gradual del producto mediante versiones sucesivas o prototipos. En cada ciclo, se entrega una versión parcial o funcional del sistema que es evaluada y mejorada con base en la retroalimentación obtenida.
+
+Este enfoque es ideal para proyectos donde los requisitos no están completamente definidos desde el inicio o pueden cambiar durante el desarrollo. Su principal fortaleza radica en la capacidad de adaptarse rápidamente a nuevas necesidades del cliente y en la detección temprana de errores, lo que permite reducir riesgos de manera significativa.
 
 ### Modelo de Prototipos
 
--   **Características:** Se desarrolla un prototipo rápido para validar requisitos o diseño.
--   **Ventajas:** Reduce riesgos de mala interpretación de requisitos.
--   **Desventajas:** Puede generar expectativas poco realistas si no se aclara que es solo un prototipo.
+El modelo de prototipos se centra en la creación de versiones preliminares del producto que permiten visualizar, probar y validar funcionalidades con los usuarios finales antes de desarrollar la solución definitiva. Estos prototipos sirven para aclarar requisitos, mejorar la comprensión del sistema y ajustar expectativas entre el equipo de desarrollo y el cliente.
+
+-   **Ventajas:** Ayuda a reducir el riesgo de malentendidos o interpretaciones erróneas de los requisitos del cliente, ya que permite obtener retroalimentación directa desde las primeras etapas.
+-   **Desventajas:** Si no se comunica claramente que se trata solo de un prototipo, puede generar en el cliente expectativas irreales sobre el estado real del producto.
 
 ### Modelo en Espiral
 
--   **Características:** Combina elementos del modelo en cascada con iteraciones enfocadas en la gestión de riesgos.
--   **Ventajas:** Adecuado para proyectos complejos y de alto riesgo.
--   **Desventajas:** Mayor coste y tiempo debido a la planificación intensiva.
+El modelo en espiral combina características del modelo en cascada y de los modelos iterativos, incorporando además un fuerte enfoque en la gestión de riesgos. Cada ciclo de la espiral incluye actividades de planificación, análisis de riesgos, desarrollo y evaluación, lo que permite ajustar continuamente el proceso en función de los resultados obtenidos y los riesgos identificados.
+
+-   **Ventajas:** Es especialmente adecuado para proyectos complejos, de gran envergadura o con alta incertidumbre, ya que permite una gestión constante de riesgos y un desarrollo flexible.
+-   **Desventajas:** Su aplicación implica mayores costos y tiempos de desarrollo debido a la necesidad de realizar análisis y planificaciones detalladas en cada ciclo.
 
 ---
 
