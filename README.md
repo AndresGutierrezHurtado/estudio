@@ -144,10 +144,3 @@ Un software sin documentación es difícil de mantener, escalar o entregar. Este
 ## 🚧 Estado del Repositorio
 
 En construcción. Este repositorio se irá completando progresivamente conforme avance en mi proceso de aprendizaje.
-
----
-
-## 👨‍💻 Autor
-
-**Andrés Gutiérrez Hurtado**  
-Técnico en Programación de Software | Estudiante de Tecnología en Análisis y Desarrollo de Software

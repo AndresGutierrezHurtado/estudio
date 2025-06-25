@@ -37,6 +37,7 @@ El modelo en V es una evolución del modelo en cascada que introduce actividades
 -   **Desventajas:** Comparte la misma rigidez que el modelo en cascada, lo que lo hace poco adaptable frente a cambios imprevistos o modificaciones en los requisitos.
 
 ![Diagrama del modelo en v](https://visuresolutions.com/wp-content/uploads/2025/01/V-Model-1024x690.png)
+
 ---
 
 ## ♻️ Modelos Iterativos e Incrementales
@@ -117,6 +118,28 @@ XP fomenta una comunicación constante con el cliente, la simplicidad en el dise
 -   **Desventajas:** Su adopción puede ser difícil en equipos con poca madurez técnica o sin una cultura de desarrollo colaborativo y disciplinado.
 
 ![Diagrama XP](https://www.researchgate.net/publication/316976788/figure/fig1/AS:646073588645888@1531047355074/P-methodology-Source-Gonzalez-C-2012-Traduccion-de-la-imagen-XP-aplicado-Applied.png)
+
+---
+
+## Trade-Offs
+
+Un **trade-off** es una decisión técnica que implica **aceptar una desventaja a cambio de obtener una ventaja**.  
+En el desarrollo de software, **no existe una solución perfecta para todos los contextos**: elegir un modelo de desarrollo significa equilibrar prioridades como velocidad, calidad, flexibilidad, costo y control.
+
+Comprender los trade-offs de cada enfoque permite tomar decisiones más informadas, adaptadas al contexto real del proyecto, equipo y negocio.  
+Cada modelo de desarrollo tiene fortalezas, pero también sacrifica ciertos beneficios en favor de otros. Este análisis es clave para elegir la estrategia más adecuada.
+
+A continuación, se presentan los **principales modelos de desarrollo** con sus ventajas, desventajas, escenarios recomendados y el trade-off que representan.
+
+| Modelo             | Ventajas                                                                                                                        | Desventajas                                                                                                    | Cuándo usarlo                                                                                    | Trade-Off                                                                                          |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------- |
+| Cascada            | Estructura clara y fases bien definidas. Buena documentación. Ideal para requisitos estables. Facilita planificación y control. | Rígido ante cambios. Feedback tardío. Puede ocultar errores hasta etapas finales.                              | Proyectos con requisitos estables (ej. sistemas militares, hardware, proyectos gubernamentales). | Ganas orden y control, pero pierdes flexibilidad y adaptabilidad a cambios.                        |
+| V-Model            | Refuerza calidad al integrar pruebas desde el diseño. Claridad en verificación y validación. Útil en sistemas críticos.         | Rígido, costoso y lento. Poco adecuado para cambios frecuentes.                                                | Proyectos donde la validación rigurosa es crítica (ej. salud, banca, aviación).                  | Ganas calidad y validación estructurada, pero pierdes velocidad y capacidad de respuesta.          |
+| Prototipos         | Feedback temprano. Ayuda a descubrir requisitos ocultos. Enfocado en el usuario.                                                | Riesgo de que el prototipo se convierta en el sistema real. Puede descuidar la calidad o arquitectura.         | Proyectos con incertidumbre en los requisitos o validación temprana con el usuario.              | Ganas validación temprana, pero puedes sacrificar robustez si se convierte en producto final.      |
+| Espiral            | Identificación de riesgos. Adaptabilidad. Iteración controlada. Enfoque en calidad progresiva.                                  | Complejo de implementar. Costoso. Requiere experiencia para gestionar bien los ciclos.                         | Proyectos grandes o críticos con alta incertidumbre y necesidad de gestionar riesgos.            | Ganas control de riesgos y adaptabilidad, pero pierdes simplicidad y velocidad de entrega.         |
+| Scrum              | Alta adaptabilidad. Entregas frecuentes. Feedback continuo. Mejora continua. Ideal para equipos colaborativos.                  | Requiere disciplina. Reuniones constantes. Puede haber sobrecarga si no se gestiona bien.                      | Proyectos dinámicos, colaborativos, con cambios frecuentes. Equipos con buena comunicación.      | Ganas agilidad y mejora continua, pero pierdes control estricto sobre planificación a largo plazo. |
+| Kanban             | Flujo continuo. Visualización clara del trabajo. Flexibilidad total. Bajo overhead de gestión.                                  | Falta de estructura temporal. Difícil medir entregables si no se combina con otros métodos.                    | Entornos con mantenimiento continuo o equipos que ya tienen experiencia y disciplina.            | Ganas flexibilidad y enfoque en flujo, pero pierdes control sobre fechas o hitos definidos.        |
+| XP (Extreme Prog.) | Fomenta calidad del código. Pruebas automáticas. Comunicación constante. Reducción de errores y alta satisfacción del cliente.  | Alta demanda técnica. Difícil de escalar. Puede no ser adecuado en equipos grandes o con baja madurez técnica. | Equipos pequeños, altamente técnicos, donde la calidad y rapidez son prioridades.                | Ganas calidad y velocidad con disciplina, pero pierdes escalabilidad y estructura formal.          |
 
 ---
 
