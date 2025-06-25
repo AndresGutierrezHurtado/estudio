@@ -1,0 +1,17 @@
+# Allow access to uploaded files
+<FilesMatch "\.(jpg|jpeg|png|gif|pdf|txt|doc|docx)$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
+
+# Prevent access to sensitive files
+<FilesMatch "\.(sql|log|ini|conf)$">
+    Order Deny,Allow
+    Deny from all
+</FilesMatch>
+
+# Enable directory listing for uploads (optional)
+<Directory "uploads">
+    Options +Indexes
+    IndexOptions +FancyIndexing
+</Directory> 
