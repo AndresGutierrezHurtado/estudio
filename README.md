@@ -16,7 +16,6 @@ Este módulo introduce los principios básicos que diferencian el desarrollo de 
 -   ¿Qué es la Ingeniería de Software?
 -   Principios de calidad de software (Modularidad, Abstracción, Cohesión, Acoplamiento).
 -   Proceso de desarrollo de software (SDLC).
--   Diferencias con programación.
 
 ---
 
@@ -29,7 +28,7 @@ Los modelos de desarrollo definen cómo se organiza el trabajo dentro de un proy
 -   Modelos ágiles: Scrum, Kanban, XP.
 -   DevOps: Conceptos y flujo continuo.
 
-📄 [Ver Resumen Completo](./02-modelos-desarrollo/resume.md)
+📄 [Ver Resumen Completo](./02-modelos-desarrollo/summary.md)
 
 ---
 
@@ -42,7 +41,7 @@ Antes de construir cualquier software, es esencial entender qué problema se qui
 -   Modelado de requisitos (Casos de uso, Historias de Usuario).
 -   UML básico (Diagrama de Casos de Uso).
 
-📄 [Ver Resumen Completo](./03-analisis-requisitos/resumen.md)
+📄 [Ver Resumen Completo](./03-analisis-requisitos/summary.md)
 
 ---
 
@@ -55,7 +54,7 @@ Este módulo se enfoca en cómo estructurar tu aplicación para que sea mantenib
 -   Patrones de Arquitectura: Monolito, Microservicios, Event-Driven, Serverless.
 -   Modelado arquitectónico: C4 Model, Diagramas de Componentes.
 
-📄 [Ver Resumen Completo](./04-diseno-arquitectura/resume.md)
+📄 [Ver Resumen Completo](./04-diseno-arquitectura/summary.md)
 
 ---
 
@@ -77,7 +76,7 @@ No basta con que el software funcione: debe ser confiable. Este módulo aborda l
 -   TDD: Desarrollo guiado por pruebas.
 -   Herramientas: Jest, PHPUnit, etc.
 
-📄 [Ver Resumen Completo](./06-pruebas-software/resumen.md)
+📄 [Ver Resumen Completo](./06-pruebas-software/summary.md)
 
 ---
 

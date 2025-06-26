@@ -1,5 +1,7 @@
 # 📌 Módulo 6: Pruebas de Software (Testing)
 
+🔙 [Volver al inicio](../README.md)
+
 El desarrollo de software profesional no se limita únicamente a programar funcionalidades que "funcionen" en condiciones ideales; requiere garantizar que el sistema sea confiable, robusto y capaz de responder correctamente ante situaciones imprevistas, cambios o evolución futura. Las pruebas de software (o software testing) son una actividad esencial para validar que el producto cumple con los requisitos funcionales y no funcionales esperados, reduciendo la probabilidad de defectos en producción y mejorando la calidad global del sistema.
 
 En proyectos reales, los errores no detectados en etapas tempranas pueden generar costos elevados en términos de tiempo, dinero y reputación. Por ello, implementar prácticas de testing adecuadas es un elemento clave en el ciclo de vida del desarrollo de software, independientemente del lenguaje, framework o paradigma que se utilice.

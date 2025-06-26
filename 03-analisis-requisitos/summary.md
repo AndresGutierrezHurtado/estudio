@@ -1,5 +1,7 @@
 # 📌 Módulo 03: Análisis de Requisitos
 
+🔙 [Volver al inicio](../README.md)
+
 El análisis de requisitos es una etapa fundamental dentro del ciclo de vida del desarrollo de software (SDLC). Consiste en identificar, comprender, documentar y validar las necesidades y expectativas que tienen los usuarios, clientes y demás interesados respecto a un sistema informático. En esta fase se define qué debe hacer el sistema y bajo qué condiciones debe operar, antes de comenzar con el diseño o la codificación.
 
 Su importancia radica en que un software solo es exitoso si realmente resuelve el problema para el que fue creado. Si los requisitos no se recolectan o interpretan correctamente, existe un alto riesgo de que el producto final no cumpla con lo que el cliente esperaba, lo que puede derivar en retrabajo, sobrecostos, retrasos e insatisfacción del usuario. Por esta razón, el análisis de requisitos se considera una actividad estratégica que impacta directamente en la calidad, funcionalidad, escalabilidad y mantenibilidad del software.

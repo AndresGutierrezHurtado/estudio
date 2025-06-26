@@ -1,5 +1,7 @@
 # 📌 Módulo 4: Diseño y Arquitectura de Software
 
+🔙 [Volver al inicio](../README.md)
+
 El **Diseño y la Arquitectura de Software** constituyen dos pilares fundamentales dentro de la ingeniería de software profesional. Estos conceptos van mucho más allá de la simple implementación de código; representan la base sobre la cual se construyen sistemas capaces de perdurar en el tiempo, adaptarse a nuevas necesidades y evolucionar sin comprometer su calidad o funcionamiento.
 
 Diseñar y estructurar correctamente un sistema permite que este sea **mantenible, escalable, reutilizable y flexible ante el cambio**, cualidades esenciales en proyectos reales donde los requisitos evolucionan constantemente. Una arquitectura adecuada no solo facilita el trabajo del equipo de desarrollo, sino que también impacta positivamente en la calidad del producto final, su costo de mantenimiento y su capacidad para integrarse con otros sistemas o tecnologías.
