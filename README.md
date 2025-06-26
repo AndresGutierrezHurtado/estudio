@@ -17,6 +17,8 @@ Este módulo introduce los principios básicos que diferencian el desarrollo de 
 -   Principios de calidad de software (Modularidad, Abstracción, Cohesión, Acoplamiento).
 -   Proceso de desarrollo de software (SDLC).
 
+📄 [Ver Resumen Completo](./01-fundamentos-ingenieria/summary.md)
+
 ---
 
 ### 📌 Módulo 2: Modelos de Desarrollo de Software
