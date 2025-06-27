@@ -17,7 +17,7 @@ require_once(__DIR__ . "/config.php");
 require_once(__DIR__ . "/repositories/userRepository.php");
 
 // CAPA DE NEGOCIO
-require_once(__DIR__ . "/services/userService.php");
+require_once(__DIR__ . "/services/authService.php");
 
 // CAPA DE PRESENTACION
 require_once(__DIR__ . "/controllers/pageController.php");

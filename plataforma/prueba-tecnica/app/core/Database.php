@@ -1,11 +1,15 @@
 <?php
 
 class Database implements IDatabase
-{ 
+{
     private $conn;
+    public static $instance;
 
     public function __construct()
     {
+        if (self::$instance) {
+            return self::$instance;
+        }
         try {
             $this->connect();
         } catch (PDOException $e) {
