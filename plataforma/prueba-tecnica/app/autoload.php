@@ -15,9 +15,11 @@ require_once(__DIR__ . "/config.php");
 
 // CAPA DE PERSISTENCIA
 require_once(__DIR__ . "/repositories/userRepository.php");
+require_once(__DIR__ . "/repositories/taskRepository.php");
 
 // CAPA DE NEGOCIO
 require_once(__DIR__ . "/services/authService.php");
+require_once(__DIR__ . "/services/taskService.php");
 
 // CAPA DE PRESENTACION
 require_once(__DIR__ . "/controllers/pageController.php");

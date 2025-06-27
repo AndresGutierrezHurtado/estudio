@@ -2,10 +2,11 @@
 
 class PageController extends Controller
 {
+    private $taskService;
 
-    public function __construct(PDO $conn)
+    public function __construct(ITaskService $taskService)
     {
-        parent::__construct($conn);
+        $this->taskService = $taskService;
     }
 
     public function home()
@@ -34,7 +35,6 @@ class PageController extends Controller
         $title = "Dashboard";
         $content = __DIR__ . "/../views/pages/dashboard.view.php";
 
-        // Get filter and sort parameters
         $filters = [
             'priority' => $_GET['priority'] ?? '',
             'status' => $_GET['status'] ?? '',
@@ -43,9 +43,7 @@ class PageController extends Controller
             'date_to' => $_GET['date_to'] ?? ''
         ];
 
-        // Fetch tasks for the current user with filters and sorting
-        $taskController = new TaskController($this->conn);
-        $tasks = $taskController->getTasksByUser($_SESSION['user_id'], $filters, $_GET['sort'] ?? 'task_priority:DESC');
+        $tasks = $this->taskService->getTasksByUser($_SESSION['user_id'], $filters, $_GET['sort'] ?? 'task_priority:DESC');
 
         // Get filter options for the view
         $filterOptions = [

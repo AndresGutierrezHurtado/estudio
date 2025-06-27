@@ -25,14 +25,23 @@ class Router
         $db = new Database();
 
         switch ($this->controller) {
+            case 'pageController':
+                $taskRepository = new TaskRepository($db);
+                $taskService = new TaskService($taskRepository);
+
+                $controller = new $this->controller($taskService);
+                break;
             case 'authController':
                 $userRepository = new UserRepository($db);
                 $authService = new AuthService($userRepository);
 
                 $controller = new $this->controller($authService);
                 break;
-            default:
-                $controller = new $this->controller($db->getConnection());
+            case 'taskController':
+                $taskRepository = new TaskRepository($db);
+                $taskService = new TaskService($taskRepository);
+
+                $controller = new $this->controller($taskService);
                 break;
         }
 
