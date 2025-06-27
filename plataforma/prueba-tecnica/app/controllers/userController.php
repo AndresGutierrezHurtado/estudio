@@ -1,42 +1,28 @@
 <?php
 
-class UserController extends Controller
+class UserController
 {
-    public function __construct(PDO $conn)
+    private $authService;
+
+    public function __construct(IAuthService $authService)
     {
-        parent::__construct($conn);
+        $this->authService = $authService;
     }
 
     public function register()
     {
-        $data = $_POST;
-        $nickname = $data['username'];
-        $email = $data['email'];
-        $password = $data['password'];
+        try {
+            $data = $_POST;
 
-        // check if email is already in use
-        $sql = "SELECT * FROM users WHERE user_email = :email OR user_nickname = :nickname";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':nickname', $nickname);
-        $stmt->execute();
+            $result = $this->authService->register($data);
 
-        if ($stmt->rowCount() > 0) {
-            header("Location: /page/register?error=existentUser");
+            if ($result) {
+                header("Location: /page/home/?success=registered");
+                exit;
+            }
+        } catch (Exception $e) {
+            header("Location: /page/register/?error=" . $e->getMessage());
             exit;
-        }
-
-        $sql = "INSERT INTO users (`user_nickname`, `user_email`, `user_password`) VALUES (:nickname, :email, :pass)";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':nickname', $nickname);
-        $stmt->bindParam(':pass', password_hash($password, PASSWORD_DEFAULT));
-        $stmt->execute();
-
-        if ($stmt->rowCount() > 0) {
-            header("Location: /page/register/?success=registered");
-        } else {
-            header("Location: /page/register.?error=errorRegister");
         }
     }
 }

@@ -8,7 +8,6 @@ class UserRepository implements IUserRepository
     public function __construct(IDatabase $database)
     {
         $this->database = $database;
-        $this->database->connect();
         $this->conn = $this->database->getConnection();
     }
 
@@ -20,8 +19,6 @@ class UserRepository implements IUserRepository
         $stmt->execute();
 
         $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        $this->database->closeConnection();
 
         return $users;
     }
@@ -35,12 +32,10 @@ class UserRepository implements IUserRepository
         $stmt->execute();
 
         if ($stmt->rowCount() === 0) {
-            $this->database->closeConnection();
             return null;
         }
 
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-        $this->database->closeConnection();
 
         return $user;
     }
@@ -59,8 +54,6 @@ class UserRepository implements IUserRepository
 
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        $this->database->closeConnection();
-
         return $user;
     }
 
@@ -70,12 +63,10 @@ class UserRepository implements IUserRepository
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(':nickname', $data['nickname']);
         $stmt->bindParam(':email', $data['email']);
-        $stmt->bindParam(':pass', $data['pass']);
+        $stmt->bindParam(':pass', $data['password']);
         $stmt->execute();
 
         $result = $stmt->rowCount();
-
-        $this->database->closeConnection();
 
         if ($result > 0) {
             return true;
@@ -96,8 +87,6 @@ class UserRepository implements IUserRepository
 
         $result = $stmt->rowCount();
 
-        $this->database->closeConnection();
-
         if ($result > 0) {
             return true;
         }
@@ -113,8 +102,6 @@ class UserRepository implements IUserRepository
         $stmt->execute();
 
         $result = $stmt->rowCount();
-
-        $this->database->closeConnection();
 
         if ($result > 0) {
             return true;

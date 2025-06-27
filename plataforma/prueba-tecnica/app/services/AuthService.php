@@ -17,7 +17,7 @@ class AuthService implements IAuthService
             throw new Exception("El email ya está en uso", 400);
         }
 
-        $data['pass'] = password_hash($data['pass'], PASSWORD_DEFAULT);
+        $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
         $result = $this->repository->add($data);
 

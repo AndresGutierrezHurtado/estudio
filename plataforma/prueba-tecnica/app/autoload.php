@@ -23,5 +23,6 @@ require_once(__DIR__ . "/services/authService.php");
 require_once(__DIR__ . "/controllers/pageController.php");
 require_once(__DIR__ . "/controllers/authController.php");
 require_once(__DIR__ . "/controllers/taskController.php");
+require_once(__DIR__ . "/controllers/userController.php");
 
 require_once(__DIR__ . "/router.php");

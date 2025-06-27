@@ -13,9 +13,9 @@
             <form action="/user/register" method="POST" class="space-y-5">
                 <!-- usename -->
                 <fieldset class="fieldset">
-                    <label for="username" class="fieldset-label">Nombre de usuario:</label>
+                    <label for="nickname" class="fieldset-label">Nombre de usuario:</label>
                     <label class="input w-full focus-within:outline-0 focus-within:border-primary validator">
-                        <input type="text" id="username" name="username" placeholder="Nombre de usuario" minlength="3" required />
+                        <input type="text" id="nickname" name="nickname" placeholder="Nombre de usuario" minlength="3" required />
                         <div class="validator-hint hidden">El nombre de usuario debe tener al menos 3 caracteres</div>
                     </label>
                 </fieldset>
