@@ -13,3 +13,9 @@ interface IUserRepository extends IRepository
 {
     public function getByEmail($email);
 }
+
+interface ITaskRepository extends IRepository
+{
+    public function addFile($taskId, $relativePath): bool;
+    public function getTasksByUserId($userId, $filters = [], $sort): array;
+}

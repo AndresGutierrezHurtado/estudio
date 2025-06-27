@@ -9,7 +9,7 @@ class AuthService implements IAuthService
         $this->repository = $repository;
     }
 
-    public function register($data)
+    public function register($data): bool
     {
         $existingUser = $this->repository->getByEmail($data['email']);
 
@@ -28,7 +28,7 @@ class AuthService implements IAuthService
         return true;
     }
 
-    public function login($email, $password)
+    public function login($email, $password): bool
     {
         $user = $this->repository->getByEmail($email);
 
@@ -46,7 +46,7 @@ class AuthService implements IAuthService
         return true;
     }
 
-    public function logout()
+    public function logout(): void
     {
         session_destroy();
         header("Location: /page/home/?success=loggedOut");

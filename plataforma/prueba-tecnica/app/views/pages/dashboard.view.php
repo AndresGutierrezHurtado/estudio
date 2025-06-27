@@ -357,7 +357,6 @@
                     </fieldset>
                     <fieldset class="fieldset">
                         <label for="task_priority" class="fieldset-label">Prioridad:</label>
-                        <?= $task['task_priority'] === "media" ?>
                         <select
                             id="task_priority"
                             name="task_priority"
