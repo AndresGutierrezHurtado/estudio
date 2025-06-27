@@ -4,7 +4,6 @@ class Router
 {
     private $controller;
     private $method;
-    private $service;
 
     public function __construct()
     {
