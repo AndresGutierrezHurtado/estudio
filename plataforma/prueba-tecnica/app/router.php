@@ -31,12 +31,6 @@ class Router
 
                 $controller = new $this->controller($authService);
                 break;
-            case 'userController':
-                $userRepository = new UserRepository($db);
-                $authService = new AuthService($userRepository);
-
-                $controller = new $this->controller($authService);
-                break;
             default:
                 $controller = new $this->controller($db->getConnection());
                 break;

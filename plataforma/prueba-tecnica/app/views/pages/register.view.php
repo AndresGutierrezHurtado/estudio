@@ -10,7 +10,7 @@
                     Ingresa tus datos para crear tu cuenta y ser parte de la comunidad de Tasky, donde podrás organizar tus tareas y proyectos.
                 </p>
             </div>
-            <form action="/user/register" method="POST" class="space-y-5">
+            <form action="/auth/register" method="POST" class="space-y-5">
                 <!-- usename -->
                 <fieldset class="fieldset">
                     <label for="nickname" class="fieldset-label">Nombre de usuario:</label>
