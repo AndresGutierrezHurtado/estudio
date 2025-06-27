@@ -35,6 +35,8 @@ class TaskController
 
             if ($result) {
                 header("Location: /page/dashboard/?success=taskUpdated");
+            } else {
+                throw new Exception("Error al actualizar la tarea", 500);
             }
         } catch (Exception $e) {
             header("Location: /page/dashboard/?error=" . $e->getMessage());
@@ -48,6 +50,8 @@ class TaskController
 
             if ($result) {
                 header("Location: /page/dashboard/?success=taskDeleted");
+            } else {
+                throw new Exception("Error al eliminar la tarea", 500);
             }
         } catch (Exception $e) {
             header("Location: /page/dashboard/?error=" . $e->getMessage());

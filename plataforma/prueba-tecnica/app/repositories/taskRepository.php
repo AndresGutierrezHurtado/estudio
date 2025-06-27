@@ -61,13 +61,15 @@ class TaskRepository implements ITaskRepository
 
     public function update($id, $data): bool
     {
-        $sql = "UPDATE tasks SET task_title = :title, task_description = :description, task_due_date = :due_date, task_priority = :priority WHERE task_id = :task_id";
+        $sql = "UPDATE tasks SET task_title = :title, task_description = :descr, task_due_date = :due_date, task_priority = :prio WHERE task_id = :task_id";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(':task_id', $data['task_id']);
+        $stmt->bindParam(':task_id', $id);
         $stmt->bindParam(':title', $data['task_title']);
-        $stmt->bindParam(':description', $data['task_description']);
+        $stmt->bindParam(':descr', $data['task_description']);
         $stmt->bindParam(':due_date', $data['task_due_date']);
-        $stmt->bindParam(':priority', $data['task_priority']);
+        $stmt->bindParam(':prio', $data['task_priority']);
+
+        $stmt->execute();
 
         if ($stmt->rowCount() === 0) {
             return false;
@@ -78,11 +80,15 @@ class TaskRepository implements ITaskRepository
 
     public function delete($id): bool
     {
-        $sql = "DELETE FROM files WHERE file_task_id = :task_id";
-
+        $sql = "DELETE FROM tasks WHERE task_id = :task_id";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(':task_id', $id);
         $stmt->execute();
+
+        $sql2 = "DELETE FROM files WHERE file_task_id = :task_id";
+        $stmt2 = $this->conn->prepare($sql2);
+        $stmt2->bindParam(':task_id', $id);
+        $stmt2->execute();
 
         if ($stmt->rowCount() === 0) {
             return false;

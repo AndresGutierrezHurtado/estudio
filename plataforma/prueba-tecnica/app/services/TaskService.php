@@ -42,7 +42,9 @@ class TaskService implements ITaskService
 
     public function deleteTask($taskId): bool
     {
-        return $this->taskRepository->delete($taskId);
+        $result = $this->taskRepository->delete($taskId);
+
+        return $result;
     }
 
     private function handleFileUploads($taskId, $files)
