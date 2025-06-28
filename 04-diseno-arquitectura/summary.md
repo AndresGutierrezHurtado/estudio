@@ -2,7 +2,7 @@
 
 🔙 [Volver al inicio](../README.md)
 
-El **Diseño y la Arquitectura de Software** constituyen dos pilares fundamentales dentro de la ingeniería de software profesional. Estos conceptos van mucho más allá de la simple implementación de código; representan la base sobre la cual se construyen sistemas capaces de perdurar en el tiempo, adaptarse a nuevas necesidades y evolucionar sin comprometer su calidad o funcionamiento.
+El **Diseño y la Arquitectura de Software** constituyen dos pilares fundamentales dentro de la ingeniería de software profesional. Estos conceptos van mucho más allá de la simple implementación de código; Diseñar y estructurar correctamente un sistema permite que este sea mantenible, escalable y adaptable, cualidades esenciales ante la evolución constante de los requisitos.
 
 Diseñar y estructurar correctamente un sistema permite que este sea **mantenible, escalable, reutilizable y flexible ante el cambio**, cualidades esenciales en proyectos reales donde los requisitos evolucionan constantemente. Una arquitectura adecuada no solo facilita el trabajo del equipo de desarrollo, sino que también impacta positivamente en la calidad del producto final, su costo de mantenimiento y su capacidad para integrarse con otros sistemas o tecnologías.
 
@@ -173,21 +173,118 @@ Se centran en **cómo interactúan los objetos entre sí**, cómo se comunican y
 
 ---
 
+## Atributos de calidad
+
+Los atributos de calidad son características no funcionales que definen cómo debe comportarse el sistema más allá de cumplir su funcionalidad.
+
+### Principales atributos:
+
+-   **Mantenibilidad**
+
+    -   Facilidad de modificación, mejora y corrección del sistema.
+
+-   **Eficiencia**
+
+    -   Uso óptimo de recursos (CPU, memoria, red).
+    -   Tiempo de respuesta aceptable.
+
+-   **Seguridad**
+
+    -   Protección frente a accesos indebidos o ataques.
+
+-   **Usabilidad**
+
+    -   Facilidad de uso e interacción para el usuario final.
+
+-   **Fiabilidad (Confiabilidad)**
+
+    -   Capacidad de continuar funcionando correctamente.
+    -   Madurez, tolerancia a fallos, recuperación.
+
+-   **Compatibilidad**
+
+    -   Interoperabilidad con otros sistemas y entornos.
+
+-   **Adaptabilidad**
+
+    -   Facilidad de adaptarse a cambios de entorno o requerimientos.
+
+-   **Escalabilidad**
+    -   Capacidad de manejar crecimiento en usuarios o datos.
+
+---
+
+## 2. Estilos de Arquitectura
+
+Son enfoques generales para organizar un sistema. Definen principios de alto nivel sobre cómo se estructuran los componentes.
+
+### Estilos más comunes:
+
+-   **Monolítico**
+
+    -   Toda la lógica en una sola aplicación.
+    -   Fácil de desarrollar, difícil de escalar.
+
+-   **Cliente/Servidor**
+
+    -   Separación entre cliente que solicita y servidor que responde.
+    -
+
+-   **Arquitectura por Capas**
+
+    -   Separación en presentación, lógica de negocio y datos.
+
+-   **Microservicios**
+
+    -   Módulos independientes que se comunican por red.
+
+-   **Orientada a Eventos**
+
+    -   Comunicación entre componentes basada en eventos.
+
+-   **Microkernel (Plugin)**
+
+    -   Núcleo central extensible por plugins o módulos.
+
+-   **Pipe & Filter (Flujo de Datos)**
+
+    -   Flujo secuencial donde cada etapa transforma los datos.
+
+-   **Service-Oriented Architecture (SOA)**
+    -   Servicios reutilizables que se comunican mediante protocolos.
+
+---
+
 ## 🏛️ Patrones de Arquitectura de Software
 
-Los **Patrones de Arquitectura** definen cómo se organizan los componentes de alto nivel de un sistema. Algunos de los más usados:
+Soluciones reutilizables y probadas para organizar los componentes de software dentro de un estilo.
 
--   **Monolito:**  
-    Toda la aplicación reside en un único proyecto desplegable. Fácil de desarrollar inicialmente pero puede volverse difícil de mantener a gran escala.
+-   **MVC (Modelo - Vista - Controlador)**
 
--   **Microservicios:**  
-    El sistema se divide en pequeños servicios independientes que se comunican generalmente vía HTTP/REST o mensajería. Permite escalabilidad y despliegue independiente.
+    -   Separación entre datos, lógica y presentación.
 
--   **Event-Driven (Orientado a Eventos):**  
-    Los componentes reaccionan a eventos generados por otros componentes. Facilita el desacoplamiento y la escalabilidad.
+-   **MVVM / MVP**
 
--   **Serverless:**  
-    Los componentes se ejecutan como funciones en la nube bajo demanda. Reduce la gestión de infraestructura, ideal para cargas variables.
+    -   Variaciones de MVC para distintos entornos.
+
+-   **CQRS (Command Query Responsibility Segregation)**
+
+    -   Separación de comandos (escritura) y consultas (lectura).
+
+-   **Event Sourcing**
+
+    -   Persistencia de eventos en vez de estado actual.
+
+-   **Hexagonal (Ports and Adapters)**
+
+    -   Aislamiento del núcleo del sistema respecto a entradas/salidas.
+
+-   **Clean Architecture**
+
+    -   Separación estricta de capas y dependencias.
+
+-   **Layered Architecture**
+    -   Comunicación vertical entre capas organizadas por responsabilidad.
 
 ---
 
@@ -208,11 +305,3 @@ Para documentar y visualizar una arquitectura de software de forma clara y compa
 
 -   **Nivel 4 – Código:**  
     Opcional. Describe clases, funciones o estructuras de código.
-
-### 🔸 UML (Unified Modeling Language)
-
--   **Diagrama de Componentes:**  
-    Representa la estructura de alto nivel de un sistema y sus dependencias.
-
--   **Diagrama de Clases:**  
-    Especifica las relaciones entre clases, atributos y métodos.
