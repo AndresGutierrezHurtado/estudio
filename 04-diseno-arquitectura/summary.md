@@ -2,11 +2,11 @@
 
 🔙 [Volver al inicio](../README.md)
 
-El **Diseño y la Arquitectura de Software** constituyen dos pilares fundamentales dentro de la ingeniería de software profesional. Estos conceptos van mucho más allá de la simple implementación de código; representan la base sobre la cual se construyen sistemas capaces de perdurar en el tiempo, adaptarse a nuevas necesidades y evolucionar sin comprometer su calidad o funcionamiento.
+Cuando hablamos de **Diseño y Arquitectura de Software**, nos referimos a cómo se piensa y organiza un sistema antes de escribir el código. No se trata solo de programar, sino de tomar buenas decisiones desde el principio para que el software sea fácil de mantener, crecer y adaptar con el tiempo.
 
-Diseñar y estructurar correctamente un sistema permite que este sea **mantenible, escalable, reutilizable y flexible ante el cambio**, cualidades esenciales en proyectos reales donde los requisitos evolucionan constantemente. Una arquitectura adecuada no solo facilita el trabajo del equipo de desarrollo, sino que también impacta positivamente en la calidad del producto final, su costo de mantenimiento y su capacidad para integrarse con otros sistemas o tecnologías.
+Un sistema bien diseñado y estructurado es **mantenible, escalable, reutilizable y flexible ante el cambio**. Y es que, en el mundo real, las cosas cambian todo el tiempo: surgen nuevos requerimientos, tecnologías y necesidades. Si el software no está bien pensado desde la base, cualquier cambio puede convertirse en un dolor de cabeza. Una buena arquitectura no solo hace más fácil el trabajo del equipo de desarrollo, también mejora la calidad del producto, reduce costos de mantenimiento y permite integrarse mejor con otros sistemas o herramientas.
 
-Ignorar las buenas prácticas de diseño y arquitectura conduce con frecuencia a sistemas rígidos, costosos de modificar, difíciles de probar y propensos a fallos. Por ello, este módulo se centra en dotarte de los conocimientos, principios y herramientas necesarios para tomar **decisiones técnicas fundamentadas**, anticipando problemas futuros y garantizando la sostenibilidad del software a largo plazo.
+Ignorar las buenas prácticas de diseño y arquitectura suele llevar a sistemas rígidos, difíciles de probar, costosos de modificar y propensos a fallos. Por eso, este módulo busca darte los conocimientos, principios y herramientas necesarios para tomar **decisiones técnicas con criterio**, anticipar problemas y asegurar que el software sea sostenible a largo plazo.
 
 ### ¿Por qué es importante este módulo?
 
