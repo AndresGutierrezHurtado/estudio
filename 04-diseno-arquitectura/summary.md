@@ -11,24 +11,25 @@ Ignorar las buenas prácticas de diseño y arquitectura suele llevar a sistemas 
 ### ¿Por qué es importante este módulo?
 
 -   Permite tomar **decisiones técnicas bien argumentadas**, evitando soluciones improvisadas o la aparición de anti-patrones que generan deuda técnica.
--   Facilita la creación de sistemas que son **fáciles de probar, mantener, escalar y extender**, incluso cuando el equipo o la funcionalidad del producto crecen con el tiempo.
--   Reduce el riesgo de incurrir en fallos de diseño o arquitectura que pueden derivar en costosas reescrituras, bloqueos tecnológicos o problemas de rendimiento.
--   Ayuda a construir software alineado con las **necesidades reales del negocio y del dominio del problema**, no limitado únicamente a los aspectos técnicos.
--   Mejora la comunicación entre los distintos perfiles del equipo de desarrollo (desarrolladores, arquitectos, líderes técnicos, DevOps), mediante diagramas, modelos y documentación clara que todos pueden entender.
+-   Facilita la creación de sistemas que sean **fáciles de probar, mantener, escalar y extender**, incluso cuando el equipo o las funcionalidades crecen.
+-   Reduce el riesgo de incurrir en errores de diseño o arquitectura que pueden derivar en costosas reescrituras, bloqueos tecnológicos o problemas de rendimiento.
+-   Ayuda a construir software alineado con las **necesidades reales del negocio y del dominio**, no limitado solo a lo técnico.
+-   Mejora la comunicación entre los distintos perfiles del equipo (desarrolladores, arquitectos, líderes técnicos, DevOps), mediante diagramas, modelos y documentación clara que todos pueden entender.
 
 ---
 
 ## 🎯 Objetivo del módulo
 
-El objetivo principal de este módulo es proporcionar una comprensión integral de los principios, prácticas y herramientas clave para diseñar y estructurar software de forma profesional. Al finalizar este módulo, serás capaz de:
+El objetivo principal de este módulo es brindarte una comprensión completa de los principios, prácticas y herramientas clave para diseñar y estructurar software de forma profesional. Al finalizarlo, serás capaz de:
 
--   Aplicar principios de diseño como **SOLID**, **KISS** ("Keep It Simple, Stupid") y **DRY** ("Don't Repeat Yourself") para escribir código limpio, simple, reutilizable y fácil de mantener.
--   Reconocer y utilizar los principales **patrones de diseño (GoF)** para abordar problemas comunes de desarrollo con soluciones reutilizables y bien estructuradas.
--   Evaluar y seleccionar adecuadamente **patrones de arquitectura** (como Monolito, Microservicios, Event-Driven o Serverless) según las necesidades técnicas y del negocio.
--   Representar visualmente la arquitectura de sistemas mediante herramientas como el **C4 Model** o diagramas de componentes en UML, facilitando la comunicación técnica dentro del equipo.
--   Diseñar soluciones preparadas para escalar, adaptarse a cambios y evolucionar con el tiempo, minimizando riesgos de deuda técnica y facilitando el mantenimiento.
+-   Aplicar principios de diseño como **SOLID**, **KISS** ("Keep It Simple, Stupid"), **DRY** ("Don't Repeat Yourself") y **YAGNI** ("You Aren’t Gonna Need It") para escribir código limpio, simple, reutilizable y enfocado en lo necesario, evitando sobrecomplicar el sistema con funcionalidades que aún no se requieren.
+-   Reconocer y usar los principales **patrones de diseño (GoF)** para resolver problemas comunes con soluciones reutilizables y bien estructuradas.
+-   Comprender y aplicar diferentes **patrones de arquitectura** como **MVC**, **Arquitectura por capas (Layered Architecture)**, **CQRS**, entre otros, según las necesidades del sistema.
+-   Evaluar y seleccionar **estilos arquitectónicos** como **Monolito**, **Microservicios**, **Event-Driven** o **Serverless**, considerando factores técnicos, de negocio y escalabilidad.
+-   Representar visualmente la arquitectura de un sistema usando herramientas como el **C4 Model** o diagramas de componentes en UML, facilitando la comunicación técnica dentro del equipo.
+-   Diseñar soluciones preparadas para escalar, adaptarse a cambios y evolucionar con el tiempo, minimizando la deuda técnica y facilitando su mantenimiento.
 
-Este módulo te capacitará para tomar decisiones de diseño y arquitectura con criterio técnico y estratégico, mejorando la calidad de tus proyectos y fortaleciendo tu perfil como desarrollador profesional.
+Este módulo te ayudará a tomar decisiones de diseño y arquitectura con criterio técnico y estratégico, mejorando la calidad de tus proyectos y fortaleciendo tu perfil como desarrollador profesional.
 
 ---
 
