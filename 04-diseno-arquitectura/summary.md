@@ -247,6 +247,8 @@ Los **patrones arquitectónicos** son soluciones reutilizables y probadas para r
 -   **MVC (Modelo - Vista - Controlador)**
     Separa los datos (**Modelo**), la interfaz de usuario (**Vista**) y la lógica de interacción (**Controlador**), mejorando la organización y reutilización del código.
 
+    [Explicación detallada](./patrones-arquitectura/mvc.md)
+
 -   **MVVM (Model-View-ViewModel)**
     Variante moderna del MVC, ideal para interfaces reactivas. Introduce un **ViewModel** que expone datos y comandos a la vista mediante _data binding_, desacoplando completamente lógica y presentación.
 
