@@ -273,11 +273,3 @@ Para documentar y visualizar una arquitectura de software de forma clara y compa
 
 -   **Nivel 4 – Código:**  
     Opcional. Describe clases, funciones o estructuras de código.
-
-### 🔸 UML (Unified Modeling Language)
-
--   **Diagrama de Componentes:**  
-    Representa la estructura de alto nivel de un sistema y sus dependencias.
-
--   **Diagrama de Clases:**  
-    Especifica las relaciones entre clases, atributos y métodos.
