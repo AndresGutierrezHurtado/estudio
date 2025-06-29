@@ -27,7 +27,7 @@ El Modelo representa la capa de **datos y lógica de negocio**. Es totalmente in
 
 ---
 
-### 2️⃣ Vista (View)
+### Vista (View)
 
 La **Vista** es la capa encargada de la **interfaz de usuario**. Define cómo se presentan los datos al usuario y cómo se capturan sus interacciones.
 
@@ -40,7 +40,7 @@ La **Vista** es la capa encargada de la **interfaz de usuario**. Define cómo se
 
 ---
 
-### 3️⃣ ViewModel
+### ViewModel
 
 El **ViewModel** es el corazón del patrón MVVM. Su rol es **conectar la Vista con el Modelo**, gestionando y adaptando los datos para que puedan ser fácilmente mostrados o utilizados por la interfaz.
 

@@ -12,7 +12,7 @@ Separar la lógica de presentación (vista), la lógica de negocio (modelo) y el
 
 ## 🧱 Capas del MVC
 
-### 1. Modelo (Model)
+### Modelo (Model)
 
 - Representa los **datos** y la **lógica de negocio** de la aplicación.
 - Se encarga de acceder y manipular la información (normalmente desde una base de datos).
@@ -25,7 +25,7 @@ Separar la lógica de presentación (vista), la lógica de negocio (modelo) y el
 
 ---
 
-### 2. Vista (View)
+### Vista (View)
 
 * Es la **interfaz de usuario**, muestra los datos que vienen del modelo.
 * Su función es presentar la información al usuario de forma atractiva y comprensible.
@@ -39,7 +39,7 @@ Separar la lógica de presentación (vista), la lógica de negocio (modelo) y el
 
 ---
 
-### 3. Controlador (Controller)
+### Controlador (Controller)
 
 * Es el **intermediario** entre el modelo y la vista.
 * Recibe eventos de la vista (como clics o formularios).
