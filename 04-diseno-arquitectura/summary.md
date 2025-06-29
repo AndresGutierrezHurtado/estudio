@@ -175,116 +175,97 @@ Se centran en **cómo interactúan los objetos entre sí**, cómo se comunican y
 
 ## Atributos de calidad
 
-Los atributos de calidad son características no funcionales que definen cómo debe comportarse el sistema más allá de cumplir su funcionalidad.
+Los **atributos de calidad** (también llamados requerimientos no funcionales) definen cómo debe comportarse un sistema más allá de su funcionalidad principal. Afectan directamente a la experiencia del usuario, la mantenibilidad y el rendimiento.
 
-### Principales atributos:
+### Pri
 
--   **Mantenibilidad**
+-   **Mantenibilidad**  
+    Facilidad para modificar, extender, depurar o mejorar el sistema con bajo costo y riesgo.
 
-    -   Facilidad de modificación, mejora y corrección del sistema.
+-   **Eficiencia**  
+    Uso óptimo de los recursos (CPU, memoria, red, disco). Incluye el tiempo de respuesta, el rendimiento y el consumo.
 
--   **Eficiencia**
+-   **Seguridad**  
+    Capacidad del sistema para proteger datos y resistir ataques o accesos no autorizados (autenticación, autorización, cifrado, etc.).
 
-    -   Uso óptimo de recursos (CPU, memoria, red).
-    -   Tiempo de respuesta aceptable.
+-   **Usabilidad**  
+    Facilidad de uso e interacción para el usuario final. Incluye accesibilidad, diseño intuitivo, retroalimentación clara, etc.
 
--   **Seguridad**
+-   **Fiabilidad (Confiabilidad)**  
+    Capacidad del sistema de funcionar correctamente durante el tiempo esperado. Implica tolerancia a fallos, recuperación y disponibilidad.
 
-    -   Protección frente a accesos indebidos o ataques.
+-   **Compatibilidad**  
+    Capacidad para interactuar con otros sistemas, versiones o plataformas (interoperabilidad, portabilidad).
 
--   **Usabilidad**
+-   **Adaptabilidad**  
+    Facilidad con la que el sistema se puede ajustar a nuevos entornos, tecnologías o requerimientos del negocio.
 
-    -   Facilidad de uso e interacción para el usuario final.
-
--   **Fiabilidad (Confiabilidad)**
-
-    -   Capacidad de continuar funcionando correctamente.
-    -   Madurez, tolerancia a fallos, recuperación.
-
--   **Compatibilidad**
-
-    -   Interoperabilidad con otros sistemas y entornos.
-
--   **Adaptabilidad**
-
-    -   Facilidad de adaptarse a cambios de entorno o requerimientos.
-
--   **Escalabilidad**
-    -   Capacidad de manejar crecimiento en usuarios o datos.
+-   **Escalabilidad**  
+    Capacidad del sistema para seguir funcionando eficientemente cuando crecen los datos, usuarios o transacciones.
 
 ---
 
-## 2. Estilos de Arquitectura
+## Estilos de Arquitectura
 
-Son enfoques generales para organizar un sistema. Definen principios de alto nivel sobre cómo se estructuran los componentes.
+Los **estilos arquitectónicos** son enfoques generales que definen cómo se estructuran y organizan los componentes de un sistema de software. Funcionan como "familias" de arquitecturas.
 
 ### Estilos más comunes:
 
--   **Monolítico**
+-   **Monolítico**  
+    Toda la lógica del sistema vive en una única aplicación o código base. Fácil de desarrollar inicialmente, pero difícil de escalar y mantener.
 
-    -   Toda la lógica en una sola aplicación.
-    -   Fácil de desarrollar, difícil de escalar.
+-   **Cliente/Servidor**  
+    Separación clara entre un cliente (frontend o aplicación) que hace peticiones y un servidor que responde.
 
--   **Cliente/Servidor**
+-   **Arquitectura por Capas**  
+    Organización en capas (presentación, lógica, datos), donde cada una cumple una responsabilidad específica.
 
-    -   Separación entre cliente que solicita y servidor que responde.
-    -
+-   **Microservicios**  
+    El sistema se divide en servicios pequeños, independientes y desplegables de forma aislada. Cada uno tiene su propia lógica y base de datos.
 
--   **Arquitectura por Capas**
+-   **Orientada a Eventos (Event-Driven)**  
+    Los componentes se comunican mediante eventos asincrónicos. Muy útil en sistemas desacoplados y en tiempo real.
 
-    -   Separación en presentación, lógica de negocio y datos.
+-   **Microkernel (Plugin)**  
+    Núcleo central extensible por módulos o plugins que añaden funcionalidad sin modificar el núcleo.
 
--   **Microservicios**
+-   **Pipe & Filter (Flujo de Datos)**  
+    Datos que fluyen de manera secuencial a través de etapas (filtros), cada uno transformando la información.
 
-    -   Módulos independientes que se comunican por red.
-
--   **Orientada a Eventos**
-
-    -   Comunicación entre componentes basada en eventos.
-
--   **Microkernel (Plugin)**
-
-    -   Núcleo central extensible por plugins o módulos.
-
--   **Pipe & Filter (Flujo de Datos)**
-
-    -   Flujo secuencial donde cada etapa transforma los datos.
-
--   **Service-Oriented Architecture (SOA)**
-    -   Servicios reutilizables que se comunican mediante protocolos.
+-   **SOA (Service-Oriented Architecture)**  
+    Arquitectura basada en servicios reutilizables que se comunican mediante protocolos estándar (como SOAP, REST).
 
 ---
 
 ## 🏛️ Patrones de Arquitectura de Software
 
-Soluciones reutilizables y probadas para organizar los componentes de software dentro de un estilo.
+Los **patrones arquitectónicos** son soluciones reutilizables y probadas para resolver problemas comunes en la estructura interna del software. Se aplican dentro de un estilo.
+
+### Principales patrones:
 
 -   **MVC (Modelo - Vista - Controlador)**
+    Separa los datos (**Modelo**), la interfaz de usuario (**Vista**) y la lógica de interacción (**Controlador**), mejorando la organización y reutilización del código.
 
-    -   Separación entre datos, lógica y presentación.
+-   **MVVM (Model-View-ViewModel)**
+    Variante moderna del MVC, ideal para interfaces reactivas. Introduce un **ViewModel** que expone datos y comandos a la vista mediante _data binding_, desacoplando completamente lógica y presentación.
 
--   **MVVM / MVP**
+-   **MVP (Model-View-Presenter)**
+    Similar al MVC, pero el **Presentador** reemplaza al controlador y tiene una relación más directa con la vista (puede llamarla). Favorece la testabilidad y separación en aplicaciones con UI compleja.
 
-    -   Variaciones de MVC para distintos entornos.
-
--   **CQRS (Command Query Responsibility Segregation)**
-
-    -   Separación de comandos (escritura) y consultas (lectura).
-
--   **Event Sourcing**
-
-    -   Persistencia de eventos en vez de estado actual.
-
--   **Hexagonal (Ports and Adapters)**
-
-    -   Aislamiento del núcleo del sistema respecto a entradas/salidas.
+-   **Hexagonal (Ports & Adapters)**
+    Aísla el núcleo de negocio del resto del sistema. El dominio solo se comunica con interfaces (puertos), y el resto del sistema se conecta mediante adaptadores.
 
 -   **Clean Architecture**
+    Variante moderna del enfoque hexagonal, con capas bien definidas donde las dependencias siempre apuntan hacia el dominio.
 
-    -   Separación estricta de capas y dependencias.
+-   **Layered Architecture (por capas)**
+    Arquitectura tradicional basada en capas (UI, lógica de negocio, acceso a datos), donde cada una depende de la anterior.
 
--   **Layered Architecture**
-    -   Comunicación vertical entre capas organizadas por responsabilidad.
+-   **CQRS (Command Query Responsibility Segregation)**
+    Separa los comandos (escritura) de las consultas (lectura), optimizando cada parte por separado.
+
+-   **Event Sourcing**
+    En lugar de guardar el estado actual, se almacenan todos los eventos que cambiaron ese estado.
 
 ---
 
