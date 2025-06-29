@@ -174,6 +174,70 @@ Se centran en **cómo interactúan los objetos entre sí**, cómo se comunican y
 
 ---
 
+## Atributos de calidad
+
+Los **atributos de calidad** (también llamados requerimientos no funcionales) definen cómo debe comportarse un sistema más allá de su funcionalidad principal. Afectan directamente a la experiencia del usuario, la mantenibilidad y el rendimiento.
+
+### Principales atributos:
+
+-   **Mantenibilidad**  
+    Facilidad para modificar, extender, depurar o mejorar el sistema con bajo costo y riesgo.
+
+-   **Eficiencia**  
+    Uso óptimo de los recursos (CPU, memoria, red, disco). Incluye el tiempo de respuesta, el rendimiento y el consumo.
+
+-   **Seguridad**  
+    Capacidad del sistema para proteger datos y resistir ataques o accesos no autorizados (autenticación, autorización, cifrado, etc.).
+
+-   **Usabilidad**  
+    Facilidad de uso e interacción para el usuario final. Incluye accesibilidad, diseño intuitivo, retroalimentación clara, etc.
+
+-   **Fiabilidad (Confiabilidad)**  
+    Capacidad del sistema de funcionar correctamente durante el tiempo esperado. Implica tolerancia a fallos, recuperación y disponibilidad.
+
+-   **Compatibilidad**  
+    Capacidad para interactuar con otros sistemas, versiones o plataformas (interoperabilidad, portabilidad).
+
+-   **Adaptabilidad**  
+    Facilidad con la que el sistema se puede ajustar a nuevos entornos, tecnologías o requerimientos del negocio.
+
+-   **Escalabilidad**  
+    Capacidad del sistema para seguir funcionando eficientemente cuando crecen los datos, usuarios o transacciones.
+
+---
+
+## Estilos de Arquitectura
+
+Los **estilos arquitectónicos** son enfoques generales que definen cómo se estructuran y organizan los componentes de un sistema de software. Funcionan como "familias" de arquitecturas.
+
+### Estilos más comunes:
+
+-   **Monolítico**  
+    Toda la lógica del sistema vive en una única aplicación o código base. Fácil de desarrollar inicialmente, pero difícil de escalar y mantener.
+
+-   **Cliente/Servidor**  
+    Separación clara entre un cliente (frontend o aplicación) que hace peticiones y un servidor que responde.
+
+-   **Arquitectura por Capas**  
+    Organización en capas (presentación, lógica, datos), donde cada una cumple una responsabilidad específica.
+
+-   **Microservicios**  
+    El sistema se divide en servicios pequeños, independientes y desplegables de forma aislada. Cada uno tiene su propia lógica y base de datos.
+
+-   **Orientada a Eventos (Event-Driven)**  
+    Los componentes se comunican mediante eventos asincrónicos. Muy útil en sistemas desacoplados y en tiempo real.
+
+-   **Microkernel (Plugin)**  
+    Núcleo central extensible por módulos o plugins que añaden funcionalidad sin modificar el núcleo.
+
+-   **Pipe & Filter (Flujo de Datos)**  
+    Datos que fluyen de manera secuencial a través de etapas (filtros), cada uno transformando la información.
+
+-   **SOA (Service-Oriented Architecture)**  
+    Arquitectura basada en servicios reutilizables que se comunican mediante protocolos estándar (como SOAP, REST).
+
+---
+
 ## 🏛️ Patrones de Arquitectura de Software
 
 Los **Patrones de Arquitectura** definen cómo se organizan los componentes de alto nivel de un sistema. Algunos de los más usados:
