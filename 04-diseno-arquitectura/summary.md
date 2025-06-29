@@ -240,19 +240,33 @@ Los **estilos arquitectónicos** son enfoques generales que definen cómo se est
 
 ## 🏛️ Patrones de Arquitectura de Software
 
-Los **Patrones de Arquitectura** definen cómo se organizan los componentes de alto nivel de un sistema. Algunos de los más usados:
+Los **patrones arquitectónicos** son soluciones reutilizables y probadas para resolver problemas comunes en la estructura interna del software. Se aplican dentro de un estilo.
 
--   **Monolito:**  
-    Toda la aplicación reside en un único proyecto desplegable. Fácil de desarrollar inicialmente pero puede volverse difícil de mantener a gran escala.
+### Principales patrones:
 
--   **Microservicios:**  
-    El sistema se divide en pequeños servicios independientes que se comunican generalmente vía HTTP/REST o mensajería. Permite escalabilidad y despliegue independiente.
+-   **MVC (Modelo - Vista - Controlador)**
+    Separa los datos (**Modelo**), la interfaz de usuario (**Vista**) y la lógica de interacción (**Controlador**), mejorando la organización y reutilización del código.
 
--   **Event-Driven (Orientado a Eventos):**  
-    Los componentes reaccionan a eventos generados por otros componentes. Facilita el desacoplamiento y la escalabilidad.
+-   **MVVM (Model-View-ViewModel)**
+    Variante moderna del MVC, ideal para interfaces reactivas. Introduce un **ViewModel** que expone datos y comandos a la vista mediante _data binding_, desacoplando completamente lógica y presentación.
 
--   **Serverless:**  
-    Los componentes se ejecutan como funciones en la nube bajo demanda. Reduce la gestión de infraestructura, ideal para cargas variables.
+-   **MVP (Model-View-Presenter)**
+    Similar al MVC, pero el **Presentador** reemplaza al controlador y tiene una relación más directa con la vista (puede llamarla). Favorece la testabilidad y separación en aplicaciones con UI compleja.
+
+-   **Hexagonal (Ports & Adapters)**
+    Aísla el núcleo de negocio del resto del sistema. El dominio solo se comunica con interfaces (puertos), y el resto del sistema se conecta mediante adaptadores.
+
+-   **Clean Architecture**
+    Variante moderna del enfoque hexagonal, con capas bien definidas donde las dependencias siempre apuntan hacia el dominio.
+
+-   **Layered Architecture (por capas)**
+    Arquitectura tradicional basada en capas (UI, lógica de negocio, acceso a datos), donde cada una depende de la anterior.
+
+-   **CQRS (Command Query Responsibility Segregation)**
+    Separa los comandos (escritura) de las consultas (lectura), optimizando cada parte por separado.
+
+-   **Event Sourcing**
+    En lugar de guardar el estado actual, se almacenan todos los eventos que cambiaron ese estado.
 
 ---
 
