@@ -252,6 +252,8 @@ Los **patrones arquitectónicos** son soluciones reutilizables y probadas para r
 -   **MVVM (Model-View-ViewModel)**
     Variante moderna del MVC, ideal para interfaces reactivas. Introduce un **ViewModel** que expone datos y comandos a la vista mediante _data binding_, desacoplando completamente lógica y presentación.
 
+    [Explicación detallada](./patrones-arquitectura/mvvm.md)
+
 -   **MVP (Model-View-Presenter)**
     Similar al MVC, pero el **Presentador** reemplaza al controlador y tiene una relación más directa con la vista (puede llamarla). Favorece la testabilidad y separación en aplicaciones con UI compleja.
 
