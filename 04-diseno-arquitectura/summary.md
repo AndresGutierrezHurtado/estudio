@@ -257,6 +257,8 @@ Los **patrones arquitectónicos** son soluciones reutilizables y probadas para r
 -   **MVP (Model-View-Presenter)**
     Similar al MVC, pero el **Presentador** reemplaza al controlador y tiene una relación más directa con la vista (puede llamarla). Favorece la testabilidad y separación en aplicaciones con UI compleja.
 
+    [Explicación detallada](./patrones-arquitectura/mvp.md)
+
 -   **Hexagonal (Ports & Adapters)**
     Aísla el núcleo de negocio del resto del sistema. El dominio solo se comunica con interfaces (puertos), y el resto del sistema se conecta mediante adaptadores.
 

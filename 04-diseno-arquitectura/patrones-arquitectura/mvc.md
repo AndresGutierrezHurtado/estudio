@@ -60,13 +60,13 @@ Aquí se concentra la **lógica de negocio**, ya que es el responsable de decidi
 ## 🔄 Flujo de Datos
 
 ```text
-[ Usuario hace clic ]
+[ Usuario ] (hace clic)
     ↓
-[ Vista (pantalla) ]
+[ Vista ] (pantalla)
     ↓ envía acción
-[ Controlador (procesa) ]
+[ Controlador ] (procesa)
     ↓ llama al modelo
-[ Modelo (guarda / obtiene datos) ]
+[ Modelo ] (guarda / obtiene datos)
     ↓ devuelve respuesta
 [ Controlador ]
     ↓

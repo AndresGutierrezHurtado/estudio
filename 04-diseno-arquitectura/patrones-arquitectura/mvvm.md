@@ -6,7 +6,7 @@ El patrón **MVVM** (Modelo - Vista - ViewModel) es una alternativa moderna al p
 
 Este enfoque introduce un componente intermedio llamado **ViewModel**, cuya responsabilidad principal es actuar como un **puente entre la Vista y el Modelo**, permitiendo un **desacoplamiento total** entre la lógica de presentación y los datos. Esto facilita la **reutilización de componentes**, **mejora la mantenibilidad del código** y **simplifica las pruebas unitarias y de integración**.
 
-📌 A diferencia de MVC, MVVM permite una mayor reactividad y separación entre la interfaz y la lógica, lo que lo hace ideal para interfaces modernas basadas en componentes o flujos de estado.
+> 📌 A diferencia de MVC, MVVM permite una mayor reactividad y separación entre la interfaz y la lógica, lo que lo hace ideal para interfaces modernas basadas en componentes o flujos de estado.
 
 ---
 
@@ -18,8 +18,6 @@ El Modelo es responsable de la **lógica de negocio** y de la **gestión de dato
 
 El Modelo debe ser independiente de cualquier lógica de presentación o interacción con el usuario. Contiene únicamente la lógica de negocio relevante para el dominio, sin preocuparse por cómo se muestra o se solicita esa información.
 
----
-
 ### Vista (View)
 
 La Vista es la capa encargada de la **interfaz gráfica del usuario**. Su función principal es mostrar los datos al usuario y capturar sus interacciones.
@@ -27,8 +25,6 @@ La Vista es la capa encargada de la **interfaz gráfica del usuario**. Su funci�
 No contiene lógica de negocio ni lógica de presentación. En cambio, se apoya en el ViewModel para obtener los datos y enviarle eventos como clics o formularios.
 
 Utiliza mecanismos de data binding para sincronizarse automáticamente con el ViewModel. Esto permite que los cambios en el estado se reflejen sin necesidad de manipulación manual del DOM o del estado visual.
-
----
 
 ### ViewModel
 
