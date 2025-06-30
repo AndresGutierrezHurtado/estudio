@@ -177,7 +177,7 @@ Se centran en **cómo interactúan los objetos entre sí**, cómo se comunican y
 
 Los **atributos de calidad** (también llamados requerimientos no funcionales) definen cómo debe comportarse un sistema más allá de su funcionalidad principal. Afectan directamente a la experiencia del usuario, la mantenibilidad y el rendimiento.
 
-### Pri
+### Principales atributos:
 
 -   **Mantenibilidad**  
     Facilidad para modificar, extender, depurar o mejorar el sistema con bajo costo y riesgo.
@@ -263,6 +263,8 @@ Los **patrones arquitectónicos** son soluciones reutilizables y probadas para r
 
 -   **Clean Architecture**
     Variante moderna del enfoque hexagonal, con capas bien definidas donde las dependencias siempre apuntan hacia el dominio.
+
+    [Explicación detallada](./patrones-arquitectura/clean.md)
 
 -   **Layered Architecture (por capas)**
     Arquitectura tradicional basada en capas (UI, lógica de negocio, acceso a datos), donde cada una depende de la anterior.
