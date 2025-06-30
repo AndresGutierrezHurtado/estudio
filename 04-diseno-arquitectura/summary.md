@@ -262,6 +262,8 @@ Los **patrones arquitectónicos** son soluciones reutilizables y probadas para r
 -   **Hexagonal (Ports & Adapters)**
     Aísla el núcleo de negocio del resto del sistema. El dominio solo se comunica con interfaces (puertos), y el resto del sistema se conecta mediante adaptadores.
 
+    [Explicación detallada](./patrones-arquitectura/hexagonal.md)
+
 -   **Clean Architecture**
     Variante moderna del enfoque hexagonal, con capas bien definidas donde las dependencias siempre apuntan hacia el dominio.
 
