@@ -259,16 +259,18 @@ Los **patrones arquitectónicos** son soluciones reutilizables y probadas para r
 
     [Explicación detallada](./patrones-arquitectura/mvp.md)
 
--   **Hexagonal (Ports & Adapters)**
-    Aísla el núcleo de negocio del resto del sistema. El dominio solo se comunica con interfaces (puertos), y el resto del sistema se conecta mediante adaptadores.
-
-    [Explicación detallada](./patrones-arquitectura/hexagonal.md)
+-   **Layered Architecture (por capas)**
+    Arquitectura tradicional basada en capas (UI, lógica de negocio, acceso a datos), donde cada una depende de la anterior.
 
 -   **Clean Architecture**
     Variante moderna del enfoque hexagonal, con capas bien definidas donde las dependencias siempre apuntan hacia el dominio.
 
--   **Layered Architecture (por capas)**
-    Arquitectura tradicional basada en capas (UI, lógica de negocio, acceso a datos), donde cada una depende de la anterior.
+    [Explicación detallada](./patrones-arquitectura/clean.md)
+
+-   **Hexagonal (Ports & Adapters)**
+    Aísla el núcleo de negocio del resto del sistema. El dominio solo se comunica con interfaces (puertos), y el resto del sistema se conecta mediante adaptadores.
+
+    [Explicación detallada](./patrones-arquitectura/hexagonal.md)
 
 -   **CQRS (Command Query Responsibility Segregation)**
     Separa los comandos (escritura) de las consultas (lectura), optimizando cada parte por separado.
