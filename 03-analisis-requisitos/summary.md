@@ -6,6 +6,8 @@ El análisis de requisitos es una etapa fundamental dentro del ciclo de vida del
 
 Su importancia radica en que un software solo es exitoso si realmente resuelve el problema para el que fue creado. Si los requisitos no se recolectan o interpretan correctamente, existe un alto riesgo de que el producto final no cumpla con lo que el cliente esperaba, lo que puede derivar en retrabajo, sobrecostos, retrasos e insatisfacción del usuario. Por esta razón, el análisis de requisitos se considera una actividad estratégica que impacta directamente en la calidad, funcionalidad, escalabilidad y mantenibilidad del software.
 
+---
+
 ## 🎯 **Objetivo del Módulo**
 
 Comprender y aplicar técnicas de levantamiento, análisis, documentación y gestión de requisitos de software, con el fin de asegurar que las soluciones desarrolladas respondan correctamente a las necesidades reales de los usuarios y del negocio.
@@ -83,19 +85,19 @@ Se aplican métodos como entrevistas, encuestas, prototipos y análisis de docum
 
 ### Preguntas clave para descubrir los Requisitos Funcionales (RF)
 
-✅ **Sobre el propósito del sistema:**
+**Sobre el propósito del sistema:**
 
 -   ¿Cuál es el objetivo principal del sistema?
 -   ¿Qué problema actual quiere resolver?
 -   ¿Qué procesos del negocio quiere automatizar o digitalizar?
 
-✅ **Sobre los usuarios del sistema:**
+**Sobre los usuarios del sistema:**
 
 -   ¿Qué tipos de usuarios existirán? (Ej: administrador, cliente, proveedor)
 -   ¿Qué puede hacer cada tipo de usuario? (permisos, restricciones)
 -   ¿Qué flujo realiza un usuario típico desde que entra hasta que finaliza una acción?
 
-✅ **Sobre las funcionalidades esperadas:**
+**Sobre las funcionalidades esperadas:**
 
 -   ¿Qué operaciones básicas debe permitir el sistema? (CRUD)
 -   ¿Se requieren reportes, estadísticas o exportación de datos?
@@ -104,29 +106,29 @@ Se aplican métodos como entrevistas, encuestas, prototipos y análisis de docum
 
 ### 🔐 Preguntas clave para descubrir los Requisitos No Funcionales (RNF)
 
-✅ **Sobre rendimiento:**
+**Sobre rendimiento:**
 
 -   ¿Cuántos usuarios simultáneos se esperan?
 -   ¿Cuál es el tiempo máximo de respuesta aceptable?
 
-✅ **Sobre seguridad:**
+**Sobre seguridad:**
 
 -   ¿Qué mecanismos de autenticación y autorización se necesitan?
 -   ¿Se requiere encriptación de datos?
 -   ¿Cómo se garantizará la privacidad de los datos personales? (Ej: cumplimiento RGPD)
 -   ¿Debe registrarse el historial de actividades o auditoría de cambios?
 
-✅ **Sobre disponibilidad:**
+**Sobre disponibilidad:**
 
 -   ¿El sistema debe estar disponible 24/7 o se permiten horarios de mantenimiento?
 -   ¿Se requiere alta disponibilidad, tolerancia a fallos o backups automáticos?
 
-✅ **Sobre escalabilidad:**
+**Sobre escalabilidad:**
 
 -   ¿Se prevé un aumento en el número de usuarios o volumen de datos?
 -   ¿El sistema será utilizado a nivel local, nacional o internacional?
 
-✅ **Sobre usabilidad:**
+**Sobre usabilidad:**
 
 -   ¿Qué nivel de facilidad de uso se espera?
 -   ¿La interfaz debe ser moderna, adaptable a dispositivos móviles?
@@ -134,7 +136,7 @@ Se aplican métodos como entrevistas, encuestas, prototipos y análisis de docum
 
 ---
 
-## **Modelado de Requisitos**
+## Modelado de Requisitos
 
 El modelado representa visual y estructuradamente los requisitos para facilitar su comprensión, validación e implementación. Estos modelos no son solo documentación pasiva; son herramientas activas que permiten:
 
@@ -146,7 +148,7 @@ El modelado representa visual y estructuradamente los requisitos para facilitar 
 -   **Permitir generación automática de código (scaffolding)** en frameworks modernos.
 -   **Facilitar la comunicación técnica entre los actores del proyecto**, minimizando omisiones o malentendidos.
 
-### 🔸 **Casos de Uso (UML)**
+### Casos de Uso (UML)
 
 Los casos de uso representan **escenarios en los que un usuario (actor) interactúa con el sistema para lograr un objetivo específico**. Este modelo describe las funcionalidades del sistema **desde la perspectiva del usuario**, ayudando a comprender qué debe hacer el software sin entrar en detalles técnicos.
 
@@ -157,7 +159,7 @@ Los casos de uso representan **escenarios en los que un usuario (actor) interact
 
 ---
 
-### 🔸 **Historias de Usuario (Ágil)**
+### Historias de Usuario (Ágil)
 
 Las historias de usuario son una técnica ágil para **expresar funcionalidades desde la perspectiva del usuario final**, enfocándose en el valor que aportan al negocio. Su estructura suele ser simple: _“Como [rol], quiero [funcionalidad], para [beneficio]”_.
 
@@ -168,7 +170,7 @@ Las historias de usuario son una técnica ágil para **expresar funcionalidades 
 
 ---
 
-### 🔸 **Diagramas de Clases (UML)**
+### Diagramas de Clases (UML)
 
 Los diagramas de clases describen **la estructura estática del sistema**, representando clases, atributos, métodos y las relaciones entre ellas (herencia, asociación, composición, etc.). Son especialmente útiles durante el diseño orientado a objetos.
 
