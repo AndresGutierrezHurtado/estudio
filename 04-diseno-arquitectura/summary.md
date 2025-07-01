@@ -244,40 +244,53 @@ Los **patrones arquitectónicos** son soluciones reutilizables y probadas para r
 
 ### Principales patrones:
 
--   **MVC (Modelo - Vista - Controlador)**
-    Separa los datos (**Modelo**), la interfaz de usuario (**Vista**) y la lógica de interacción (**Controlador**), mejorando la organización y reutilización del código.
+-   **MVC (Modelo - Vista - Controlador)**  
+    Separa los datos (**Modelo**), la interfaz de usuario (**Vista**) y la lógica de interacción (**Controlador**), mejorando la organización y reutilización del código. Es muy utilizado en aplicaciones web y de escritorio.
+
+    Su principal ventaja es la separación clara de responsabilidades, lo que facilita el mantenimiento y la escalabilidad. Sin embargo, en aplicaciones grandes puede volverse complejo si no se gestiona correctamente la comunicación entre componentes, generando controladores inflados o vistas acopladas.
 
     [Explicación detallada](./patrones-arquitectura/mvc.md)
 
--   **MVVM (Model-View-ViewModel)**
-    Variante moderna del MVC, ideal para interfaces reactivas. Introduce un **ViewModel** que expone datos y comandos a la vista mediante _data binding_, desacoplando completamente lógica y presentación.
+-   **MVVM (Model-View-ViewModel)**  
+    Variante moderna del MVC, ideal para interfaces reactivas. Introduce un **ViewModel** que expone datos y comandos a la vista mediante _data binding_, desacoplando completamente la lógica de negocio de la presentación.
+
+    Ofrece una alta cohesión entre la vista y los datos, lo que permite una UI más dinámica y fácil de probar. No obstante, la implementación del _binding_ puede ser compleja y difícil de depurar, especialmente en proyectos grandes o con poca disciplina en la separación de responsabilidades.
 
     [Explicación detallada](./patrones-arquitectura/mvvm.md)
 
--   **MVP (Model-View-Presenter)**
-    Similar al MVC, pero el **Presentador** reemplaza al controlador y tiene una relación más directa con la vista (puede llamarla). Favorece la testabilidad y separación en aplicaciones con UI compleja.
+-   **MVP (Model-View-Presenter)**  
+    Similar al MVC, pero el **Presentador** reemplaza al controlador y tiene una relación más directa con la vista (puede invocarla directamente). Se utiliza principalmente en interfaces ricas y complejas.
+
+    Favorece la testabilidad del código y la separación entre lógica y presentación. Sin embargo, puede implicar una mayor cantidad de código repetitivo y una estructura más rígida, lo cual no siempre es necesario para aplicaciones simples.
 
     [Explicación detallada](./patrones-arquitectura/mvp.md)
 
--   **Layered Architecture (por capas)**
-    Arquitectura tradicional basada en capas (UI, lógica de negocio, acceso a datos), donde cada una depende de la anterior.
+-   **Layered Architecture (por capas)**  
+    Arquitectura tradicional que organiza el sistema en capas bien definidas como presentación, lógica de negocio y acceso a datos, donde cada capa solo depende de la inmediatamente inferior.
 
--   **Clean Architecture**
-    Variante moderna del enfoque hexagonal, con capas bien definidas donde las dependencias siempre apuntan hacia el dominio.
+    Este enfoque facilita la comprensión y el mantenimiento, ya que cada capa tiene un propósito claro. Pero su principal desventaja es que puede dificultar la flexibilidad y la evolución del sistema cuando los requerimientos cambian, ya que tiende a generar acoplamientos verticales.
+
+-   **Clean Architecture**  
+    Basada en el principio de inversión de dependencias, define capas concéntricas donde las reglas de negocio están en el núcleo y no dependen de detalles externos como frameworks o bases de datos.
+
+    Permite gran mantenibilidad, independencia tecnológica y facilidad para hacer pruebas unitarias. No obstante, su implementación inicial puede ser compleja y sobredimensionada para sistemas pequeños o con plazos muy ajustados.
 
     [Explicación detallada](./patrones-arquitectura/clean.md)
 
--   **Hexagonal (Ports & Adapters)**
-    Aísla el núcleo de negocio del resto del sistema. El dominio solo se comunica con interfaces (puertos), y el resto del sistema se conecta mediante adaptadores.
+-   **Hexagonal (Ports & Adapters)**  
+    También llamada arquitectura dirigida por puertos y adaptadores. Aísla el dominio del resto del sistema utilizando interfaces (puertos) para interactuar con el exterior (bases de datos, APIs, UI), lo que mejora la independencia del negocio.
+
+    Proporciona gran flexibilidad para cambiar tecnologías externas sin afectar el núcleo del sistema. A cambio, introduce una complejidad estructural adicional que no siempre se justifica en proyectos simples o de corta duración.
 
     [Explicación detallada](./patrones-arquitectura/hexagonal.md)
 
--   **CQRS (Command Query Responsibility Segregation)**
-    Separa los comandos (escritura) de las consultas (lectura), optimizando cada parte por separado.
+-   **CQRS (Command Query Responsibility Segregation)**  
+    Separa las operaciones de lectura (queries) de las de escritura (commands), lo que permite optimizar cada una por separado y escalar de forma independiente.  
+    Este patrón es útil cuando hay diferencias marcadas entre cómo se lee y cómo se actualiza la información. Sin embargo, su uso implica mayor complejidad en sincronización de datos y consistencia eventual, por lo que no es recomendable para sistemas simples.
 
--   **Event Sourcing**
-    En lugar de guardar el estado actual, se almacenan todos los eventos que cambiaron ese estado.
-
+-   **Event Sourcing**  
+    En lugar de guardar el estado actual de un sistema, almacena todos los eventos que han ocurrido para reconstruir dicho estado.  
+    Permite trazabilidad completa de las acciones del sistema y facilita funcionalidades como el _undo_. No obstante, puede complicar el modelado, el debugging y el rendimiento si no se acompaña de estrategias como snapshots o proyecciones para las consultas.
 ---
 
 ## 🗂️ Modelado Arquitectónico
