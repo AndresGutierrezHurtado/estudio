@@ -14,6 +14,46 @@ Identificar y comprender los distintos modelos de desarrollo de software, sus pr
 
 ---
 
+## 🔄 Etapas del ciclo de vida:
+
+1. **Análisis de requerimientos**
+
+    - Se identifican las **necesidades reales** del cliente o usuario.
+    - Se documentan requerimientos funcionales y no funcionales.
+    - Es clave para evitar malentendidos y construir lo que realmente se necesita.
+
+2. **Diseño del sistema**
+
+    - Se define la arquitectura del software: módulos, bases de datos, interfaces, tecnologías.
+    - Se crean diagramas (casos de uso, clases, entidad-relación, etc.).
+    - El objetivo es tener un plan claro antes de programar.
+
+3. **Implementación**
+
+    - Se convierte el diseño en código.
+    - Se siguen buenas prácticas, principios de calidad y control de versiones.
+    - Es importante que el código sea limpio, mantenible y probado desde el inicio.
+
+4. **Pruebas**
+
+    - Se valida que el sistema funcione correctamente y cumpla los requerimientos.
+    - Incluye pruebas unitarias, de integración, funcionales, de rendimiento, etc.
+    - Ayuda a detectar errores antes del despliegue y asegurar la calidad.
+
+5. **Despliegue**
+
+    - El sistema se entrega y se pone en uso en un entorno real (producción).
+    - Puede incluir configuración de servidores, bases de datos y monitoreo.
+    - Debe hacerse de forma controlada, asegurando disponibilidad y estabilidad.
+
+6. **Mantenimiento**
+
+    - Se corrigen errores, se aplican mejoras y se adapta el software a cambios futuros.
+    - Es una fase continua e inevitable en todo sistema vivo.
+    - Un buen diseño desde el inicio reduce el costo del mantenimiento.
+
+---
+
 ## 🔮 Modelos Predictivos
 
 Son modelos secuenciales, donde las etapas del desarrollo están bien definidas y deben completarse una tras otra. Se utilizan en proyectos con requisitos estables y bien conocidos desde el inicio.
