@@ -270,12 +270,10 @@ Los **patrones arquitectónicos** son soluciones reutilizables y probadas para r
 
     Este enfoque facilita la comprensión y el mantenimiento, ya que cada capa tiene un propósito claro. Pero su principal desventaja es que puede dificultar la flexibilidad y la evolución del sistema cuando los requerimientos cambian, ya que tiende a generar acoplamientos verticales.
 
--   **Clean Architecture**  
-    Basada en el principio de inversión de dependencias, define capas concéntricas donde las reglas de negocio están en el núcleo y no dependen de detalles externos como frameworks o bases de datos.
+-   **Onion Architecture**  
+    Variante moderna de la arquitectura en capas que busca resolver el acoplamiento rígido entre capas. Organiza el sistema en círculos concéntricos, donde el dominio está en el centro y las dependencias solo pueden apuntar hacia adentro. Las capas externas (como la infraestructura o la presentación) dependen de las internas, nunca al revés.
 
-    Permite gran mantenibilidad, independencia tecnológica y facilidad para hacer pruebas unitarias. No obstante, su implementación inicial puede ser compleja y sobredimensionada para sistemas pequeños o con plazos muy ajustados.
-
-    [Explicación detallada](./patrones-arquitectura/clean.md)
+    Este modelo favorece la separación de preocupaciones y la independencia del dominio frente a detalles técnicos. Sin embargo, puede introducir complejidad adicional al requerir adaptadores o interfaces para cada interacción con elementos externos, lo cual puede parecer innecesario en proyectos pequeños.
 
 -   **Hexagonal (Ports & Adapters)**  
     También llamada arquitectura dirigida por puertos y adaptadores. Aísla el dominio del resto del sistema utilizando interfaces (puertos) para interactuar con el exterior (bases de datos, APIs, UI), lo que mejora la independencia del negocio.
@@ -284,6 +282,13 @@ Los **patrones arquitectónicos** son soluciones reutilizables y probadas para r
 
     [Explicación detallada](./patrones-arquitectura/hexagonal.md)
 
+-   **Clean Architecture**  
+    Basada en el principio de inversión de dependencias, define capas concéntricas donde las reglas de negocio están en el núcleo y no dependen de detalles externos como frameworks o bases de datos.
+
+    Permite gran mantenibilidad, independencia tecnológica y facilidad para hacer pruebas unitarias. No obstante, su implementación inicial puede ser compleja y sobredimensionada para sistemas pequeños o con plazos muy ajustados.
+
+    [Explicación detallada](./patrones-arquitectura/clean.md)
+
 -   **CQRS (Command Query Responsibility Segregation)**  
     Separa las operaciones de lectura (queries) de las de escritura (commands), lo que permite optimizar cada una por separado y escalar de forma independiente.  
     Este patrón es útil cuando hay diferencias marcadas entre cómo se lee y cómo se actualiza la información. Sin embargo, su uso implica mayor complejidad en sincronización de datos y consistencia eventual, por lo que no es recomendable para sistemas simples.
@@ -291,6 +296,7 @@ Los **patrones arquitectónicos** son soluciones reutilizables y probadas para r
 -   **Event Sourcing**  
     En lugar de guardar el estado actual de un sistema, almacena todos los eventos que han ocurrido para reconstruir dicho estado.  
     Permite trazabilidad completa de las acciones del sistema y facilita funcionalidades como el _undo_. No obstante, puede complicar el modelado, el debugging y el rendimiento si no se acompaña de estrategias como snapshots o proyecciones para las consultas.
+
 ---
 
 ## 🗂️ Modelado Arquitectónico
