@@ -277,6 +277,8 @@ Los **patrones arquitectónicos** son soluciones reutilizables y probadas para r
 
     Este modelo favorece la separación de preocupaciones y la independencia del dominio frente a detalles técnicos. Sin embargo, puede introducir complejidad adicional al requerir adaptadores o interfaces para cada interacción con elementos externos, lo cual puede parecer innecesario en proyectos pequeños.
 
+    [Explicación detallada](./patrones-arquitectura/onion.md)
+
 -   **Hexagonal (Ports & Adapters)**  
     También llamada arquitectura dirigida por puertos y adaptadores. Aísla el dominio del resto del sistema utilizando interfaces (puertos) para interactuar con el exterior (bases de datos, APIs, UI), lo que mejora la independencia del negocio.
 
