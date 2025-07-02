@@ -270,6 +270,8 @@ Los **patrones arquitectónicos** son soluciones reutilizables y probadas para r
 
     Este enfoque facilita la comprensión y el mantenimiento, ya que cada capa tiene un propósito claro. Pero su principal desventaja es que puede dificultar la flexibilidad y la evolución del sistema cuando los requerimientos cambian, ya que tiende a generar acoplamientos verticales.
 
+    [Explicación detallada](./patrones-arquitectura/layered.md)
+
 -   **Onion Architecture**  
     Variante moderna de la arquitectura en capas que busca resolver el acoplamiento rígido entre capas. Organiza el sistema en círculos concéntricos, donde el dominio está en el centro y las dependencias solo pueden apuntar hacia adentro. Las capas externas (como la infraestructura o la presentación) dependen de las internas, nunca al revés.
 
@@ -290,11 +292,13 @@ Los **patrones arquitectónicos** son soluciones reutilizables y probadas para r
     [Explicación detallada](./patrones-arquitectura/clean.md)
 
 -   **CQRS (Command Query Responsibility Segregation)**  
-    Separa las operaciones de lectura (queries) de las de escritura (commands), lo que permite optimizar cada una por separado y escalar de forma independiente.  
+    Separa las operaciones de lectura (queries) de las de escritura (commands), lo que permite optimizar cada una por separado y escalar de forma independiente.
+
     Este patrón es útil cuando hay diferencias marcadas entre cómo se lee y cómo se actualiza la información. Sin embargo, su uso implica mayor complejidad en sincronización de datos y consistencia eventual, por lo que no es recomendable para sistemas simples.
 
 -   **Event Sourcing**  
-    En lugar de guardar el estado actual de un sistema, almacena todos los eventos que han ocurrido para reconstruir dicho estado.  
+    En lugar de guardar el estado actual de un sistema, almacena todos los eventos que han ocurrido para reconstruir dicho estado.
+
     Permite trazabilidad completa de las acciones del sistema y facilita funcionalidades como el _undo_. No obstante, puede complicar el modelado, el debugging y el rendimiento si no se acompaña de estrategias como snapshots o proyecciones para las consultas.
 
 ---
