@@ -298,6 +298,8 @@ Los **patrones arquitectónicos** son soluciones reutilizables y probadas para r
 
     Este patrón es útil cuando hay diferencias marcadas entre cómo se lee y cómo se actualiza la información. Sin embargo, su uso implica mayor complejidad en sincronización de datos y consistencia eventual, por lo que no es recomendable para sistemas simples.
 
+    [Explicación detallada](./patrones-arquitectura/cqrs.md)
+
 -   **Event Sourcing**  
     En lugar de guardar el estado actual de un sistema, almacena todos los eventos que han ocurrido para reconstruir dicho estado.
 
