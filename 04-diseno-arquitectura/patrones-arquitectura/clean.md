@@ -2,11 +2,18 @@
 
 🔙 [Volver al módulo 4](../summary.md)
 
-**Clean Architecture** es una forma de organizar el código para que sea **fácil de mantener, probar y escalar**. La idea principal es **separar la lógica del negocio** de los detalles técnicos (como frameworks, bases de datos o controladores), colocando el núcleo del sistema en el centro y aislándolo del resto.
+**Clean Architecture** es una manera de estructurar el código que busca que la aplicación sea **fácil de mantener, escalar y probar**. Su principio central es **separar la lógica del negocio** de los detalles técnicos como bases de datos, frameworks o controladores. Esto se logra colocando el núcleo del sistema (el dominio) en el centro y aislándolo de las capas externas.
 
-La aplicación se organiza en **capas**, donde cada una tiene su propia responsabilidad. El **centro** es el dominio del negocio, y las capas externas manejan detalles que pueden cambiar con el tiempo, como la base de datos o el framework web.
+La aplicación se organiza en **capas concéntricas**, donde cada una tiene una responsabilidad específica.
 
-Una regla clave es que **las dependencias siempre deben apuntar hacia adentro**. Esto significa que el dominio no debe depender de nada externo, pero lo externo sí puede depender del dominio. Este enfoque permite que el sistema sea más **estable ante cambios tecnológicos**, más **fácil de probar** y más **preparado para crecer** sin volverse caótico.
+-   En el **centro** se encuentra el **dominio del negocio**, que contiene las reglas y modelos esenciales.
+-   Las **capas externas** se encargan de detalles que pueden cambiar con el tiempo, como la base de datos, la interfaz de usuario o el framework utilizado.
+
+Una regla fundamental es que **las dependencias siempre deben apuntar hacia adentro**.  
+Esto significa que el **dominio no debe depender de ninguna capa externa**, pero las capas externas sí pueden depender del dominio. Gracias a esto, el sistema se vuelve más **estable ante cambios tecnológicos**, **más sencillo de probar** y **más preparado para escalar sin volverse caótico**.
+
+Para lograr este aislamiento, se aplica el **Principio de Inversión de Dependencias (DIP)**.  
+Las **capas internas definen interfaces**, y las **capas externas las implementan**. De esta forma, el dominio permanece independiente, incluso si se cambian herramientas o tecnologías.
 
 ---
 
@@ -32,23 +39,6 @@ Es la capa más externa. Aquí se ubican los **detalles técnicos y herramientas
 
 ---
 
-## ✅ Ventajas y desventajas
-
-### Ventajas
-
--   **Alta testabilidad:** puedes probar el dominio sin necesidad de base de datos o framework.
--   **Bajo acoplamiento:** cada capa está bien aislada y separada de las demás.
--   **Alta mantenibilidad:** es fácil modificar una capa sin afectar a las demás.
--   **Reutilización:** puedes cambiar la interfaz o infraestructura sin tocar el dominio.
-
-### Desventajas
-
--   **Complejidad inicial:** requiere más trabajo al comienzo del proyecto.
--   **Curva de aprendizaje:** no es trivial para desarrolladores sin experiencia en diseño limpio.
--   **Overengineering:** no es ideal para proyectos pequeños o MVPs simples.
-
----
-
 ## 🔄 ¿Cómo fluye el código?
 
 El flujo va desde el exterior hacia el núcleo:
@@ -66,3 +56,20 @@ El flujo va desde el exterior hacia el núcleo:
         ↓ implementados por
 [ Infraestructura (ORM, API, Drivers) ]
 ```
+
+---
+
+## ✅ Ventajas y desventajas
+
+### Ventajas
+
+-   **Alta testabilidad:** puedes probar el dominio sin necesidad de base de datos o framework.
+-   **Bajo acoplamiento:** cada capa está bien aislada y separada de las demás.
+-   **Alta mantenibilidad:** es fácil modificar una capa sin afectar a las demás.
+-   **Reutilización:** puedes cambiar la interfaz o infraestructura sin tocar el dominio.
+
+### Desventajas
+
+-   **Complejidad inicial:** requiere más trabajo al comienzo del proyecto.
+-   **Curva de aprendizaje:** no es trivial para desarrolladores sin experiencia en diseño limpio.
+-   **Overengineering:** no es ideal para proyectos pequeños o MVPs simples.
