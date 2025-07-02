@@ -1,5 +1,7 @@
 # CQRS (Command Query Responsibility Segregation)
 
+🔙 [Volver al módulo 4](../summary.md)
+
 **CQRS** es un patrón arquitectónico que **separa las operaciones de lectura (Query)** y **escritura (Command)** en una aplicación. A diferencia del enfoque tradicional donde un mismo modelo atiende ambas responsabilidades, CQRS propone dividirlas en componentes distintos para mejorar **escalabilidad, rendimiento y mantenibilidad**.
 
 Esta separación permite optimizar cada lado de forma independiente: las consultas pueden estar orientadas al rendimiento y ser más rápidas, mientras que los comandos se enfocan en mantener la integridad del dominio. CQRS se suele combinar con **Event Sourcing**, aunque no es obligatorio.

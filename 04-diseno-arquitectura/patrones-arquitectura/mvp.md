@@ -1,5 +1,7 @@
 # 🧱 Patrón de Arquitectura MVP (Model-View-Presenter)
 
+🔙 [Volver al módulo 4](../summary.md)
+
 El patrón **MVP** (Modelo - Vista - Presentador) es una evolución del patrón **MVC**, diseñado para mejorar la **separación de responsabilidades** y facilitar la **prueba de componentes**, especialmente en aplicaciones con **interfaces gráficas complejas**, como las desarrolladas para escritorio, dispositivos móviles o web con lógica de presentación avanzada.
 
 A diferencia de **MVC**, donde el **Controlador** puede tener cierto acoplamiento con la Vista, en **MVP** el componente central es el **Presentador**, que actúa como un **intermediario totalmente desacoplado** entre la Vista y el Modelo. El Presentador se encarga de toda la **lógica de presentación** y controla la comunicación entre la interfaz y los datos, sin depender de elementos gráficos ni frameworks de UI.

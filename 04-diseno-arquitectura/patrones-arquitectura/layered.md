@@ -1,5 +1,7 @@
 # Arquitectura por Capas
 
+🔙 [Volver al módulo 4](../summary.md)
+
 La **arquitectura por capas** es un patrón de diseño estructural que organiza una aplicación en niveles horizontales, donde cada capa tiene una responsabilidad claramente definida. Su principal característica es que **cada capa solo se comunica con la capa inmediatamente inferior**, lo que favorece la **separación de responsabilidades**, facilita el mantenimiento del código y promueve la escalabilidad del sistema.
 
 ---

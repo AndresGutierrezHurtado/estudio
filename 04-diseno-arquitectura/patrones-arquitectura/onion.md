@@ -1,5 +1,7 @@
 # Arquitectura Cebolla
 
+🔙 [Volver al módulo 4](../summary.md)
+
 La **Arquitectura Cebolla** es un estilo de diseño que estructura una aplicación en **capas concéntricas**, donde el **modelo de dominio** ocupa el centro. Este núcleo contiene la lógica de negocio pura y permanece completamente aislado de detalles técnicos o externos.
 
 Las capas externas agregan funcionalidades como infraestructura o interfaces, pero siempre dependen del núcleo, **nunca al contrario**. Esta organización garantiza una fuerte separación de responsabilidades, facilita el mantenimiento del sistema y promueve un **bajo acoplamiento** entre componentes.
