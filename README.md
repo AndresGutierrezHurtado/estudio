@@ -21,7 +21,21 @@ Este módulo introduce los principios básicos que diferencian el desarrollo de 
 
 ---
 
-### 📌 Módulo 2: Modelos de Desarrollo de Software
+### 📌 Módulo 2: Paradigmas de Programación
+
+Este módulo explora los enfoques fundamentales para estructurar y organizar software. Entender los paradigmas te permite razonar mejor sobre el diseño, elegir herramientas apropiadas y escribir código más claro, mantenible y expresivo.
+
+-   ¿Qué es un paradigma de programación?
+-   Paradigma imperativo (estructurado)
+-   Paradigma orientado a objetos (OOP)
+-   Paradigma funcional
+-   Paradigma declarativo y lógico
+-   Lenguajes multiparadigma (Python, JavaScript, etc.)
+-   Comparativa y aplicaciones según contexto
+
+---
+
+### 📌 Módulo 3: Modelos de Desarrollo de Software
 
 Los modelos de desarrollo definen cómo se organiza el trabajo dentro de un proyecto. Aprenderlos te permite adaptarte a distintos entornos laborales y metodologías, ya sean tradicionales, ágiles o híbridas, comprendiendo los beneficios y limitaciones de cada enfoque.
 
@@ -30,11 +44,11 @@ Los modelos de desarrollo definen cómo se organiza el trabajo dentro de un proy
 -   Modelos ágiles: Scrum, Kanban, XP.
 -   DevOps: Conceptos y flujo continuo.
 
-📄 [Ver Resumen Completo](./02-modelos-desarrollo/summary.md)
+📄 [Ver Resumen Completo](./03-modelos-desarrollo/summary.md)
 
 ---
 
-### 📌 Módulo 3: Análisis de Requisitos
+### 📌 Módulo 4: Análisis de Requisitos
 
 Antes de construir cualquier software, es esencial entender qué problema se quiere resolver. El análisis de requisitos permite obtener claridad, prevenir errores costosos y asegurar que el producto cumpla con las expectativas del usuario y los objetivos del negocio.
 
@@ -43,11 +57,11 @@ Antes de construir cualquier software, es esencial entender qué problema se qui
 -   Modelado de requisitos (Casos de uso, Historias de Usuario).
 -   UML básico (Diagrama de Casos de Uso).
 
-📄 [Ver Resumen Completo](./03-analisis-requisitos/summary.md)
+📄 [Ver Resumen Completo](./04-analisis-requisitos/summary.md)
 
 ---
 
-### 📌 Módulo 4: Diseño y Arquitectura de Software
+### 📌 Módulo 5: Diseño y Arquitectura de Software
 
 Este módulo se enfoca en cómo estructurar tu aplicación para que sea mantenible, extensible y robusta. Conocer patrones y arquitecturas te permite construir software limpio, eficiente y alineado con las necesidades técnicas y del negocio.
 
@@ -56,11 +70,11 @@ Este módulo se enfoca en cómo estructurar tu aplicación para que sea mantenib
 -   Patrones de Arquitectura: Monolito, Microservicios, Event-Driven, Serverless.
 -   Modelado arquitectónico: C4 Model, Diagramas de Componentes.
 
-📄 [Ver Resumen Completo](./04-diseno-arquitectura/summary.md)
+📄 [Ver Resumen Completo](./05-diseno-arquitectura/summary.md)
 
 ---
 
-### 📌 Módulo 5: Estructuras de Datos y Algoritmos para Ingeniería
+### 📌 Módulo 6: Estructuras de Datos y Algoritmos para Ingeniería
 
 La eficiencia de un programa depende en gran parte de su estructura de datos y de los algoritmos implementados. Aunque no se usen directamente a diario en muchos frameworks, dominarlos marca la diferencia entre un programador promedio y uno capaz de optimizar soluciones reales.
 
@@ -70,7 +84,7 @@ La eficiencia de un programa depende en gran parte de su estructura de datos y d
 
 ---
 
-### 📌 Módulo 6: Pruebas de Software (Testing)
+### 📌 Módulo 7: Pruebas de Software (Testing)
 
 No basta con que el software funcione: debe ser confiable. Este módulo aborda las pruebas como parte clave del desarrollo profesional, ayudando a prevenir errores, automatizar validaciones y mantener la calidad con el paso del tiempo.
 
@@ -82,7 +96,7 @@ No basta con que el software funcione: debe ser confiable. Este módulo aborda l
 
 ---
 
-### 📌 Módulo 7: Mantenimiento y Evolución
+### 📌 Módulo 8: Mantenimiento y Evolución
 
 El verdadero costo del software está en su mantenimiento. Entender cómo gestionar deuda técnica, aplicar refactorizaciones y adaptar sistemas a nuevas necesidades es clave para construir productos sostenibles a largo plazo.
 
@@ -92,7 +106,7 @@ El verdadero costo del software está en su mantenimiento. Entender cómo gestio
 
 ---
 
-### 📌 Módulo 8: Gestión de Proyectos de Software
+### 📌 Módulo 9: Gestión de Proyectos de Software
 
 No importa cuán bien programes si el proyecto no se entrega a tiempo o dentro del presupuesto. Aprender gestión de proyectos te permite planificar, estimar y coordinar el desarrollo con enfoque profesional y orientado al resultado.
 
@@ -102,7 +116,7 @@ No importa cuán bien programes si el proyecto no se entrega a tiempo o dentro d
 
 ---
 
-### 📌 Módulo 9: Calidad de Software
+### 📌 Módulo 10: Calidad de Software
 
 La calidad no es solo estética o rendimiento. Este módulo cubre estándares internacionales, métricas y criterios que permiten evaluar y mejorar continuamente el producto, asegurando que cumpla con lo prometido.
 
@@ -112,7 +126,7 @@ La calidad no es solo estética o rendimiento. Este módulo cubre estándares in
 
 ---
 
-### 📌 Módulo 10: Seguridad de Software
+### 📌 Módulo 11: Seguridad de Software
 
 En un mundo donde los ataques informáticos son cada vez más frecuentes, la seguridad debe estar integrada en todo el ciclo de desarrollo. Aprender buenas prácticas desde temprano reduce riesgos y fortalece tu perfil profesional.
 
@@ -122,7 +136,7 @@ En un mundo donde los ataques informáticos son cada vez más frecuentes, la seg
 
 ---
 
-### 📌 Módulo 11: Toma de Decisiones Técnicas
+### 📌 Módulo 12: Toma de Decisiones Técnicas
 
 Un buen desarrollador no solo escribe código, también elige tecnologías y soluciones con criterio. Aquí se desarrollan habilidades para analizar trade-offs y justificar decisiones en base a contexto técnico y de negocio.
 
@@ -132,7 +146,7 @@ Un buen desarrollador no solo escribe código, también elige tecnologías y sol
 
 ---
 
-### 📌 Módulo 12: Documentación Técnica y de Usuario
+### 📌 Módulo 13: Documentación Técnica y de Usuario
 
 Un software sin documentación es difícil de mantener, escalar o entregar. Este módulo cubre cómo escribir documentación útil tanto para otros desarrolladores como para usuarios finales, incluyendo APIs y arquitectura.
 
