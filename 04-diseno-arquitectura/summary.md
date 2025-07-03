@@ -305,6 +305,8 @@ Los **patrones arquitectónicos** son soluciones reutilizables y probadas para r
 
     Permite trazabilidad completa de las acciones del sistema y facilita funcionalidades como el _undo_. No obstante, puede complicar el modelado, el debugging y el rendimiento si no se acompaña de estrategias como snapshots o proyecciones para las consultas.
 
+    [Explicación detallada](./patrones-arquitectura/event-sourcing.md)
+
 ---
 
 ## 🗂️ Modelado Arquitectónico
