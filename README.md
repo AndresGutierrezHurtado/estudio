@@ -33,6 +33,8 @@ Este módulo explora los enfoques fundamentales para estructurar y organizar sof
 -   Lenguajes multiparadigma (Python, JavaScript, etc.)
 -   Comparativa y aplicaciones según contexto
 
+📄 [Ver Resumen Completo](./02-paradigmas-programacion/summary.md)
+
 ---
 
 ### 📌 Módulo 3: Modelos de Desarrollo de Software
