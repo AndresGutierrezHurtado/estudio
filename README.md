@@ -146,6 +146,8 @@ Un buen desarrollador no solo escribe código, también elige tecnologías y sol
 -   Análisis de impacto en negocio y producto.
 -   Ejemplos: Monolito vs Microservicios, SQL vs NoSQL.
 
+📄 [Ver Resumen Completo](./12-toma-decisiones/summary.md)
+
 ---
 
 ### 📌 Módulo 13: Documentación Técnica y de Usuario
