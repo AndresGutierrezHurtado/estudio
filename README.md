@@ -19,6 +19,8 @@ Este módulo introduce los principios básicos que diferencian el desarrollo de 
 
 📄 [Ver Resumen Completo](./01-fundamentos-ingenieria/summary.md)
 
+📘 Curso Recomendado: [Fundamentos de Ingeniería de Software](https://platzi.com/cursos/ingenieria/)
+
 ---
 
 ### 📌 Módulo 2: Paradigmas de Programación
@@ -48,6 +50,8 @@ Los modelos de desarrollo definen cómo se organiza el trabajo dentro de un proy
 
 📄 [Ver Resumen Completo](./03-modelos-desarrollo/summary.md)
 
+📘 Curso Recomendado: [Clase de modelos y metodologías de desarrollo de software](https://youtu.be/uhZgYsUI2A8?si=quBj61Z-4CW-hjBL)
+
 ---
 
 ### 📌 Módulo 4: Análisis de Requisitos
@@ -73,6 +77,8 @@ Este módulo se enfoca en cómo estructurar tu aplicación para que sea mantenib
 -   Modelado arquitectónico: C4 Model, Diagramas de Componentes.
 
 📄 [Ver Resumen Completo](./05-diseno-arquitectura/summary.md)
+
+📘 Curso Recomendado: [Curso de Arquitecturas Limpias](https://platzi.com/cursos/arquitecturas-limpias/)
 
 ---
 
