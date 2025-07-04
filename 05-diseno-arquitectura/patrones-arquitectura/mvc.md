@@ -1,6 +1,6 @@
 # Patrón de Arquitectura MVC (Model-View-Controller)
 
-🔙 [Volver al módulo 4](../summary.md)
+🔙 [Volver al módulo 5](../summary.md)
 
 Cuando empezamos a construir aplicaciones, es común que todo el código esté mezclado: la parte que muestra la interfaz, la que maneja los datos y la que responde a las acciones del usuario. Esto puede funcionar al principio, pero a medida que la aplicación crece, se vuelve difícil de entender, mantener o escalar. Aquí es donde entra en juego el patrón **MVC (Modelo-Vista-Controlador)**.
 

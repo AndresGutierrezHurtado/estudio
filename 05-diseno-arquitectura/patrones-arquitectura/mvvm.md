@@ -1,6 +1,6 @@
 # 🧱 Patrón de Arquitectura MVVM (Model-View-ViewModel)
 
-🔙 [Volver al módulo 4](../summary.md)
+🔙 [Volver al módulo 5](../summary.md)
 
 El patrón **MVVM** (Modelo - Vista - ViewModel) es una alternativa moderna al patrón **MVC**, especialmente diseñado para aplicaciones con **interfaces de usuario complejas, reactivas o altamente interactivas**. Es ampliamente adoptado en frameworks y tecnologías modernas como **Vue, Angular, React (con hooks y estados), WPF, Jetpack Compose**, entre otros.
 

@@ -1,6 +1,6 @@
 # Event Sourcing
 
-🔙 [Volver al módulo 4](../summary.md)
+🔙 [Volver al módulo 5](../summary.md)
 
 **Event Sourcing** es un patrón arquitectónico donde el estado de una aplicación **no se guarda directamente**, sino que se reconstruye a partir de una **secuencia de eventos** que representan los cambios ocurridos en el sistema. Cada vez que algo cambia, se registra un evento inmutable que describe **qué ocurrió** en lugar de guardar solo el nuevo estado.
 

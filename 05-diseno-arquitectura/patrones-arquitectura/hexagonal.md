@@ -1,6 +1,6 @@
 # Patrón de Arquitectura Hexagonal (Ports and Adapters)
 
-🔙 [Volver al módulo 4](../summary.md)
+🔙 [Volver al módulo 5](../summary.md)
 
 La **Arquitectura Hexagonal**, también conocida como **Ports and Adapters**, propone una forma de estructurar las aplicaciones donde el **núcleo de negocio** queda completamente **aislado** de los detalles externos como bases de datos, interfaces gráficas, frameworks o servicios.
 

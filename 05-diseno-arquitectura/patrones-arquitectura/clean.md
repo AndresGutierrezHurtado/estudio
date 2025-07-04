@@ -1,6 +1,6 @@
 # Clean Architecture
 
-🔙 [Volver al módulo 4](../summary.md)
+🔙 [Volver al módulo 5](../summary.md)
 
 **Clean Architecture** es una manera de estructurar el código que busca que la aplicación sea **fácil de mantener, escalar y probar**. Su principio central es **separar la lógica del negocio** de los detalles técnicos como bases de datos, frameworks o controladores. Esto se logra colocando el núcleo del sistema (el dominio) en el centro y aislándolo de las capas externas.
 

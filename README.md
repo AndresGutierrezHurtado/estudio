@@ -100,7 +100,7 @@ No basta con que el software funcione: debe ser confiable. Este módulo aborda l
 -   TDD: Desarrollo guiado por pruebas.
 -   Herramientas: Jest, PHPUnit, etc.
 
-📄 [Ver Resumen Completo](./06-pruebas-software/summary.md)
+📄 [Ver Resumen Completo](./07-pruebas-software/summary.md)
 
 ---
 
