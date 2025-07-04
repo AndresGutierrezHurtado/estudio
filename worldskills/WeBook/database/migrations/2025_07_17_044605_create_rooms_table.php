@@ -12,7 +12,24 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('rooms', function (Blueprint $table) {
-            $table->id();
+            $table->id('room_id');
+            $table->string('room_name');
+            $table->timestamps();
+        });
+
+        Schema::create('schedules', function (Blueprint $table) {
+            $table->id('schedule_id');
+            $table->foreignId('room_id');
+            $table->integer('schedule_day');
+            $table->time('schedule_start');
+            $table->time('schedule_end');
+        });
+
+        Schema::create('books', function (Blueprint $table) {
+            $table->id('book_id');
+            $table->foreignId('room_id');
+            $table->foreignId('schedule_id');
+            $table->foreignId('user_id');
             $table->timestamps();
         });
     }
@@ -23,5 +40,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('rooms');
+        Schema::dropIfExists('schedules');
+        Schema::dropIfExists('books');
     }
 };
