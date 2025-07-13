@@ -33,6 +33,8 @@ class DatabaseSeeder extends Seeder
                 'user_email' => 'andres52885241@gmail.com',
                 'user_password' => Hash::make('12345678'),
                 'role_id' => 2,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'user_id' => 2,
@@ -41,6 +43,8 @@ class DatabaseSeeder extends Seeder
                 'user_email' => 'nwendy798@gmail.com',
                 'user_password' => Hash::make('12345678'),
                 'role_id' => 1,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
         ]);
 
@@ -70,6 +74,8 @@ class DatabaseSeeder extends Seeder
                 'call_places' => 15,
                 'call_start' => now()->subDays(5),
                 'call_end' => now()->addDays(30),
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
         ]);
     }
