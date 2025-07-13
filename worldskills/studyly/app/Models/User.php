@@ -18,11 +18,6 @@ class User extends Authenticatable
 
     public $timestamps = true;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var list<string>
-     */
     protected $fillable = [
         'user_name',
         'user_lastname',
@@ -30,13 +25,9 @@ class User extends Authenticatable
         'user_password',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var list<string>
-     */
     protected $hidden = [
         'user_password',
+        'remember_token',
     ];
 
     public function student(): HasOne

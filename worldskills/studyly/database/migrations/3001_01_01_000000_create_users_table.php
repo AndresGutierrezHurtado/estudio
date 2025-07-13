@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('user_lastname');
             $table->string('user_email')->unique();
             $table->string('user_password');
+            $table->string('remember_token')->nullable();
             $table->foreignId('role_id')->constrained('roles', 'role_id');
             $table->timestamps();
         });
@@ -34,7 +35,7 @@ return new class extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->id('student_id');
             $table->foreignId('user_id')->constrained('users', 'user_id');
-            $table->string('institution_name');
+            $table->string('student_institution');
             $table->date('student_birth');
         });
 
