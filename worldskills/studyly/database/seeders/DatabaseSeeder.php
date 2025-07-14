@@ -59,7 +59,7 @@ class DatabaseSeeder extends Seeder
             [
                 'student_id' => 1,
                 'user_id' => 2,
-                'institution_name' => 'Servicio Nacional de Aprendizaje',
+                'student_institution' => 'Servicio Nacional de Aprendizaje',
                 'student_birth' => '2006-04-15',
             ],
         ]);
