@@ -15,16 +15,27 @@
             <form action="/login" method="POST" class="space-y-4 grow">
                 @csrf
                 <fieldset class="fieldset">
-                    <label for="" class="fieldset-label text-base">Correo electrónico</label>
-                    <input type="text" name="user_email" class="input" placeholder="Ingresa tu correo electrónico">
+                    <label for="user_email" class="fieldset-label text-base">Correo electrónico</label>
+                    <input type="text" name="user_email" class="input" placeholder="Ingresa tu correo electrónico" value="{{  old('user_email') }}">
                 </fieldset>
-                <fieldset class="fieldset">
-                    <label for="" class="fieldset-label text-base">Contraseña</label>
-                    <input type="text" name="user_password" class="input" placeholder="Ingresa tu contraseña">
-                </fieldset>
-                @if (session()->has('error'))
+                @error('user_email')
                     <p class="text-error">
-                        {{ session('error') }}
+                        {{ $message }}
+                    </p>
+                @enderror
+                <fieldset class="fieldset">
+                    <label for="user_password" class="fieldset-label text-base">Contraseña</label>
+                    <input type="password" name="user_password" class="input" placeholder="Ingresa tu contraseña" value="{{  old('user_password') }}">
+                </fieldset>
+                @error('user_password')
+                    <p class="text-error">
+                        {{ $message }}
+                    </p>
+                @enderror
+                {{-- Error section --}}
+                @if (session('error'))
+                    <p class="text-error">
+                        {{  session('error') }}
                     </p>
                 @endif
                 <fieldset class="fieldset py-5">
@@ -38,7 +49,8 @@
             </footer>
         </section>
         <section class="w-full lg:w-3/5 p-2 flex flex-col overflow-hidden">
-            <div class="w-full grow bg-secondary text-secondary-content rounded-lg flex flex-col items-center justify-center">
+            <div
+                class="w-full grow bg-secondary text-secondary-content rounded-lg flex flex-col items-center justify-center">
                 <div class="w-full max-w-lg text-center flex flex-col items-center">
                     <h1 class="text-3xl font-bold mb-2">¿Aún no tienes cuenta?</h1>
                     <p class="text-lg mb-6">Si aún no has creado tu cuenta puedes ir y regístrarte en el siguiente botón</p>
