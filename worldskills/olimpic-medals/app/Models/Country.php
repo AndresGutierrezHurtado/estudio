@@ -16,8 +16,8 @@ class Country extends Model
         'country_code',
     ];
 
-    public function country(): HasMany
+    public function medals(): HasMany
     {
-        return $this->HasMany(Medal::class, 'medal_id', 'medal_id');
+        return $this->hasMany(Medal::class, 'country_id', 'country_id');
     }
 }

@@ -50,7 +50,7 @@ class DatabaseSeeder extends Seeder
                 'medal_id' => 2,
                 'medal_type' => 'bronze',
                 'medal_sport' => 'Soccer',
-                'country_id' => 1
+                'country_id' => 2
             ],
         ]);
     }
