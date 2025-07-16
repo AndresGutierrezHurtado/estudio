@@ -17,3 +17,15 @@
 @utility btn {
     @apply h-auto py-1.5 shadow-none;
 }
+
+@utility input {
+    @apply w-full focus:outline-none focus:border-primary focus-within:outline-none focus-within:border-primary;
+}
+
+@utility select {
+    @apply w-full focus:outline-none focus:border-primary focus-within:outline-none focus-within:border-primary;
+}
+
+@utility textarea {
+    @apply w-full focus:outline-none focus:border-primary focus-within:outline-none focus-within:border-primary;
+}
