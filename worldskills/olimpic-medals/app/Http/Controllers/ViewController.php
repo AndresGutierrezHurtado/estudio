@@ -35,6 +35,8 @@ class ViewController extends Controller
         }
 
         $countries = $countries->get();
+
+        return view('home', compact('countries'));
     }
 
     public function countries(Request $request)

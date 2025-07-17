@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Gestión de paises y sus medallas olímpicas')
+@section('title', 'Gestión de paises')
 
 @section('content')
     <section class="w-full px-5">
