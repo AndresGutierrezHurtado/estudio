@@ -95,7 +95,7 @@ class CountryController extends Controller
                 throw new \Exception("No existe ese país");
             }
 
-            $country->destroy();
+            Country::destroy($id);
 
             return redirect("/countries");
         } catch (\Exception $e) {
