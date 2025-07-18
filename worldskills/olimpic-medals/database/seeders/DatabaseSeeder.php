@@ -44,12 +44,14 @@ class DatabaseSeeder extends Seeder
                 'medal_id' => 1,
                 'medal_type' => 'gold',
                 'medal_sport' => 'Desarrollo web',
+                'medal_year' => 2025,
                 'country_id' => 1
             ],
             [
                 'medal_id' => 2,
                 'medal_type' => 'bronze',
                 'medal_sport' => 'Soccer',
+                'medal_year' => 2025,
                 'country_id' => 2
             ],
         ]);

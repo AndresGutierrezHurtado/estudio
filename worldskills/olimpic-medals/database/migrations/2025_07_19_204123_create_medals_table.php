@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('medals', function (Blueprint $table) {
             $table->id('medal_id');
-            $table->enum('medal_type', ['gold', 'plate', 'bronze']);
+            $table->enum('medal_type', ['gold', 'silver', 'bronze']);
             $table->string('medal_sport');
-            $table->foreignId('country_id')->constrained('countries', 'country_id');
+            $table->bigInteger('medal_year');
+            $table->foreignId('country_id')->constrained('countries', 'country_id')->onDelete('cascade');
         });
     }
 
