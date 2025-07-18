@@ -81,6 +81,7 @@ class ViewController extends Controller
             $medals = $medals->where(function ($query) use ($search) {
                 $query->where('medal_type', 'LIKE', "%$search%");
                 $query->orWhere('medal_sport', 'LIKE', "%$search%");
+                $query->orWhere('medal_year', 'LIKE', "%$search%");
                 $query->orWhereHas('country', function ($query2) use ($search) {
                     $query2->where('country_code', 'LIKE', "%$search%");
                     $query2->orWhere('country_name', 'LIKE', "%$search%");
