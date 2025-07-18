@@ -21,6 +21,7 @@
                             @endif
                         </fieldset>
                     </form>
+                    <button class="btn btn-primary" onclick="document.getElementById('create').show()">Agregar Pais</button>
                 </div>
 
                 {{-- Table --}}
