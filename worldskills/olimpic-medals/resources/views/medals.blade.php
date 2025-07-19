@@ -6,7 +6,7 @@
     <section class="w-full px-5">
         <div class="w-full max-w-[1200px] mx-auto py-10 space-y-8">
             <h1 class="text-4xl font-extrabold">Gestión de medallas</h1>
-<div class="w-full space-y-5">
+            <div class="w-full space-y-5">
                 {{-- Filters --}}
                 <div class="w-full flex justify-between items-center">
                     <form action="" method="get" class="w-full max-w-sm">
@@ -163,4 +163,80 @@
             <button>Cerrar</button>
         </form>
     </dialog>
+
+    @foreach ($medals as $medal)
+        <dialog class="modal" id="edit-{{ $medal['medal_id'] }}">
+            <div class="modal-box">
+                <h1 class="text-xl font-bold mb-4">Editar país</h1>
+                <form action="/medals/{{ $medal['medal_id'] }}" method="POST">
+                    @csrf
+                    @method('put')
+                    <fieldset class="fieldset">
+                        <label for="medal_type" class="fieldset-label text-base after:content-['*'] after:text-error">
+                            Tipo de medalla:
+                        </label>
+                        <select name="medal_type" id="medal_type" class="select" required>
+                            <option value="" disabled selected>Selecciona el tipo de medalla</option>
+                            <option value="gold" @if ($medal['medal_type'] === "gold") selected @endif>Oro</option>
+                            <option value="silver" @if ($medal['medal_type'] === "silver") selected @endif>Plata</option>
+                            <option value="bronze" @if ($medal['medal_type'] === "bronze") selected @endif>Bronce</option>
+                        </select>
+                        @error('medal_type')
+                            <p class="text-error">
+                                {{ $message }}
+                            </p>
+                        @enderror
+                    </fieldset>
+                    <fieldset class="fieldset">
+                        <label for="medal_type" class="fieldset-label text-base after:content-['*'] after:text-error">
+                            Deporte:
+                        </label>
+                        <input type="text" name="medal_sport" id="medal_sport"
+                            placeholder="Ingresa el deporte de esta medalla" class="input"
+                            value="{{ $medal['medal_sport'] }}">
+                        @error('medal_sport')
+                            <p class="text-error">
+                                {{ $message }}
+                            </p>
+                        @enderror
+                    </fieldset>
+                    <fieldset class="fieldset">
+                        <label for="medal_type" class="fieldset-label text-base after:content-['*'] after:text-error">
+                            País de la medalla:
+                        </label>
+                        <select name="country_id" id="country_id" class="select" required>
+                            <option value="" disabled selected>Selecciona el pais de la medalla</option>
+                            @foreach ($countries as $country)
+                                <option value="{{ $country['country_id'] }}" class="capitalize"
+                                    @if ($medal['country_id'] === $country['country_id']) selected @endif>
+                                    {{ $country['country_name'] }}
+                                </option>
+                            @endforeach
+                        </select>
+                        @error('country_id')
+                            <p class="text-error">
+                                {{ $message }}
+                            </p>
+                        @enderror
+                    </fieldset>
+                <fieldset class="fieldset">
+                    <label for="medal_year" class="fieldset-label text-base after:content-['*'] after:text-error">
+                        Año:
+                    </label>
+                    <input type="number" name="medal_year" id="medal_year"
+                        placeholder="Ingresa el deporte de esta medalla" class="input" value="{{ $medal['medal_year'] }}">
+                    @error('medal_year')
+                        <p class="text-error">
+                            {{ $message }}
+                        </p>
+                    @enderror
+                </fieldset>
+                    <fieldset class="fieldset pt-5">
+                        <button class="btn btn-primary">Subir cambios</button>
+                    </fieldset>
+                </form>
+            </div>
+            <form method="dialog" class="modal-backdrop bg-black/20"><button>Cerrar</button></form>
+        </dialog>
+    @endforeach
 @endsection
