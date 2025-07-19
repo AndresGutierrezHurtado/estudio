@@ -90,4 +90,77 @@
             </div>
         </div>
     </section>
+
+    <dialog class="modal" id="create">
+        <div class="modal-box">
+            <h1 class="text-xl font-bold mb-4">Crear medalla</h1>
+            <form action="/medals" method="POST">
+                @csrf
+                <fieldset class="fieldset">
+                    <label for="medal_type" class="fieldset-label text-base after:content-['*'] after:text-error">
+                        Tipo de medalla:
+                    </label>
+                    <select name="medal_type" id="medal_type" class="select" required>
+                        <option value="" disabled selected>Selecciona el tipo de medalla</option>
+                        <option value="gold">Oro</option>
+                        <option value="silver">Plata</option>
+                        <option value="bronze">Bronce</option>
+                    </select>
+                    @error('medal_type')
+                        <p class="text-error">
+                            {{ $message }}
+                        </p>
+                    @enderror
+                </fieldset>
+                <fieldset class="fieldset">
+                    <label for="medal_sport" class="fieldset-label text-base after:content-['*'] after:text-error">
+                        Deporte:
+                    </label>
+                    <input type="text" name="medal_sport" id="medal_sport"
+                        placeholder="Ingresa el deporte de esta medalla" class="input" value="{{ old('medal_sport') }}">
+                    @error('medal_sport')
+                        <p class="text-error">
+                            {{ $message }}
+                        </p>
+                    @enderror
+                </fieldset>
+                <fieldset class="fieldset">
+                    <label for="country_id" class="fieldset-label text-base after:content-['*'] after:text-error">
+                        País de la medalla:
+                    </label>
+                    <select name="country_id" id="country_id" class="select" required>
+                        <option value="" disabled selected>Selecciona el pais de la medalla</option>
+                        @foreach ($countries as $country)
+                            <option value="{{ $country['country_id'] }}" class="capitalize">
+                                {{ $country['country_name'] }}
+                            </option>
+                        @endforeach
+                    </select>
+                    @error('country_id')
+                        <p class="text-error">
+                            {{ $message }}
+                        </p>
+                    @enderror
+                </fieldset>
+                <fieldset class="fieldset">
+                    <label for="medal_year" class="fieldset-label text-base after:content-['*'] after:text-error">
+                        Año:
+                    </label>
+                    <input type="number" name="medal_year" id="medal_year"
+                        placeholder="Ingresa el deporte de esta medalla" class="input" value="{{ old('medal_year', 2025) }}">
+                    @error('medal_year')
+                        <p class="text-error">
+                            {{ $message }}
+                        </p>
+                    @enderror
+                </fieldset>
+                <fieldset class="fieldset pt-5">
+                    <button class="btn btn-primary">Subir cambios</button>
+                </fieldset>
+            </form>
+        </div>
+        <form method="dialog" class="modal-backdrop bg-black/20">
+            <button>Cerrar</button>
+        </form>
+    </dialog>
 @endsection
