@@ -11,9 +11,14 @@
                 <div class="w-full flex justify-between items-center">
                     <form action="" method="get" class="w-full max-w-sm">
                         <fieldset class="w-full fieldset flex flex-row">
-                            <label for="seach" class="input">
-                                <input type="text" name="search" id="search" placeholder="Buscar país"
+                            <label for="search-input" class="input">
+                                <input type="text" name="search" id="search-input" placeholder="Buscar país"
                                     value="{{ request('search') }}">
+                                <div class="flex gap-2 items-center text-xs">
+                                    <kbd class="kbd kbd-xs">Alt</kbd>
+                                    <span>+</span>
+                                    <kbd class="kbd kbd-xs">S</kbd>
+                                </div>
                             </label>
                             <button class="btn">Buscar</button>
                             @if (request('search'))

@@ -31,6 +31,18 @@
             </ul>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            $searchInput = document.getElementById('search-input');
+
+            document.addEventListener('keydown', (e) => {
+                if (e.altKey && e.key.toLowerCase() === 's' && $searchInput) {
+                    $searchInput.focus();
+                }
+            })
+        });
+    </script>
 </body>
 
 </html>
