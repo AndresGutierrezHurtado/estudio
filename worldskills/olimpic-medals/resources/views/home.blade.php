@@ -10,7 +10,8 @@
                 @foreach ($countries as $country)
                     <div class="collapse collapse-arrow join-item border-base-300 border">
                         <input type="checkbox" name="item-{{ $country['country_id'] }}" />
-                        <div class="collapse-title font-semibold capitalize">{{ $country['country_name'] }} ({{ $country['country_code'] }})</div>
+                        <div class="collapse-title font-semibold capitalize">{{ $country['country_name'] }}
+                            ({{ $country['country_code'] }})</div>
                         <ul class="collapse-content">
                             @forelse ($country['medals'] as $medal)
                                 <li>
@@ -22,8 +23,9 @@
                                         @elseif($medal['medal_type'] === 'bronze')
                                             🥉 Bronce
                                         @endif
-                                    </span>
-                                    {{ $medal['medal_sport'] }} {{ $medal['medal_year'] }}
+                                    </span> -
+                                    <span class="font-semibold"> {{ $medal['medal_sport'] }} </span>
+                                    ({{ $medal['medal_year'] }})
                                 </li>
                             @empty
                                 <li>
