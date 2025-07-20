@@ -118,7 +118,7 @@
                     @enderror
                 </fieldset>
                 <fieldset class="fieldset pt-5">
-                    <button class="btn btn-primary">Subir cambios</button>
+                    <button class="btn btn-primary">Crear País</button>
                 </fieldset>
             </form>
         </div>

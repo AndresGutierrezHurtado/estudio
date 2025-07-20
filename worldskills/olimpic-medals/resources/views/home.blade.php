@@ -10,7 +10,7 @@
                 @foreach ($countries as $country)
                     <div class="collapse collapse-arrow join-item border-base-300 border">
                         <input type="checkbox" name="item-{{ $country['country_id'] }}" />
-                        <div class="collapse-title font-semibold capitalize">{{ $country['country_name'] }}</div>
+                        <div class="collapse-title font-semibold capitalize">{{ $country['country_name'] }} ({{ $country['country_code'] }})</div>
                         <ul class="collapse-content">
                             @forelse ($country['medals'] as $medal)
                                 <li>
