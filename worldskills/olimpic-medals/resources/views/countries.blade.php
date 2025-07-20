@@ -139,7 +139,7 @@
                             Nombre
                         </label>
                         <input type="text" class="input" name="country_name" placeholder="Ingresa el nombre del pais"
-                            value={{ $country['country_name'] }}>
+                            value="{{ $country['country_name'] }}">
                         @error('country_name')
                             <p class="text-error">
                                 {{ $message }}
@@ -151,7 +151,7 @@
                             Código
                         </label>
                         <input type="text" class="input" name="country_code"
-                            placeholder="Ingresa el código (3 letras) del pais" value={{ $country['country_code'] }}>
+                            placeholder="Ingresa el código (3 letras) del pais" value="{{ $country['country_code'] }}">
                         @error('country_code')
                             <p class="text-error">
                                 {{ $message }}
