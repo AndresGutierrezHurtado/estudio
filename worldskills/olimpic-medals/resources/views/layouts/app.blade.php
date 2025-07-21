@@ -28,6 +28,7 @@
                 <li><a href="/">Lista paises</a></li>
                 <li><a href="/countries">Gestión de paises</a></li>
                 <li><a href="/medals">Gestión de medallas</a></li>
+                <li><a href="/competitors">Gestión de competidores</a></li>
             </ul>
         </div>
     </div>
