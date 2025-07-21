@@ -2,6 +2,13 @@
 @plugin "daisyui" {
     themes: light --default, dark --prefersdark;
 }
+@plugin "daisyui/theme" {
+    name: "light";
+    default: true;
+
+    --color-primary: #381a9f;
+    --color-secondary: #381a9f;
+}
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';

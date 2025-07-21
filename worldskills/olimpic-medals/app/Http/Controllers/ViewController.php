@@ -115,4 +115,26 @@ class ViewController extends Controller
         $competitors = $competitors->paginate(5);
         return view('competitors', compact('competitors', 'countries'));
     }
+
+    public function ranking(Request $request)
+    {
+        $countries = Country::withCount([
+            'medals as gold_medals' => function ($query) {
+                $query->where('medal_type', 'gold');
+            },
+            'medals as silver_medals' => function ($query) {
+                $query->where('medal_type', 'silver');
+            },
+            'medals as bronze_medals' => function ($query) {
+                $query->where('medal_type', 'bronze');
+            },
+            'medals as total_medals',
+        ])->orderByDesc('gold_medals')
+          ->orderByDesc('silver_medals')
+          ->orderByDesc('bronze_medals')
+          ->orderByDesc('total_medals')
+          ->get();
+
+        return view('ranking', compact('countries'));
+    }
 }

@@ -12,6 +12,7 @@ Route::get('/', [ViewController::class, 'index']);
 Route::get('/countries', [ViewController::class, 'countries']);
 Route::get('/medals', [ViewController::class, 'medals']);
 Route::get('/competitors', [ViewController::class, 'competitors']);
+Route::get('/ranking', [ViewController::class, 'ranking']);
 
 // ----- LOGIC ROUTES ----- //
 
