@@ -10,6 +10,8 @@ class Competitor extends Model
 {
     protected $primaryKey = 'competitor_id';
 
+    public $timestamps = false;
+
     protected $fillable = [
         'competitor_name',
         'competitor_lastname',
