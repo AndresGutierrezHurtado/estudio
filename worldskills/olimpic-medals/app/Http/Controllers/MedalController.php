@@ -21,10 +21,13 @@ class MedalController extends Controller
                     'medal_sport' => 'required|string',
                     'medal_year' => 'required|integer|min:1900|max:2025',
                     'medal_type' => 'required|in:gold,silver,bronze',
+                    'competitor_ids' => 'required|array',
+                    'competitor_ids.*' => 'integer|exists:competitors,competitor_id',
                 ],
             );
 
-            $medal = Medal::create($request->all());
+            $medal = Medal::create($request->only('country_id', 'medal_sport', 'medal_year', 'medal_type'));
+            $medal->competitors()->sync($request->input('competitor_ids'));
 
             return redirect("/medals?search={$medal->medal_sport}");
         } catch (ValidationException $e) {
@@ -45,10 +48,14 @@ class MedalController extends Controller
                     'medal_sport' => 'required|string',
                     'medal_year' => 'required|integer|min:1900|max:2025',
                     'medal_type' => 'required|in:gold,silver,bronze',
+                    'competitor_ids' => 'required|array',
+                    'competitor_ids.*' => 'integer|exists:competitors,competitor_id',
                 ],
             );
 
-            $medal = Medal::where('medal_id', $id)->update($request->only('country_id', 'medal_sport', 'medal_year', 'medal_type'));
+            $medal = Medal::findOrFail($id);
+            $medal->update($request->only('country_id', 'medal_sport', 'medal_year', 'medal_type'));
+            $medal->competitors()->sync($request->input('competitor_ids'));
 
             return redirect("/medals?search={$medal->medal_sport}");
         } catch (ValidationException $e) {
