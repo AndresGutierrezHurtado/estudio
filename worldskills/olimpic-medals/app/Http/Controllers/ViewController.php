@@ -74,8 +74,9 @@ class ViewController extends Controller
         $search = $request->input('search', '');
 
         $countries = Country::all();
+        $competitors = \App\Models\Competitor::all();
 
-        $medals = Medal::with('country');
+        $medals = Medal::with('country', 'competitors');
 
         if (!empty($search)) {
             $medals = $medals->where(function ($query) use ($search) {
@@ -91,6 +92,27 @@ class ViewController extends Controller
 
         $medals = $medals->paginate(10);
 
-        return view('medals', compact('countries', 'medals'));
+        return view('medals', compact('countries', 'medals', 'competitors'));
+    }
+
+    public function competitors(Request $request)
+    {
+        $search = $request->input('search', '');
+        $page = $request->input('page', 1);
+
+        $countries = \App\Models\Country::all();
+        $competitors = \App\Models\Competitor::with('country');
+        if (!empty($search)) {
+            $competitors = $competitors->where(function ($query) use ($search) {
+                $query->where('competitor_name', 'LIKE', "%$search%");
+                $query->orWhere('competitor_lastname', 'LIKE', "%$search%");
+                $query->orWhereHas('country', function ($query2) use ($search) {
+                    $query2->where('country_code', 'LIKE', "%$search%");
+                    $query2->orWhere('country_name', 'LIKE', "%$search%");
+                });
+            });
+        }
+        $competitors = $competitors->paginate(5);
+        return view('competitors', compact('competitors', 'countries'));
     }
 }
