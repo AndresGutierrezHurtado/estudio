@@ -13,7 +13,7 @@ class ViewController extends Controller
     {
         $search = $request->input('search', '');
 
-        $countries = Country::with('medals')
+        $countries = Country::with('medals', 'medals.competitors')
             ->withCount([
                 'medals as gold_medals' => function ($query) {
                     $query->where('medal_type', 'gold');

@@ -26,6 +26,15 @@
                                     </span> -
                                     <span class="font-semibold"> {{ $medal['medal_sport'] }} </span>
                                     ({{ $medal['medal_year'] }})
+                                    <ul class="ml-6 mt-1 text-sm text-base-content/50">
+                                        @forelse ($medal['competitors'] as $competitor)
+                                            <li>
+                                                {{ $competitor['competitor_name'] }} {{ $competitor['competitor_lastname'] }}
+                                            </li>
+                                        @empty
+                                            <li>No hay competidores registrados para esta medalla.</li>
+                                        @endforelse
+                                    </ul>
                                 </li>
                             @empty
                                 <li>

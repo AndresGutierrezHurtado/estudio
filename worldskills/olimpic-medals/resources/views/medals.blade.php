@@ -38,6 +38,7 @@
                                 <th>Código</th>
                                 <th>Tipo</th>
                                 <th>Deporte</th>
+                                <th>Competidores</th>
                                 <th>Pais</th>
                                 <th>Año</th>
                                 <th>Acciones</th>
@@ -57,6 +58,14 @@
                                         @endif
                                     </td>
                                     <td> {{ $medal['medal_sport'] }} </td>
+                                    <td>
+                                        @foreach ($medal['competitors'] as $competitor)
+                                            <p>
+                                                {{ $competitor['competitor_name'] }}
+                                                {{ $competitor['competitor_lastname'] }}
+                                            </p>
+                                        @endforeach
+                                    </td>
                                     <td class="capitalize"> {{ $medal['country']['country_name'] }} </td>
                                     <td> {{ $medal['medal_year'] }} </td>
                                     <td>
@@ -151,12 +160,30 @@
                     <label for="medal_year" class="fieldset-label text-base after:content-['*'] after:text-error">
                         Año:
                     </label>
-                    <input type="number" name="medal_year" id="medal_year"
-                        placeholder="Ingresa el deporte de esta medalla" class="input" value="{{ old('medal_year', 2025) }}">
+                    <input type="number" name="medal_year" id="medal_year" placeholder="Ingresa el deporte de esta medalla"
+                        class="input" value="{{ old('medal_year', 2025) }}">
                     @error('medal_year')
                         <p class="text-error">
                             {{ $message }}
                         </p>
+                    @enderror
+                </fieldset>
+                <fieldset class="fieldset">
+                    <label for="competitor_ids" class="fieldset-label text-base after:content-['*'] after:text-error">
+                        Competidores:
+                    </label>
+                    <select name="competitor_ids[]" id="competitor_ids" class="input h-20" multiple required>
+                        @foreach ($competitors as $competitor)
+                            <option value="{{ $competitor['competitor_id'] }}"
+                                @if (isset($medal) &&
+                                        isset($medal['competitors']) &&
+                                        in_array($competitor['competitor_id'], array_column($medal['competitors']->toArray(), 'competitor_id'))) selected @endif>
+                                {{ $competitor['competitor_name'] }} {{ $competitor['competitor_lastname'] }}
+                            </option>
+                        @endforeach
+                    </select>
+                    @error('competitor_ids')
+                        <p class="text-error">{{ $message }}</p>
                     @enderror
                 </fieldset>
                 <fieldset class="fieldset pt-5">
@@ -182,9 +209,9 @@
                         </label>
                         <select name="medal_type" id="medal_type" class="select" required>
                             <option value="" disabled selected>Selecciona el tipo de medalla</option>
-                            <option value="gold" @if ($medal['medal_type'] === "gold") selected @endif>Oro</option>
-                            <option value="silver" @if ($medal['medal_type'] === "silver") selected @endif>Plata</option>
-                            <option value="bronze" @if ($medal['medal_type'] === "bronze") selected @endif>Bronce</option>
+                            <option value="gold" @if ($medal['medal_type'] === 'gold') selected @endif>Oro</option>
+                            <option value="silver" @if ($medal['medal_type'] === 'silver') selected @endif>Plata</option>
+                            <option value="bronze" @if ($medal['medal_type'] === 'bronze') selected @endif>Bronce</option>
                         </select>
                         @error('medal_type')
                             <p class="text-error">
@@ -224,18 +251,37 @@
                             </p>
                         @enderror
                     </fieldset>
-                <fieldset class="fieldset">
-                    <label for="medal_year" class="fieldset-label text-base after:content-['*'] after:text-error">
-                        Año:
-                    </label>
-                    <input type="number" name="medal_year" id="medal_year"
-                        placeholder="Ingresa el deporte de esta medalla" class="input" value="{{ $medal['medal_year'] }}">
-                    @error('medal_year')
-                        <p class="text-error">
-                            {{ $message }}
-                        </p>
-                    @enderror
-                </fieldset>
+                    <fieldset class="fieldset">
+                        <label for="medal_year" class="fieldset-label text-base after:content-['*'] after:text-error">
+                            Año:
+                        </label>
+                        <input type="number" name="medal_year" id="medal_year"
+                            placeholder="Ingresa el deporte de esta medalla" class="input"
+                            value="{{ $medal['medal_year'] }}">
+                        @error('medal_year')
+                            <p class="text-error">
+                                {{ $message }}
+                            </p>
+                        @enderror
+                    </fieldset>
+                    <fieldset class="fieldset">
+                        <label for="competitor_ids" class="fieldset-label text-base after:content-['*'] after:text-error">
+                            Competidores:
+                        </label>
+                        <select name="competitor_ids[]" id="competitor_ids" class="select" multiple required>
+                            @foreach ($competitors as $competitor)
+                                <option value="{{ $competitor['competitor_id'] }}"
+                                    @if (isset($medal) &&
+                                            isset($medal['competitors']) &&
+                                            in_array($competitor['competitor_id'], array_column($medal['competitors']->toArray(), 'competitor_id'))) selected @endif>
+                                    {{ $competitor['competitor_name'] }} {{ $competitor['competitor_lastname'] }}
+                                </option>
+                            @endforeach
+                        </select>
+                        @error('competitor_ids')
+                            <p class="text-error">{{ $message }}</p>
+                        @enderror
+                    </fieldset>
                     <fieldset class="fieldset pt-5">
                         <button class="btn btn-primary">Subir cambios</button>
                     </fieldset>
