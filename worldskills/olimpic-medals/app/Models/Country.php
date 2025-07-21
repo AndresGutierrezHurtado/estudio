@@ -23,4 +23,9 @@ class Country extends Model
     {
         return $this->hasMany(Medal::class, 'country_id', 'country_id');
     }
+
+    public function competitors(): HasMany
+    {
+        return $this->hasMany(Competitor::class, 'country_id', 'country_id');
+    }
 }

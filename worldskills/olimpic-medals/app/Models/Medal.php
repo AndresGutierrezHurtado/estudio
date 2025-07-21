@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Medal extends Model
 {
@@ -21,5 +22,10 @@ class Medal extends Model
     public function country(): BelongsTo
     {
         return $this->belongsTo(Country::class, 'country_id', 'country_id');
+    }
+
+    public function competitors(): BelongsToMany
+    {
+        return $this->belongsToMany(Competitor::class, 'medal_competitors', 'medal_id', 'competitor_id');
     }
 }
