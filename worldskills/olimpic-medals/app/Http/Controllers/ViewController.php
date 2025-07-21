@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Competitor;
 use App\Models\Country;
 use App\Models\Medal;
 use Illuminate\Http\Request;
@@ -74,7 +75,7 @@ class ViewController extends Controller
         $search = $request->input('search', '');
 
         $countries = Country::all();
-        $competitors = \App\Models\Competitor::all();
+        $competitors = Competitor::all();
 
         $medals = Medal::with('country', 'competitors');
 
@@ -100,8 +101,8 @@ class ViewController extends Controller
         $search = $request->input('search', '');
         $page = $request->input('page', 1);
 
-        $countries = \App\Models\Country::all();
-        $competitors = \App\Models\Competitor::with('country');
+        $countries = Country::all();
+        $competitors = Competitor::with('country');
         if (!empty($search)) {
             $competitors = $competitors->where(function ($query) use ($search) {
                 $query->where('competitor_name', 'LIKE', "%$search%");
@@ -114,6 +115,14 @@ class ViewController extends Controller
         }
         $competitors = $competitors->paginate(5);
         return view('competitors', compact('competitors', 'countries'));
+    }
+
+    public function competitorDetail($id)
+    {
+        $competitor = Competitor::with(['country', 'medals' => function ($q) {
+            $q->with('country');
+        }])->findOrFail($id);
+        return view('competitor_detail', compact('competitor'));
     }
 
     public function ranking(Request $request)
@@ -130,10 +139,10 @@ class ViewController extends Controller
             },
             'medals as total_medals',
         ])->orderByDesc('gold_medals')
-          ->orderByDesc('silver_medals')
-          ->orderByDesc('bronze_medals')
-          ->orderByDesc('total_medals')
-          ->get();
+            ->orderByDesc('silver_medals')
+            ->orderByDesc('bronze_medals')
+            ->orderByDesc('total_medals')
+            ->get();
 
         return view('ranking', compact('countries'));
     }

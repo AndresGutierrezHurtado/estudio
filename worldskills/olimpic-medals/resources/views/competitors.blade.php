@@ -65,6 +65,7 @@
                                     <td>{{ $competitor['competitor_description'] }}</td>
                                     <td>
                                         <div class="w-fit flex flex-wrap gap-2 items-center justify-center">
+                                            <a href="/competitors/{{ $competitor['competitor_id'] }}" class="btn btn-info">Ver</a>
                                             <button
                                                 onclick="document.getElementById('edit-{{ $competitor['competitor_id'] }}').show()"
                                                 class="btn btn-primary">
