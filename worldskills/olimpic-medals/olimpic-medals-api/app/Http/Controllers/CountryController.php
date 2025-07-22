@@ -15,24 +15,36 @@ class CountryController extends Controller
     public function index(Request $request)
     {
         try {
+            $sort = $request->input('sort', 'created_at:desc');
+            $order = explode(':', $sort)[1];
+            $sort = explode(':', $sort)[0];
+
             $filters = [
                 'search' => $request->input('search', ''),
-                'page' => $request->input('page', 1)
+                'page' => $request->input('page', 1),
+                'limit' => $request->input('limit', 10),
+                'sort' => $sort,
+                'order' => $order
             ];
 
-            $countries = Country::where()->paginate(10);
+            $countries = Country::with('medals', 'medals.competitors')
+                ->withCount('medals')
+                ->where(function ($query) use ($filters) {
+                    $query->where('country_name', 'LIKE', "%{$filters['search']}%");
+                    $query->orWhere('country_code', 'LIKE', "%{$filters['search']}%");
+                })->paginate($filters['limit']);
 
-            return [
+            return response()->json([
                 'success' => true,
                 'message' => 'Paises obtenidos correctamente',
-                'data' => [],
+                'data' => $countries->getCollection(),
                 'total' => $countries->total()
-            ];
+            ], 200);
         } catch (\Exception $e) {
-            return [
+            return response()->json([
                 'success' => false,
                 'message' => 'Hubo un error al obtener los paises: ' . $e->getMessage(),
-            ];
+            ], 500);
         }
     }
 
@@ -41,7 +53,40 @@ class CountryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $request->validate(
+                [
+                    'country_code' => 'required|string|min:3|max:3',
+                    'country_name' => 'required|string',
+                ]
+            );
+
+            $existingCountry = Country::where('country_code', $request->input('country_code'))->first();
+
+            if ($existingCountry) {
+                throw new \Exception("Ya existe un país con ese código");
+            }
+
+            $newCountry = Country::create([
+                'country_code' => $request->input('country_code'),
+                'country_name' => $request->input('country_name'),
+            ]);
+
+            if (!$newCountry) {
+                throw new \Exception("Hubo un error al crear el país");
+            }
+
+            return response()->json([
+                'success' => true,
+                'message' => 'País creado exitosamente',
+                'data' => $newCountry,
+            ], 201);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Hubo un error al obtener los paises: ' . $e->getMessage(),
+            ], 500);
+        }
     }
 
     /**
@@ -49,7 +94,22 @@ class CountryController extends Controller
      */
     public function show(string $id)
     {
-        //
+        try {
+            $country = Country::with('medals', 'medals.competitors')
+                ->withCount('medals')
+                ->where('country_id', $id)->first();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'País obtenido correctamente',
+                'data' => $country,
+            ], 201);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Hubo un error al obtener los paises: ' . $e->getMessage(),
+            ], 500);
+        }
     }
 
     /**
@@ -57,7 +117,41 @@ class CountryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        try {
+            $request->validate(
+                [
+                    'country_code' => 'required|string|min:3|max:3',
+                    'country_name' => 'required|string',
+                ]
+            );
+
+            $country = Country::where('country_id', $id)->first();
+
+            if ($request->input('country_code') !== $country->country_code) {
+                $existingCountry = Country::where('country_code', $request->input('country_code'))->first();
+
+                if ($existingCountry) {
+                    throw new \Exception("Ya existe un país con ese código");
+                }
+            }
+
+            if (!$country) {
+                throw new \Exception("No se encontró el país o no existe");
+            }
+
+            $country->update($request->only('country_code', 'country_name'));
+
+            return response()->json([
+                'success' => true,
+                'message' => 'País actualizado correctamente',
+                'data' => $country,
+            ], 201);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Hubo un error al actualizar el país: ' . $e->getMessage(),
+            ], 500);
+        }
     }
 
     /**
@@ -65,6 +159,24 @@ class CountryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $existingCountry = Country::where('country_id', $id)->first();
+
+            if (!$existingCountry) {
+                throw new \Exception("No se encuentra el país");
+            }
+
+            $existingCountry->destroy();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'País eliminado correctamente',
+            ], 201);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Hubo un error al eliminar el país: ' . $e->getMessage(),
+            ], 500);
+        }
     }
 }
