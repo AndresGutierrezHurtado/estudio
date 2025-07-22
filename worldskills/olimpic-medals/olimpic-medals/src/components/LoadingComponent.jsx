@@ -2,9 +2,9 @@ import React from "react";
 
 export default function LoadingComponent() {
     return (
-        <div>
+        <div className="w-fit mx-auto">
             <div className="loading w-50"></div>
-            <h1>Cargando</h1>
+            <h1 className="text-3xl font-bold text-center">Cargando</h1>
         </div>
     );
 }

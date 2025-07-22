@@ -31,7 +31,7 @@ async function fetchData(method, endpoint, body = {}) {
     }
 }
 
-export async function useGetData(endpoint) {
+export function useGetData(endpoint) {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [trigger, setTrigger] = useState(false);
