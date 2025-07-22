@@ -15,7 +15,7 @@ class CountryController extends Controller
     public function index(Request $request)
     {
         try {
-            $sort = $request->input('sort', 'created_at:desc');
+            $sort = $request->input('sort', 'country_code:asc');
             $order = explode(':', $sort)[1];
             $sort = explode(':', $sort)[0];
 
@@ -84,7 +84,7 @@ class CountryController extends Controller
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false,
-                'message' => 'Hubo un error al obtener los paises: ' . $e->getMessage(),
+                'message' => 'Hubo un error al crear el pais: ' . $e->getMessage(),
             ], 500);
         }
     }
@@ -107,7 +107,7 @@ class CountryController extends Controller
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false,
-                'message' => 'Hubo un error al obtener los paises: ' . $e->getMessage(),
+                'message' => 'Hubo un error al obtener el país: ' . $e->getMessage(),
             ], 500);
         }
     }
@@ -127,16 +127,16 @@ class CountryController extends Controller
 
             $country = Country::where('country_id', $id)->first();
 
+            if (!$country) {
+                throw new \Exception("No se encontró el país o no existe");
+            }
+
             if ($request->input('country_code') !== $country->country_code) {
                 $existingCountry = Country::where('country_code', $request->input('country_code'))->first();
 
                 if ($existingCountry) {
                     throw new \Exception("Ya existe un país con ese código");
                 }
-            }
-
-            if (!$country) {
-                throw new \Exception("No se encontró el país o no existe");
             }
 
             $country->update($request->only('country_code', 'country_name'));
