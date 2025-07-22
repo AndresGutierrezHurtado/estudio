@@ -160,10 +160,15 @@ class CountryController extends Controller
     public function destroy(string $id)
     {
         try {
-            $existingCountry = Country::where('country_id', $id)->first();
+            $existingCountry = Country::withCount('medals')->where('country_id', $id)->first();
+
 
             if (!$existingCountry) {
                 throw new \Exception("No se encuentra el país");
+            }
+
+            if ($existingCountry->medal_count > 0) {
+                throw new \Exception("El país cuenta con medallas registradas, para eliminarlo debes eliminarlas primero");
             }
 
             $existingCountry->destroy();
