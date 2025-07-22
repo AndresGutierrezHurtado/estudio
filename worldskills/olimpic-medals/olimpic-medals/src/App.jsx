@@ -17,8 +17,8 @@ export default function App() {
             <Routes>
                 <Route path="/" element={<AppLayout />}>
                     <Route index element={<Ranking />} />
-                    <Route path="/admin/countries" element={<CompetitorManagement />} />
-                    <Route path="/admin/competitors" element={<CountryManagement />} />
+                    <Route path="/admin/countries" element={<CountryManagement />} />
+                    <Route path="/admin/competitors" element={<CompetitorManagement />} />
                     <Route path="/admin/medals" element={<MedalManagement />} />
                     <Route path="/competitor/:id" element={<CompetitorProfile />} />
                 </Route>
