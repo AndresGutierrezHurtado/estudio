@@ -99,6 +99,10 @@ class CountryController extends Controller
                 ->withCount('medals')
                 ->where('country_id', $id)->first();
 
+            if (!$country) {
+                throw new \Exception("No se encontró el país o no existe");
+            }
+
             return response()->json([
                 'success' => true,
                 'message' => 'País obtenido correctamente',

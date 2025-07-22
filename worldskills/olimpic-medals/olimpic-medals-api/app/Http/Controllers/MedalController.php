@@ -95,6 +95,10 @@ class MedalController extends Controller
             $medal = Medal::with('country', 'competitors')
                 ->where('medal_id', $id)->first();
 
+            if (!$medal) {
+                throw new \Exception("No se encontró la medalla o no existe");
+            }
+
             return response()->json([
                 'success' => true,
                 'message' => 'Medalla obtenida correctamente',

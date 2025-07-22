@@ -101,6 +101,10 @@ class CompetitorController extends Controller
             $competitor = Competitor::with('country', 'medals')
                 ->where('competitor_id', $id)->first();
 
+            if (!$competitor) {
+                throw new \Exception("No se encontró el competidor o no existe");
+            }
+
             return response()->json([
                 'success' => true,
                 'message' => 'Competidor obtenida correctamente',
