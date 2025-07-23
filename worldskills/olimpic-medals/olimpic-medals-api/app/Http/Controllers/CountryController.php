@@ -175,7 +175,7 @@ class CountryController extends Controller
                 throw new \Exception("El país cuenta con medallas registradas, para eliminarlo debes eliminarlas primero");
             }
 
-            $existingCountry->destroy();
+            Country::destroy($id);
 
             return response()->json([
                 'success' => true,

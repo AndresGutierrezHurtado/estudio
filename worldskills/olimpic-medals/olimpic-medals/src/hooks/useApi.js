@@ -76,5 +76,5 @@ export async function useFetch(method, endpoint, data, showAlert = true) {
         }
     }
 
-    return response.data;
+    return response;
 }

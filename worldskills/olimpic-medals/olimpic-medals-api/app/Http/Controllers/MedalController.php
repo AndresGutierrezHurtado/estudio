@@ -165,7 +165,7 @@ class MedalController extends Controller
                 throw new \Exception("No se encontró la medalla o no existe");
             }
 
-            $medal->destroy();
+            Medal::destroy($id);
 
             return response()->json([
                 'success' => true,

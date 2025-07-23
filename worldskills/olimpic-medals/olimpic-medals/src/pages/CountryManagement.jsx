@@ -6,6 +6,7 @@ import { useFetch, useGetData } from "../hooks/useApi";
 
 // Components
 import LoadingComponent from "../components/LoadingComponent";
+import Swal from "sweetalert2";
 
 export default function CountryManagement() {
     const [search, setSearch] = useState("");
@@ -20,16 +21,16 @@ export default function CountryManagement() {
 
     if (countriesLoading || !countries) return <LoadingComponent />;
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         const data = Object.fromEntries(new FormData(e.target));
         // validation
 
-        setLoading(true);
-        const response = useFetch("post", "/countries", data);
+        // setLoading(true);
+        const response = await useFetch("post", "/countries", data);
 
-        if (response) setLoading(false);
+        // if (response) setLoading(false);
         if (!response.success) return;
 
         countriesReload();
@@ -38,6 +39,43 @@ export default function CountryManagement() {
         if ($modal) $modal.close();
     };
 
+    const handleSubmitEdit = async (e, id) => {
+        e.preventDefault();
+
+        const data = Object.fromEntries(new FormData(e.target));
+        // validation
+
+        // setLoading(true);
+        const response = await useFetch("put", `/countries/${id}`, data);
+
+        // if (response) setLoading(false);
+        if (!response.success) return;
+
+        countriesReload();
+        e.target.reset();
+        const $modal = document.getElementById(`update-modal-${id}`);
+        if ($modal) $modal.close();
+    };
+
+    const handleDelete = (id) => {
+        Swal.fire({
+            icon: "warning",
+            title: "Ten cuidado",
+            text: "Esta acción es irreversible, ¿deseas continuar?",
+            showCancelButton: true,
+            cancelButtonText: "Cancelar",
+            showConfirmButton: true,
+            confirmButtonText: "Continuar",
+        }).then(async (confirm) => {
+            if (!confirm) return;
+
+            const response = await useFetch("delete", `/countries/${id}`);
+
+            if (!response.success) return;
+
+            countriesReload();
+        });
+    };
     return (
         <>
             <section className="w-full max-w-[1200px] mx-auto py-10 space-y-10">
@@ -109,7 +147,11 @@ export default function CountryManagement() {
                                                 className="btn h-10 w-10 p-0 btn-primary tooltip tooltip-left"
                                                 data-tip="Editar el país"
                                                 onClick={() => {
-                                                    // document.getElementById("create-modal").show();
+                                                    document
+                                                        .getElementById(
+                                                            `update-modal-${country.country_id}`
+                                                        )
+                                                        .show();
                                                 }}
                                             >
                                                 <PencilIcon size={18} />
@@ -117,6 +159,9 @@ export default function CountryManagement() {
                                             <button
                                                 className="btn h-10 w-10 p-0 btn-error tooltip tooltip-left"
                                                 data-tip="Eliminar el país"
+                                                onClick={() => {
+                                                    handleDelete(country.country_id);
+                                                }}
                                             >
                                                 <Trash2Icon size={18} />
                                             </button>
@@ -170,7 +215,14 @@ export default function CountryManagement() {
                             />
                         </fieldset>
                         <fieldset className="pt-5 flex gap-4 justify-end">
-                            <button type="button" className="btn">
+                            <button
+                                type="button"
+                                className="btn"
+                                onClick={() => {
+                                    document.querySelector("#create-modal form").reset();
+                                    document.querySelector("#create-modal").close();
+                                }}
+                            >
                                 <XIcon size={17} />
                                 Cancelar
                             </button>
@@ -185,6 +237,84 @@ export default function CountryManagement() {
                     <button>Cerrar</button>
                 </form>
             </dialog>
+
+            {/* Update Country Modal */}
+            {countries.map((country) => (
+                <dialog
+                    key={country.country_id}
+                    className="modal"
+                    id={`update-modal-${country.country_id}`}
+                >
+                    <div className="modal-box">
+                        <form method="dialog" className="w-full flex justify-between">
+                            <h2 className="text-3xl font-bold">Editar país</h2>
+                            <button className="btn btn-ghost btn-circle">
+                                <XIcon />
+                            </button>
+                        </form>
+
+                        {/* Content */}
+                        <form onSubmit={(e) => handleSubmitEdit(e, country.country_id)}>
+                            <fieldset className="fieldset">
+                                <label
+                                    htmlFor=""
+                                    className="fieldset-label text-base after:content-['*'] after:text-error"
+                                >
+                                    Nombre:
+                                </label>
+                                <input
+                                    type="text"
+                                    className="input"
+                                    name="country_name"
+                                    defaultValue={country.country_name}
+                                    placeholder="Ingresa el nombre del pais"
+                                />
+                            </fieldset>
+                            <fieldset className="fieldset">
+                                <label
+                                    htmlFor=""
+                                    className="fieldset-label text-base after:content-['*'] after:text-error"
+                                >
+                                    Código:
+                                </label>
+                                <input
+                                    type="text"
+                                    className="input"
+                                    name="country_code"
+                                    defaultValue={country.country_code}
+                                    placeholder="Ingresa el código del pais (3 LETRAS)"
+                                />
+                            </fieldset>
+                            <fieldset className="pt-5 flex gap-4 justify-end">
+                                <button
+                                    type="button"
+                                    className="btn"
+                                    onClick={() => {
+                                        document
+                                            .querySelector(
+                                                `#update-modal-${country.country_id} form`
+                                            )
+                                            .reset();
+                                        document
+                                            .querySelector(`#update-modal-${country.country_id}`)
+                                            .close();
+                                    }}
+                                >
+                                    <XIcon size={17} />
+                                    Cancelar
+                                </button>
+                                <button type="submit" className="btn btn-primary px-8">
+                                    <UploadIcon size={17} />
+                                    Crear
+                                </button>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <form method="dialog" className="modal-backdrop bg-black/20">
+                        <button>Cerrar</button>
+                    </form>
+                </dialog>
+            ))}
         </>
     );
 }

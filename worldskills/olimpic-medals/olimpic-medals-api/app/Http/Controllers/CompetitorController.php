@@ -173,7 +173,7 @@ class CompetitorController extends Controller
                 throw new \Exception("No se encontró el competidor o no existe");
             }
 
-            $competitor->destroy();
+            Competitor::destroy($id);
 
             return response()->json([
                 'success' => true,
