@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { PencilIcon, SearchIcon, Trash2Icon, XIcon } from "lucide-react";
+import { PencilIcon, PlusIcon, SearchIcon, Trash2Icon, UploadIcon, XIcon } from "lucide-react";
 
 // Hooks
-import { useGetData } from "../hooks/useApi";
+import { useFetch, useGetData } from "../hooks/useApi";
 
 // Components
 import LoadingComponent from "../components/LoadingComponent";
+import Swal from "sweetalert2";
 
 export default function CompetitorManagement() {
     const [search, setSearch] = useState("");
@@ -17,7 +18,65 @@ export default function CompetitorManagement() {
         reload: competitorsReload,
     } = useGetData(`/competitors?search=${search}&page=${page}`);
 
-    if (competitorsLoading || !competitors) return <LoadingComponent />;
+    const { data: countries, loading: countriesLoading } = useGetData(`/countries?limit=100`);
+
+    if (competitorsLoading || countriesLoading || !competitors) return <LoadingComponent />;
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const data = Object.fromEntries(new FormData(e.target));
+        // validation
+
+        // setLoading(true);
+        const response = await useFetch("post", "/competitors", data);
+
+        // if (response) setLoading(false);
+        if (!response.success) return;
+
+        competitorsReload();
+        e.target.reset();
+        const $modal = document.getElementById("create-modal");
+        if ($modal) $modal.close();
+    };
+
+    const handleSubmitEdit = async (e, id) => {
+        e.preventDefault();
+
+        const data = Object.fromEntries(new FormData(e.target));
+        // validation
+
+        // setLoading(true);
+        const response = await useFetch("put", `/competitors/${id}`, data);
+
+        // if (response) setLoading(false);
+        if (!response.success) return;
+
+        competitorsReload();
+        e.target.reset();
+        const $modal = document.getElementById(`update-modal-${id}`);
+        if ($modal) $modal.close();
+    };
+
+    const handleDelete = (id) => {
+        Swal.fire({
+            icon: "warning",
+            title: "Ten cuidado",
+            text: "Esta acción es irreversible, ¿deseas continuar?",
+            showCancelButton: true,
+            cancelButtonText: "Cancelar",
+            showConfirmButton: true,
+            confirmButtonText: "Continuar",
+        }).then(async (confirm) => {
+            if (!confirm) return;
+
+            const response = await useFetch("delete", `/competitors/${id}`);
+
+            if (!response.success) return;
+
+            competitorsReload();
+        });
+    };
 
     return (
         <>
@@ -42,7 +101,17 @@ export default function CompetitorManagement() {
                             </div>
                         </label>
                     </div>
-                    <div></div>
+                    <div>
+                        <div
+                            className="btn btn-primary h-10 w-10 p-0 tooltip tooltip-left"
+                            data-tip="Crear un nuevo competidor"
+                            onClick={() => {
+                                document.getElementById("create-modal").show();
+                            }}
+                        >
+                            <PlusIcon />
+                        </div>
+                    </div>
                 </div>
                 <div className="w-full overflow-x-auto bg-base-200 border border-base-300 rounded-lg">
                     <table className="table">
@@ -82,7 +151,7 @@ export default function CompetitorManagement() {
                                                 className="btn h-10 w-10 p-0 btn-primary tooltip tooltip-left"
                                                 data-tip="Editar el país"
                                                 onClick={() => {
-                                                    document.getElementById("create-modal").show();
+                                                    // document.getElementById("create-modal").show();
                                                 }}
                                             >
                                                 <PencilIcon size={18} />
@@ -90,6 +159,9 @@ export default function CompetitorManagement() {
                                             <button
                                                 className="btn h-10 w-10 p-0 btn-error tooltip tooltip-left"
                                                 data-tip="Eliminar el país"
+                                                onClick={() =>
+                                                    handleDelete(competitor.competitor_id)
+                                                }
                                             >
                                                 <Trash2Icon size={18} />
                                             </button>
@@ -101,15 +173,97 @@ export default function CompetitorManagement() {
                     </table>
                 </div>
             </section>
-            <dialog className="modal" id="create-modal">
+
+            {/* Create Competitor Modal */}
+            <dialog className="modal" id="create-modal" open>
                 <div className="modal-box">
-                    <form method="dialog" className="w-full flex justify-end">
+                    <form method="dialog" className="w-full flex justify-between">
+                        <h2 className="text-3xl font-bold">Crear competidor</h2>
                         <button className="btn btn-ghost btn-circle">
                             <XIcon />
                         </button>
                     </form>
 
                     {/* Content */}
+                    <form onSubmit={handleSubmit}>
+                        <fieldset className="fieldset">
+                            <label htmlFor="" className="fieldset-label text-base">
+                                Nombre:
+                            </label>
+                            <input
+                                type="text"
+                                className="input"
+                                name="competitor_name"
+                                placeholder="Ingresa el nombre del competidor"
+                            />
+                        </fieldset>
+                        <fieldset className="fieldset">
+                            <label htmlFor="" className="fieldset-label text-base">
+                                Apellido:
+                            </label>
+                            <input
+                                type="text"
+                                className="input"
+                                name="competitor_lastname"
+                                placeholder="Ingresa el apellido del competidor"
+                            />
+                        </fieldset>
+                        <fieldset className="fieldset">
+                            <label
+                                htmlFor="competitor_description"
+                                className="fieldset-label text-base"
+                            >
+                                Descripcion:
+                            </label>
+                            <textarea
+                                name="competitor_description"
+                                id="competitor_description"
+                                className="textarea"
+                                placeholder="Ingresa la descripción del competidor"
+                            ></textarea>
+                        </fieldset>
+                        <fieldset className="fieldset">
+                            <label htmlFor="" className="fieldset-label text-base">
+                                Fecha nacimiento:
+                            </label>
+                            <input
+                                type="date"
+                                className="input"
+                                name="competitor_birthdate"
+                                placeholder="Ingresa la fecha de nacimiento del competidor"
+                            />
+                        </fieldset>
+                        <fieldset className="fieldset">
+                            <label htmlFor="country_id" className="fieldset-label text-base">
+                                Pais:
+                            </label>
+                            <select name="country_id" id="country_id" className="select">
+                                <option value="">Selecciona tu pais</option>
+                                {countries.map((country) => (
+                                    <option value={country.country_id} className="capitalize">
+                                        {country.country_name}
+                                    </option>
+                                ))}
+                            </select>
+                        </fieldset>
+                        <fieldset className="pt-5 flex gap-4 justify-end">
+                            <button
+                                type="button"
+                                className="btn"
+                                onClick={() => {
+                                    document.querySelector("#create-modal form").reset();
+                                    document.querySelector("#create-modal").close();
+                                }}
+                            >
+                                <XIcon size={17} />
+                                Cancelar
+                            </button>
+                            <button type="submit" className="btn btn-primary px-8">
+                                <UploadIcon size={17} />
+                                Crear
+                            </button>
+                        </fieldset>
+                    </form>
                 </div>
                 <form method="dialog" className="modal-backdrop bg-black/20">
                     <button>Cerrar</button>
