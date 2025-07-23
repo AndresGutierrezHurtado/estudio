@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Competitor;
 use App\Models\Medal;
+use App\Models\MedalCompetitor;
 use Illuminate\Http\Request;
 
 class MedalController extends Controller
@@ -31,6 +33,14 @@ class MedalController extends Controller
                     $query->where('medal_type', 'LIKE', "%{$filters['search']}%");
                     $query->orWhere('medal_sport', 'LIKE', "%{$filters['search']}%");
                     $query->orWhere('medal_year', 'LIKE', "%{$filters['search']}%");
+                    $query->orWhereHas('competitors', function ($query2) use ($filters) {
+                        $query2->where('competitor_name', 'LIKE', "%{$filters['search']}%");
+                        $query2->orWhere('competitor_lastname', 'LIKE', "%{$filters['search']}%");
+                    });
+                    $query->orWhereHas('country', function ($query3) use ($filters) {
+                        $query3->where('country_name', 'LIKE', "%{$filters['search']}%");
+                        $query3->orWhere('country_code', 'LIKE', "%{$filters['search']}%");
+                    });
                 })->paginate($filters['limit']);
 
             return response()->json([
@@ -58,7 +68,8 @@ class MedalController extends Controller
                     'medal_type' => 'required|in:gold,silver,bronze',
                     'medal_sport' => 'required|string',
                     'medal_year' => 'required|integer',
-                    'country_id' => 'required|integer|exists:countries,country_id'
+                    'country_id' => 'required|integer|exists:countries,country_id',
+                    'competitors' => 'required'
                 ]
             );
 
@@ -69,8 +80,19 @@ class MedalController extends Controller
                 'country_id' => $request->input('country_id'),
             ]);
 
+            if (!is_array($request->input('competitors'))) {
+                $request->merge(['competitors' => [$request->input('competitors')]]);
+            }
+
             if (!$newMedal) {
                 throw new \Exception("Hubo un error al crear la medalla");
+            }
+
+            foreach ($request->input('competitors') as $competitor) {
+                MedalCompetitor::create([
+                    'medal_id' => $newMedal->medal_id,
+                    'competitor_id' => $competitor
+                ]);
             }
 
             return response()->json([

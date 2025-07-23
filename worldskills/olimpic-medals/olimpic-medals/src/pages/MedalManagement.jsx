@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { useGetData } from "../hooks/useApi";
+import { useFetch, useGetData } from "../hooks/useApi";
 import LoadingComponent from "../components/LoadingComponent";
-import { PencilIcon, SearchIcon, Trash2Icon } from "lucide-react";
+import { PencilIcon, PlusIcon, SearchIcon, Trash2Icon, UploadIcon, XIcon } from "lucide-react";
+import Swal from "sweetalert2";
 
 export default function MedalManagement() {
     const [search, setSearch] = useState("");
@@ -13,7 +14,77 @@ export default function MedalManagement() {
         reload: medalsReload,
     } = useGetData(`/medals?search=${search}&page=${page}`);
 
-    if (medalsLoading || !medals) return <LoadingComponent />;
+    const {
+        data: countries,
+        loading: countriesLoading,
+        reload: countriesReload,
+    } = useGetData(`/countries?search=${search}&page=${page}`);
+
+    const {
+        data: competitors,
+        loading: competitorsLoading,
+        reload: competitorsReload,
+    } = useGetData(`/competitors?search=${search}&page=${page}`);
+
+    if (medalsLoading || competitorsLoading || countriesLoading || !medals) {
+        return <LoadingComponent />;
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const data = Object.fromEntries(new FormData(e.target));
+        // validation
+
+        // setLoading(true);
+        const response = await useFetch("post", "/medals", data);
+
+        // if (response) setLoading(false);
+        if (!response.success) return;
+
+        medalsReload();
+        e.target.reset();
+        const $modal = document.getElementById("create-modal");
+        if ($modal) $modal.close();
+    };
+
+    const handleSubmitEdit = async (e, id) => {
+        e.preventDefault();
+
+        const data = Object.fromEntries(new FormData(e.target));
+        // validation
+
+        // setLoading(true);
+        const response = await useFetch("put", `/medals/${id}`, data);
+
+        // if (response) setLoading(false);
+        if (!response.success) return;
+
+        medalsReload();
+        e.target.reset();
+        const $modal = document.getElementById(`update-modal-${id}`);
+        if ($modal) $modal.close();
+    };
+
+    const handleDelete = (id) => {
+        Swal.fire({
+            icon: "warning",
+            title: "Ten cuidado",
+            text: "Esta acción es irreversible, ¿deseas continuar?",
+            showCancelButton: true,
+            cancelButtonText: "Cancelar",
+            showConfirmButton: true,
+            confirmButtonText: "Continuar",
+        }).then(async (confirm) => {
+            if (!confirm) return;
+
+            const response = await useFetch("delete", `/medals/${id}`);
+
+            if (!response.success) return;
+
+            medalsReload();
+        });
+    };
 
     return (
         <>
@@ -40,7 +111,17 @@ export default function MedalManagement() {
                                 </div>
                             </label>
                         </div>
-                        <div></div>
+                        <div>
+                            <div
+                                className="btn btn-primary h-10 w-10 p-0 tooltip tooltip-left"
+                                data-tip="Agregar una medalla nueva"
+                                onClick={() => {
+                                    document.getElementById("create-modal").show();
+                                }}
+                            >
+                                <PlusIcon />
+                            </div>
+                        </div>
                     </div>
 
                     {/* Tabla */}
@@ -102,6 +183,121 @@ export default function MedalManagement() {
                     </div>
                 </div>
             </section>
+
+            {/* Create Medal Modal */}
+            <dialog className="modal" id="create-modal">
+                <div className="modal-box">
+                    <form method="dialog" className="w-full flex justify-between">
+                        <h2 className="text-3xl font-bold">Agregar medalla</h2>
+                        <button className="btn btn-ghost btn-circle">
+                            <XIcon />
+                        </button>
+                    </form>
+
+                    {/* Content */}
+                    <form onSubmit={handleSubmit}>
+                        <fieldset className="fieldset">
+                            <label
+                                htmlFor="medal_type"
+                                className="fieldset-label text-base after:content-['*'] after:text-error"
+                            >
+                                Tipo:
+                            </label>
+                            <select name="medal_type" id="medal_type" className="select">
+                                <option value="">Seleccionar el tipo de medalla</option>
+                                <option value="gold">🥇 Oro</option>
+                                <option value="silver">🥈 Plata</option>
+                                <option value="Bronze">🥉 Bronce</option>
+                            </select>
+                        </fieldset>
+                        <fieldset className="fieldset">
+                            <label
+                                htmlFor="medal_sport"
+                                className="fieldset-label text-base after:content-['*'] after:text-error"
+                            >
+                                Deporte:
+                            </label>
+                            <input
+                                type="text"
+                                className="input"
+                                id="medal_sport"
+                                name="medal_sport"
+                                placeholder="Ingresa el deporte o categoria de esta medalla"
+                            />
+                        </fieldset>
+                        <fieldset className="fieldset">
+                            <label
+                                htmlFor="medal_year"
+                                className="fieldset-label text-base after:content-['*'] after:text-error"
+                            >
+                                Año:
+                            </label>
+                            <input
+                                type="number"
+                                className="input"
+                                id="medal_year"
+                                name="medal_year"
+                                placeholder="Ingresa el año en el que se ganó la medalla"
+                            />
+                        </fieldset>
+                        <fieldset className="fieldset">
+                            <label
+                                htmlFor="country_id"
+                                className="fieldset-label text-base after:content-['*'] after:text-error"
+                            >
+                                Pais:
+                            </label>
+                            <select name="country_id" id="country_id" className="select">
+                                <option value="">Seleccionar el tipo de medalla</option>
+                                {countries.map((country) => (
+                                    <option
+                                        value={country.country_id}
+                                        key={country.country_id}
+                                        className="capitalize"
+                                    >
+                                        {country.country_name} - ({country.country_code})
+                                    </option>
+                                ))}
+                            </select>
+                        </fieldset>
+                        <fieldset className="fieldset">
+                            <label
+                                htmlFor="competitors"
+                                className="fieldset-label text-base after:content-['*'] after:text-error"
+                            >
+                                Competidores:
+                            </label>
+                            <select name="competitors" id="competitors" className="input h-15" multiple>
+                                {competitors.map(competitor => (
+                                    <option value={competitor.competitor_id} key={competitor.competitor_id} className="capitalize">
+                                        {competitor.competitor_name}
+                                    </option>
+                                ))}
+                            </select>
+                        </fieldset>
+                        <fieldset className="pt-5 flex gap-4 justify-end">
+                            <button
+                                type="button"
+                                className="btn"
+                                onClick={() => {
+                                    document.querySelector("#create-modal form").reset();
+                                    document.querySelector("#create-modal").close();
+                                }}
+                            >
+                                <XIcon size={17} />
+                                Cancelar
+                            </button>
+                            <button type="submit" className="btn btn-primary px-8">
+                                <UploadIcon size={17} />
+                                Crear
+                            </button>
+                        </fieldset>
+                    </form>
+                </div>
+                <form method="dialog" className="modal-backdrop bg-black/20">
+                    <button>Cerrar</button>
+                </form>
+            </dialog>
         </>
     );
 }
