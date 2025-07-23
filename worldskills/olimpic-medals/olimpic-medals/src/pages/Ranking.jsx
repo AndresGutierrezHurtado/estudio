@@ -39,13 +39,13 @@ export default function Ranking() {
                                     </td>
                                 </tr>
                             )}
-                            {countries.map((country) => {
+                            {countries.map((country, idx) => {
                                 const medals = country.medals;
                                 const goldMedals = medals.filter(m => m.medal_type === 'gold');
                                 const silverMedals = medals.filter(m => m.medal_type === 'silver');
                                 const bronzeMedals = medals.filter(m => m.medal_type === 'bronze');
                                 return (
-                                    <tr key={country.country_id}>
+                                    <tr className={`${idx === 0 && 'bg-amber-400/40'} ${idx === 1 && 'bg-gray-400/40'} ${idx === 2 && 'bg-orange-400/40'}`} key={country.country_id}>
                                         <th>{country.country_id}</th>
                                         <td>{country.country_name}</td>
                                         <td>{country.country_code}</td>

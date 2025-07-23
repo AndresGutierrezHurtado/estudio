@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { PencilIcon, PlusIcon, SearchIcon, Trash2Icon, UploadIcon, XIcon } from "lucide-react";
 
 // Hooks
@@ -18,6 +18,19 @@ export default function CountryManagement() {
         loading: countriesLoading,
         reload: countriesReload,
     } = useGetData(`/countries?search=${search}&page=${page}`);
+
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            console.log(e);
+            if (e.altKey && e.key === 's') {
+                const $input = document.querySelector('#search-input');
+                if ($input) $input.focus();
+            }
+        }
+
+        document.addEventListener('keydown', handleKeyDown);
+        return document.removeEventListener('keydown', handleKeyDown);
+    }, []);
 
     if (countriesLoading || !countries) return <LoadingComponent />;
 
@@ -90,6 +103,7 @@ export default function CountryManagement() {
                                 type="text"
                                 className="w-full"
                                 placeholder="Buscar país por nombre o código"
+                                id="search-input"
                                 value={search}
                                 onChange={(e) => setSearch(e.target.value)}
                             />

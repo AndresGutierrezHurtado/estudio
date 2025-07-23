@@ -1,12 +1,15 @@
-import { ChartNoAxesColumnIcon, GlobeIcon, MedalIcon, MenuIcon, UserIcon, WholeWordIcon } from "lucide-react";
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
+import { ChartNoAxesColumnIcon, GlobeIcon, MedalIcon, MenuIcon, UserIcon } from "lucide-react";
 
 export default function AppLayout() {
+    const location = useLocation();
+    const pathname = location.pathname;
+
     return (
         <div className="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-            <div className="drawer-content flex flex-col">
+            <div className="drawer-content flex flex-col px-5 py-1">
                 {/* Page content here */}
                 <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">
                     <MenuIcon />
@@ -26,25 +29,34 @@ export default function AppLayout() {
                     </Link>
                     <div className="lg:text-lg">
                         <li>
-                            <Link to="/">
+                            <Link to="/" className={pathname === "/" && "text-primary font-semibold"}>
                                 <ChartNoAxesColumnIcon size={18} />
                                 Top de paises
                             </Link>
                         </li>
                         <li>
-                            <Link to="/admin/countries">
+                            <Link
+                                to="/admin/countries"
+                                className={pathname === "/admin/countries" && "text-primary font-semibold"}
+                            >
                                 <GlobeIcon size={18} />
                                 Gestión de paises
                             </Link>
                         </li>
                         <li>
-                            <Link to="/admin/competitors">
+                            <Link
+                                to="/admin/competitors"
+                                className={pathname === "/admin/competitors" && "text-primary font-semibold"}
+                            >
                                 <UserIcon size={18} />
                                 Gestión de competidores
                             </Link>
                         </li>
                         <li>
-                            <Link to="/admin/medals">
+                            <Link
+                                to="/admin/medals"
+                                className={pathname === "/admin/medals" && "text-primary font-semibold"}
+                            >
                                 <MedalIcon size={18} />
                                 Gestión de medallas
                             </Link>
