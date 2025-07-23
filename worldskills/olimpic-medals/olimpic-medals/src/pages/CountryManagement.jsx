@@ -29,7 +29,7 @@ export default function CountryManagement() {
         }
 
         document.addEventListener('keydown', handleKeyDown);
-        return document.removeEventListener('keydown', handleKeyDown);
+        return () => document.removeEventListener('keydown', handleKeyDown);
     }, []);
 
     if (countriesLoading || !countries) return <LoadingComponent />;
@@ -101,9 +101,9 @@ export default function CountryManagement() {
                             <SearchIcon size={18} />
                             <input
                                 type="text"
+                                id="search-input"
                                 className="w-full"
                                 placeholder="Buscar país por nombre o código"
-                                id="search-input"
                                 value={search}
                                 onChange={(e) => setSearch(e.target.value)}
                             />

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useFetch, useGetData } from "../hooks/useApi";
 import LoadingComponent from "../components/LoadingComponent";
 import { PencilIcon, PlusIcon, SearchIcon, Trash2Icon, UploadIcon, XIcon } from "lucide-react";
@@ -25,6 +25,19 @@ export default function MedalManagement() {
         loading: competitorsLoading,
         reload: competitorsReload,
     } = useGetData(`/competitors?search=${search}&page=${page}`);
+
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            console.log(e);
+            if (e.altKey && e.key === "s") {
+                const $input = document.querySelector("#search-input");
+                if ($input) $input.focus();
+            }
+        };
+
+        document.addEventListener("keydown", handleKeyDown);
+        return () => document.removeEventListener("keydown", handleKeyDown);
+    }, []);
 
     if (medalsLoading || competitorsLoading || countriesLoading || !medals) {
         return <LoadingComponent />;
@@ -99,6 +112,7 @@ export default function MedalManagement() {
                                 <SearchIcon size={18} />
                                 <input
                                     type="text"
+                                    id="search-input"
                                     className="w-full"
                                     placeholder="Buscar país por nombre o código"
                                     value={search}
@@ -423,7 +437,9 @@ export default function MedalManagement() {
                                             value={competitor.competitor_id}
                                             key={competitor.competitor_id}
                                             className="capitalize"
-                                            selected={medal.competitors.map(c => c.competitor_id).includes(competitor.competitor_id)}
+                                            selected={medal.competitors
+                                                .map((c) => c.competitor_id)
+                                                .includes(competitor.competitor_id)}
                                         >
                                             {competitor.competitor_name}
                                         </option>
@@ -436,9 +452,7 @@ export default function MedalManagement() {
                                     className="btn"
                                     onClick={() => {
                                         document
-                                            .querySelector(
-                                                `#update-modal-${medal.medal_id}`
-                                            )
+                                            .querySelector(`#update-modal-${medal.medal_id}`)
                                             .close();
                                     }}
                                 >

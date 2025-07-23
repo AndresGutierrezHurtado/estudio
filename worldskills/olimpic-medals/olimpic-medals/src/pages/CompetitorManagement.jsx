@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { PencilIcon, PlusIcon, SearchIcon, Trash2Icon, UploadIcon, XIcon } from "lucide-react";
 
 // Hooks
@@ -19,6 +19,19 @@ export default function CompetitorManagement() {
     } = useGetData(`/competitors?search=${search}&page=${page}`);
 
     const { data: countries, loading: countriesLoading } = useGetData(`/countries?limit=100`);
+
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            console.log(e);
+            if (e.altKey && e.key === "s") {
+                const $input = document.querySelector("#search-input");
+                if ($input) $input.focus();
+            }
+        };
+
+        document.addEventListener("keydown", handleKeyDown);
+        return () => document.removeEventListener("keydown", handleKeyDown);
+    }, []);
 
     if (competitorsLoading || countriesLoading || !competitors) return <LoadingComponent />;
 
@@ -67,7 +80,7 @@ export default function CompetitorManagement() {
             cancelButtonText: "Cancelar",
             showConfirmButton: true,
             confirmButtonText: "Continuar",
-        }).then(async ({isConfirmed}) => {
+        }).then(async ({ isConfirmed }) => {
             if (!isConfirmed) return;
 
             const response = await useFetch("delete", `/competitors/${id}`);
@@ -89,6 +102,7 @@ export default function CompetitorManagement() {
                             <SearchIcon size={18} />
                             <input
                                 type="text"
+                                id="search-input"
                                 className="w-full"
                                 placeholder="Buscar competidor por sus datos o país"
                                 value={search}
@@ -151,7 +165,11 @@ export default function CompetitorManagement() {
                                                 className="btn h-10 w-10 p-0 btn-primary tooltip tooltip-left"
                                                 data-tip="Editar el país"
                                                 onClick={() => {
-                                                    document.getElementById(`update-modal-${competitor.competitor_id}`).show();
+                                                    document
+                                                        .getElementById(
+                                                            `update-modal-${competitor.competitor_id}`
+                                                        )
+                                                        .show();
                                                 }}
                                             >
                                                 <PencilIcon size={18} />
@@ -338,7 +356,12 @@ export default function CompetitorManagement() {
                                 <label htmlFor="country_id" className="fieldset-label text-base">
                                     Pais:
                                 </label>
-                                <select name="country_id" id="country_id" defaultValue={competitor.country_id} className="select">
+                                <select
+                                    name="country_id"
+                                    id="country_id"
+                                    defaultValue={competitor.country_id}
+                                    className="select"
+                                >
                                     <option value="">Selecciona tu pais</option>
                                     {countries.map((country) => (
                                         <option value={country.country_id} className="capitalize">
@@ -352,7 +375,11 @@ export default function CompetitorManagement() {
                                     type="button"
                                     className="btn"
                                     onClick={() => {
-                                        document.querySelector(`#update-modal-${competitor.competitor_id}`).close();
+                                        document
+                                            .querySelector(
+                                                `#update-modal-${competitor.competitor_id}`
+                                            )
+                                            .close();
                                     }}
                                 >
                                     <XIcon size={17} />
