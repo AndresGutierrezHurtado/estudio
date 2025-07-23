@@ -156,7 +156,7 @@ class CompetitorController extends Controller
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false,
-                'message' => 'Hubo un error al actualizar la medalla: ' . $e->getMessage(),
+                'message' => 'Hubo un error el competidor la medalla: ' . $e->getMessage(),
             ], 500);
         }
     }

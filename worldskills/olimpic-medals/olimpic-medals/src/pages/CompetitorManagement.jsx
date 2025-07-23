@@ -151,7 +151,7 @@ export default function CompetitorManagement() {
                                                 className="btn h-10 w-10 p-0 btn-primary tooltip tooltip-left"
                                                 data-tip="Editar el país"
                                                 onClick={() => {
-                                                    // document.getElementById("create-modal").show();
+                                                    document.getElementById(`update-modal-${competitor.competitor_id}`).show();
                                                 }}
                                             >
                                                 <PencilIcon size={18} />
@@ -175,7 +175,7 @@ export default function CompetitorManagement() {
             </section>
 
             {/* Create Competitor Modal */}
-            <dialog className="modal" id="create-modal" open>
+            <dialog className="modal" id="create-modal">
                 <div className="modal-box">
                     <form method="dialog" className="w-full flex justify-between">
                         <h2 className="text-3xl font-bold">Crear competidor</h2>
@@ -269,6 +269,107 @@ export default function CompetitorManagement() {
                     <button>Cerrar</button>
                 </form>
             </dialog>
+
+            {/* Create Competitor Modal */}
+            {competitors.map((competitor) => (
+                <dialog className="modal" id={`update-modal-${competitor.competitor_id}`}>
+                    <div className="modal-box">
+                        <form method="dialog" className="w-full flex justify-between">
+                            <h2 className="text-3xl font-bold">Editar competidor</h2>
+                            <button className="btn btn-ghost btn-circle">
+                                <XIcon />
+                            </button>
+                        </form>
+
+                        {/* Content */}
+                        <form onSubmit={(e) => handleSubmitEdit(e, competitor.competitor_id)}>
+                            <fieldset className="fieldset">
+                                <label htmlFor="" className="fieldset-label text-base">
+                                    Nombre:
+                                </label>
+                                <input
+                                    type="text"
+                                    className="input"
+                                    name="competitor_name"
+                                    defaultValue={competitor.competitor_name}
+                                    placeholder="Ingresa el nombre del competidor"
+                                />
+                            </fieldset>
+                            <fieldset className="fieldset">
+                                <label htmlFor="" className="fieldset-label text-base">
+                                    Apellido:
+                                </label>
+                                <input
+                                    type="text"
+                                    className="input"
+                                    name="competitor_lastname"
+                                    defaultValue={competitor.competitor_lastname}
+                                    placeholder="Ingresa el apellido del competidor"
+                                />
+                            </fieldset>
+                            <fieldset className="fieldset">
+                                <label
+                                    htmlFor="competitor_description"
+                                    className="fieldset-label text-base"
+                                >
+                                    Descripcion:
+                                </label>
+                                <textarea
+                                    name="competitor_description"
+                                    id="competitor_description"
+                                    className="textarea"
+                                    defaultValue={competitor.competitor_description}
+                                    placeholder="Ingresa la descripción del competidor"
+                                ></textarea>
+                            </fieldset>
+                            <fieldset className="fieldset">
+                                <label htmlFor="" className="fieldset-label text-base">
+                                    Fecha nacimiento:
+                                </label>
+                                <input
+                                    type="date"
+                                    className="input"
+                                    name="competitor_birthdate"
+                                    defaultValue={competitor.competitor_birthdate}
+                                    placeholder="Ingresa la fecha de nacimiento del competidor"
+                                />
+                            </fieldset>
+                            <fieldset className="fieldset">
+                                <label htmlFor="country_id" className="fieldset-label text-base">
+                                    Pais:
+                                </label>
+                                <select name="country_id" id="country_id" defaultValue={competitor.country_id} className="select">
+                                    <option value="">Selecciona tu pais</option>
+                                    {countries.map((country) => (
+                                        <option value={country.country_id} className="capitalize">
+                                            {country.country_name}
+                                        </option>
+                                    ))}
+                                </select>
+                            </fieldset>
+                            <fieldset className="pt-5 flex gap-4 justify-end">
+                                <button
+                                    type="button"
+                                    className="btn"
+                                    onClick={() => {
+                                        document.querySelector(`#update-modal-${competitor.competitor_id}`).close();
+                                    }}
+                                >
+                                    <XIcon size={17} />
+                                    Cancelar
+                                </button>
+                                <button type="submit" className="btn btn-primary px-8">
+                                    <UploadIcon size={17} />
+                                    Actualizar
+                                </button>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <form method="dialog" className="modal-backdrop bg-black/20">
+                        <button>Cerrar</button>
+                    </form>
+                </dialog>
+            ))}
         </>
     );
 }
