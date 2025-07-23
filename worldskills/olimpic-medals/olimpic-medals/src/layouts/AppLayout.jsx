@@ -6,7 +6,7 @@ export default function AppLayout() {
     return (
         <div className="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-            <div className="drawer-content flex flex-col items-center justify-center">
+            <div className="drawer-content flex flex-col">
                 {/* Page content here */}
                 <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">
                     <MenuIcon />
@@ -21,12 +21,12 @@ export default function AppLayout() {
                 ></label>
                 <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4 gap-10">
                     {/* Sidebar content here */}
-                    <figure>
+                    <Link to="/">
                         <h1 className="text-3xl font-bold">Medallas Olímpicas</h1>
-                    </figure>
+                    </Link>
                     <div className="lg:text-lg">
                         <li>
-                            <Link to="/admin/countries">
+                            <Link to="/">
                                 <ChartNoAxesColumnIcon size={18} />
                                 Top de paises
                             </Link>
@@ -44,7 +44,7 @@ export default function AppLayout() {
                             </Link>
                         </li>
                         <li>
-                            <Link to="/admin/competitors">
+                            <Link to="/admin/medals">
                                 <MedalIcon size={18} />
                                 Gestión de medallas
                             </Link>

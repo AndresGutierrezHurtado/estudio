@@ -22,6 +22,7 @@ export default function CountryManagement() {
     return (
         <section className="w-full max-w-[1200px] mx-auto py-10 space-y-10">
             <h1 className="text-5xl font-extrabold">Gestión de paises</h1>
+
             {/* filtros */}
             <div className="flex items-center justify-between">
                 <div className="w-full max-w-sm">
@@ -43,6 +44,8 @@ export default function CountryManagement() {
                 </div>
                 <div></div>
             </div>
+
+            {/* Tabla */}
             <div className="w-full overflow-x-auto bg-base-200 border border-base-300 rounded-lg">
                 <table className="table">
                     <thead>
