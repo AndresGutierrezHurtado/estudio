@@ -75,8 +75,8 @@ export default function MedalManagement() {
             cancelButtonText: "Cancelar",
             showConfirmButton: true,
             confirmButtonText: "Continuar",
-        }).then(async (confirm) => {
-            if (!confirm) return;
+        }).then(async ({isConfirmed}) => {
+            if (!isConfirmed) return;
 
             const response = await useFetch("delete", `/medals/${id}`);
 
@@ -164,13 +164,21 @@ export default function MedalManagement() {
                                             <div className="flex flex-wrap gap-2">
                                                 <button
                                                     className="btn btn-primary w-10 h-10 p-0 tooltip tooltip-left"
-                                                    data-tip="Editar competidor"
+                                                    data-tip="Editar la medalla"
+                                                    onClick={() => {
+                                                        document
+                                                            .getElementById(
+                                                                `update-modal-${country.country_id}`
+                                                            )
+                                                            .show();
+                                                    }}
                                                 >
                                                     <PencilIcon size={18} />
                                                 </button>
                                                 <button
                                                     className="btn btn-error w-10 h-10 p-0 tooltip tooltip-left"
-                                                    data-tip="Eliminar competidor"
+                                                    data-tip="Eliminar la medalla"
+                                                    onClick={() => handleDelete(medal.medal_id)}
                                                 >
                                                     <Trash2Icon size={18} />
                                                 </button>
@@ -267,9 +275,18 @@ export default function MedalManagement() {
                             >
                                 Competidores:
                             </label>
-                            <select name="competitors" id="competitors" className="input h-15" multiple>
-                                {competitors.map(competitor => (
-                                    <option value={competitor.competitor_id} key={competitor.competitor_id} className="capitalize">
+                            <select
+                                name="competitors"
+                                id="competitors"
+                                className="input h-15"
+                                multiple
+                            >
+                                {competitors.map((competitor) => (
+                                    <option
+                                        value={competitor.competitor_id}
+                                        key={competitor.competitor_id}
+                                        className="capitalize"
+                                    >
                                         {competitor.competitor_name}
                                     </option>
                                 ))}

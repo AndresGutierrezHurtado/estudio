@@ -66,8 +66,8 @@ export default function CountryManagement() {
             cancelButtonText: "Cancelar",
             showConfirmButton: true,
             confirmButtonText: "Continuar",
-        }).then(async (confirm) => {
-            if (!confirm) return;
+        }).then(async ({isConfirmed}) => {
+            if (!isConfirmed) return;
 
             const response = await useFetch("delete", `/countries/${id}`);
 

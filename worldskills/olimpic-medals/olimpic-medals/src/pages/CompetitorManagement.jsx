@@ -67,8 +67,8 @@ export default function CompetitorManagement() {
             cancelButtonText: "Cancelar",
             showConfirmButton: true,
             confirmButtonText: "Continuar",
-        }).then(async (confirm) => {
-            if (!confirm) return;
+        }).then(async ({isConfirmed}) => {
+            if (!isConfirmed) return;
 
             const response = await useFetch("delete", `/competitors/${id}`);
 

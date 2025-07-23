@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('medal_competitors', function (Blueprint $table) {
             $table->foreignId('competitor_id')->constrained('competitors', 'competitor_id');
-            $table->foreignId('medal_id')->constrained('medals', 'medal_id');
+            $table->foreignId('medal_id')->constrained('medals', 'medal_id')->onDelete('cascade');
         });
     }
 
