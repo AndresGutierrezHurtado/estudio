@@ -75,7 +75,7 @@ export default function MedalManagement() {
             cancelButtonText: "Cancelar",
             showConfirmButton: true,
             confirmButtonText: "Continuar",
-        }).then(async ({isConfirmed}) => {
+        }).then(async ({ isConfirmed }) => {
             if (!isConfirmed) return;
 
             const response = await useFetch("delete", `/medals/${id}`);
@@ -168,7 +168,7 @@ export default function MedalManagement() {
                                                     onClick={() => {
                                                         document
                                                             .getElementById(
-                                                                `update-modal-${country.country_id}`
+                                                                `update-modal-${medal.medal_id}`
                                                             )
                                                             .show();
                                                     }}
@@ -315,6 +315,148 @@ export default function MedalManagement() {
                     <button>Cerrar</button>
                 </form>
             </dialog>
+
+            {/* Create Medal Modal */}
+            {medals.map((medal) => (
+                <dialog className="modal" id={`update-modal-${medal.medal_id}`}>
+                    <div className="modal-box">
+                        <form method="dialog" className="w-full flex justify-between">
+                            <h2 className="text-3xl font-bold">Editar competidor</h2>
+                            <button className="btn btn-ghost btn-circle">
+                                <XIcon />
+                            </button>
+                        </form>
+
+                        {/* Content */}
+                        <form onSubmit={(e) => handleSubmitEdit(e, medal.medal_id)}>
+                            <fieldset className="fieldset">
+                                <label
+                                    htmlFor="medal_type"
+                                    className="fieldset-label text-base after:content-['*'] after:text-error"
+                                >
+                                    Tipo:
+                                </label>
+                                <select
+                                    name="medal_type"
+                                    id="medal_type"
+                                    defaultValue={medal.medal_type}
+                                    className="select"
+                                >
+                                    <option value="">Seleccionar el tipo de medalla</option>
+                                    <option value="gold">🥇 Oro</option>
+                                    <option value="silver">🥈 Plata</option>
+                                    <option value="Bronze">🥉 Bronce</option>
+                                </select>
+                            </fieldset>
+                            <fieldset className="fieldset">
+                                <label
+                                    htmlFor="medal_sport"
+                                    className="fieldset-label text-base after:content-['*'] after:text-error"
+                                >
+                                    Deporte:
+                                </label>
+                                <input
+                                    type="text"
+                                    className="input"
+                                    id="medal_sport"
+                                    name="medal_sport"
+                                    defaultValue={medal.medal_sport}
+                                    placeholder="Ingresa el deporte o categoria de esta medalla"
+                                />
+                            </fieldset>
+                            <fieldset className="fieldset">
+                                <label
+                                    htmlFor="medal_year"
+                                    className="fieldset-label text-base after:content-['*'] after:text-error"
+                                >
+                                    Año:
+                                </label>
+                                <input
+                                    type="number"
+                                    className="input"
+                                    id="medal_year"
+                                    name="medal_year"
+                                    defaultValue={medal.medal_year}
+                                    placeholder="Ingresa el año en el que se ganó la medalla"
+                                />
+                            </fieldset>
+                            <fieldset className="fieldset">
+                                <label
+                                    htmlFor="country_id"
+                                    className="fieldset-label text-base after:content-['*'] after:text-error"
+                                >
+                                    Pais:
+                                </label>
+                                <select
+                                    name="country_id"
+                                    id="country_id"
+                                    defaultValue={medal.country_Id}
+                                    className="select"
+                                >
+                                    <option value="">Seleccionar el tipo de medalla</option>
+                                    {countries.map((country) => (
+                                        <option
+                                            value={country.country_id}
+                                            key={country.country_id}
+                                            className="capitalize"
+                                        >
+                                            {country.country_name} - ({country.country_code})
+                                        </option>
+                                    ))}
+                                </select>
+                            </fieldset>
+                            <fieldset className="fieldset">
+                                <label
+                                    htmlFor="competitors"
+                                    className="fieldset-label text-base after:content-['*'] after:text-error"
+                                >
+                                    Competidores:
+                                </label>
+                                <select
+                                    name="competitors"
+                                    id="competitors"
+                                    className="input h-15"
+                                    multiple
+                                >
+                                    {competitors.map((competitor) => (
+                                        <option
+                                            value={competitor.competitor_id}
+                                            key={competitor.competitor_id}
+                                            className="capitalize"
+                                            selected={medal.competitors.map(c => c.competitor_id).includes(competitor.competitor_id)}
+                                        >
+                                            {competitor.competitor_name}
+                                        </option>
+                                    ))}
+                                </select>
+                            </fieldset>
+                            <fieldset className="pt-5 flex gap-4 justify-end">
+                                <button
+                                    type="button"
+                                    className="btn"
+                                    onClick={() => {
+                                        document
+                                            .querySelector(
+                                                `#update-modal-${medal.medal_id}`
+                                            )
+                                            .close();
+                                    }}
+                                >
+                                    <XIcon size={17} />
+                                    Cancelar
+                                </button>
+                                <button type="submit" className="btn btn-primary px-8">
+                                    <UploadIcon size={17} />
+                                    Actualizar
+                                </button>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <form method="dialog" className="modal-backdrop bg-black/20">
+                        <button>Cerrar</button>
+                    </form>
+                </dialog>
+            ))}
         </>
     );
 }
