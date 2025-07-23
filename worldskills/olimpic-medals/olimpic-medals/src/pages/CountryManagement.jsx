@@ -95,7 +95,7 @@ export default function CountryManagement() {
                 <h1 className="text-5xl font-extrabold">Gestión de paises</h1>
 
                 {/* filtros */}
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between gap-4">
                     <div className="w-full max-w-sm">
                         <label className="input w-full">
                             <SearchIcon size={18} />
