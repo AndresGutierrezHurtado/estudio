@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
+const API_URL = "http://localhost:8000/api";
+
 async function useFetch(method, endpoint, body = null) {
     try {
         const options = {
@@ -13,7 +15,7 @@ async function useFetch(method, endpoint, body = null) {
 
         if (body) options.body = body;
 
-        const response = await fetch(endpoint, options);
+        const response = await fetch(API_URL + endpoint, options);
         const data = await response.json();
 
         return data;

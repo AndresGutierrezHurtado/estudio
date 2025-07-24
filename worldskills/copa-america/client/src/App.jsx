@@ -7,6 +7,9 @@ import EmptyLayout from "./layouts/EmptyLayout";
 
 // Pages
 import Menu from "./pages/Menu";
+import Teams from "./pages/Teams";
+import Results from "./pages/Results";
+import Ranking from "./pages/Ranking";
 
 export default function App() {
     return (
@@ -16,14 +19,14 @@ export default function App() {
                 <Route path="/" element={<AppLayout />}>
                     <Route index element={<Menu />} />
                     <Route path="/admin" element={<Menu />} />
-                    <Route path="/teams" element={<Menu />} />
+                    <Route path="/teams" element={<Teams />} />
                     <Route path="/teams/:id" element={<Menu />} />
-                    <Route path="/matches" element={<Menu />} />
-                    <Route path="/ranking" element={<Menu />} />
+                    <Route path="/results" element={<Results />} />
+                    <Route path="/ranking" element={<Ranking />} />
                 </Route>
 
                 {/* management routes */}
-                <Route path="/" element={<EmptyLayout />}>
+                <Route element={<EmptyLayout />}>
                     <Route path="/admin/teams" element={<Menu />} />
                     <Route path="/admin/matches" element={<Menu />} />
                     {/*  */}

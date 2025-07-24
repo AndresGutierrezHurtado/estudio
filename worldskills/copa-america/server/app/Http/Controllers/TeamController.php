@@ -19,12 +19,14 @@ class TeamController extends Controller
                 'search' => $request->input('search', ''),
             ];
 
-            $teams = Team::with('plays');
+            $teams = Team::with('plays', 'plays.teams');
 
             $teams = $teams->where(function ($query) use ($filters) {
                 $query->where('team_name', 'LIKE', "%{$filters['search']}%");
                 $query->orWhere('team_code', 'LIKE', "%{$filters['search']}%");
             });
+
+            $teams = $teams->get();
 
             return response()->json([
                 'success' => true,
