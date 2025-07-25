@@ -19,13 +19,13 @@ class DatabaseSeeder extends Seeder
                 'team_id' => 1,
                 'team_name' => 'Colombia',
                 'team_code' => 'COL',
-                'team_image' => 'images/1.jpg'
+                'team_image' => '/storage/teams/1.jpg'
             ],
             [
                 'team_id' => 2,
                 'team_name' => 'Panamá',
                 'team_code' => 'PAN',
-                'team_image' => 'images/2.jpg'
+                'team_image' => '/storage/teams/2.jpg'
             ]
         ]);
 

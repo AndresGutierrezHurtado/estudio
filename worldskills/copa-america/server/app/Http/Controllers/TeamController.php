@@ -56,18 +56,26 @@ class TeamController extends Controller
                 []
             );
 
-            DB::transaction(function () use ($request) {
+            $new = DB::transaction(function () use ($request) {
 
                 $data = $request->only('team_name', 'team_code');
 
                 $new = Team::create($data);
 
-                $request->file('team_image')->store('teams/' . $new->team_id . '.jpg');
+                $request->file('team_image')->storeAs('teams', $new->team_id . '.jpg');
 
-                Team::update($new->team_id, [
-                    'team_image' => "/storadge/teams/{$new->team_id}"
+                $new->update([
+                    'team_image' => "/storage/teams/{$new->team_id}.jpg"
                 ]);
+
+                return $new;
             });
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Se creó la selección correctamente',
+                'data' => $new,
+            ], 200);
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false,
