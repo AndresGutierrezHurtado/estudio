@@ -36,7 +36,7 @@ class TeamController extends Controller
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false,
-                'message' => 'Hubo un error al : ' . $e->getMessage()
+                'message' => 'Hubo un error al obtener las selecciones: ' . $e->getMessage()
             ], 500);
         }
     }
@@ -71,7 +71,7 @@ class TeamController extends Controller
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false,
-                'message' => 'Hubo un error al : ' . $e->getMessage()
+                'message' => 'Hubo un error al crear la selección: ' . $e->getMessage()
             ], 500);
         }
     }
@@ -82,11 +82,22 @@ class TeamController extends Controller
     public function show(string $id)
     {
         try {
-            // 
+            $team = Team::with('plays.teams')->where('team_id', $id)->first();
+
+            $stats = $team->stats();
+
+            $response = $team->toArray();
+            $response['stats'] = $stats;
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Se obtuvo la selección correctamente',
+                'data' => $response,
+            ], 200);
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false,
-                'message' => 'Hubo un error al : ' . $e->getMessage()
+                'message' => 'Hubo un error al obtener la selección: ' . $e->getMessage()
             ], 500);
         }
     }

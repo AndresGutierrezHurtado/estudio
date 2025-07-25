@@ -13,6 +13,7 @@ import Admin from "./pages/Admin";
 import Teams from "./pages/Teams";
 import Results from "./pages/Results";
 import Ranking from "./pages/Ranking";
+import Team from "./pages/Team";
 
 // Management Pages
 
@@ -25,7 +26,7 @@ export default function App() {
                     <Route index element={<Menu />} />
                     <Route path="/admin" element={<Admin />} />
                     <Route path="/teams" element={<Teams />} />
-                    <Route path="/teams/:id" element={<Menu />} />
+                    <Route path="/teams/:id" element={<Team />} />
                     <Route path="/results" element={<Results />} />
                     <Route path="/ranking" element={<Ranking />} />
                 </Route>

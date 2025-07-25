@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PlayTeams extends Model
+class PlayTeam extends Model
 {
     public $timestamps = false;
 

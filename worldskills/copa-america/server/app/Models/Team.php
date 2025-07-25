@@ -21,4 +21,34 @@ class Team extends Model
     {
         return $this->belongsToMany(Play::class, 'play_teams', 'team_id', 'play_id');
     }
+
+    public function stats()
+    {
+        $stats = [
+            'wins' => 0,
+            'draws' => 0,
+            'losses' => 0,
+            'goals_for' => 0,
+            'goals_against' => 0,
+        ];
+
+        $plays = $this->plays;
+        foreach ($plays as $play) {
+            $opponent = $play->playTeams()->where('team_id', '!=', $this->team_id)->first();
+            $currentTeam = $play->playTeams()->where('team_id', $this->team_id)->first();
+
+            $stats['goals_for'] += $currentTeam->team_goals;
+            $stats['goals_against'] += $opponent->team_goals;
+
+            if ($currentTeam->team_goals > $opponent->team_goals) {
+                $stats['wins']++;
+            } elseif ($currentTeam->team_goals == $opponent->team_goals) {
+                $stats['draws']++;
+            } else {
+                $stats['losses']++;
+            }
+        }
+
+        return $stats;
+    }
 }
