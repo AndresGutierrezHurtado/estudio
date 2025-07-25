@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Play;
-use App\Models\PlayTeams;
+use App\Models\PlayTeam;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -71,7 +71,7 @@ class PlayController extends Controller
                 $play = Play::create($request->only('play_date', 'play_start'));
 
                 // Local team
-                PlayTeams::create([
+                PlayTeam::create([
                     'play_id' => $play->play_id,
                     'team_id' => $request->get('local_id'),
                     'team_goals' => $request->get('local_goals'),
@@ -79,7 +79,7 @@ class PlayController extends Controller
                 ]);
 
                 // Other team
-                PlayTeams::create([
+                PlayTeam::create([
                     'play_id' => $play->play_id,
                     'team_id' => $request->get('team_id'),
                     'team_goals' => $request->get('team_goals'),

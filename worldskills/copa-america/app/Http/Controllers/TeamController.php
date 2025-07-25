@@ -62,7 +62,7 @@ class TeamController extends Controller
 
                 $new = Team::create($data);
 
-                $request->file('team_image')->storeAs('teams', $new->team_id . '.jpg');
+                $request->file('team_image')->storeAs('teams', $new->team_id . '.jpg', 'public');
 
                 $new->update([
                     'team_image' => "/storage/teams/{$new->team_id}.jpg"

@@ -20,7 +20,8 @@ class Play extends Model
     
     public function teams(): BelongsToMany
     {
-        return $this->belongsToMany(Team::class, 'play_teams', 'play_id', 'team_id');
+        return $this->belongsToMany(Team::class, 'play_teams', 'play_id', 'team_id')
+            ->withPivot('team_goals', 'team_local');
     }
 
     public function playTeams(): HasMany
