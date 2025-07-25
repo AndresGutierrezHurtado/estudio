@@ -4,17 +4,17 @@ import { Link, Outlet } from "react-router-dom";
 
 export default function AppLayout() {
     return (
-        <div className="app_root">
+        <div className="app__root">
             <main className="app__main">
                 <Outlet />
             </main>
-            <footer className="app_footer">
+            <footer className="app__footer container">
                 <nav>
                     <Link to="/">
-                        <LibraryIcon />
+                        <LibraryIcon size={40} />
                     </Link>
                     <Link to="/admin">
-                        <UserCog2Icon />
+                        <UserCog2Icon size={40} />
                     </Link>
                 </nav>
             </footer>
