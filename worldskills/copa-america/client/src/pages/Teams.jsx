@@ -5,5 +5,9 @@ export default function Teams() {
     const { data: teams, loading: teamsLoading } = useGetData("/teams");
 
     console.log(teams);
-    return <div>Teams</div>;
+    return (
+        <section className="w-full">
+            <div>fasdfas</div>
+        </section>
+    );
 }
