@@ -139,4 +139,40 @@ class TeamController extends Controller
             ], 500);
         }
     }
+
+    /**
+     * Get the ranking of the teams
+     */
+    public function ranking()
+    {
+        try {
+            $teams = Team::all();
+
+            $result = [];
+            foreach ($teams as $team) {
+                $teamStats = $team->stats();
+                $result[] = [
+                    'team_name' => $team->team_name,
+                    'team_points' => $teamStats['wins'] * 3 + $teamStats['draws'],
+                    'team_played' => $teamStats['wins'] + $teamStats['draws'] + $teamStats['losses'],
+                    'team_wins' => $teamStats['wins'],
+                    'team_draws' => $teamStats['draws'],
+                    'team_losses' => $teamStats['losses'],
+                    'team_goals_for' => $teamStats['goals_for'],
+                    'team_goals_against' => $teamStats['goals_against'],
+                ];
+            }
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Ranking obtenido correctamente',
+                'data' => $result,
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Hubo un error al obtener el ranking: ' . $e->getMessage()
+            ], 500);
+        }
+    }
 }

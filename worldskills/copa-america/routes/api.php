@@ -18,6 +18,7 @@ Route::delete('/plays/{id}', [PlayController::class, 'delete']);
 
 // Teams routes
 Route::get('/teams', [TeamController::class, 'index']);
+Route::get('/teams/ranking', [TeamController::class, 'ranking']);
 Route::post('/teams', [TeamController::class, 'store']);
 Route::get('/teams/{id}', [TeamController::class, 'show']);
 Route::put('/teams/{id}', [TeamController::class, 'update']);
