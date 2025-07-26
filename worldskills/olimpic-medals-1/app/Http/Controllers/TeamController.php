@@ -46,10 +46,19 @@ class TeamController extends Controller
         try {
             $teams = Team::with('plays')->get();
 
+            $result = [];
+
+            foreach($teams as $team) {
+                $t = $team->toArray();
+                $t['stats'] = $team->stats();
+
+                $result[] = $t;
+            }
+
             return response()->json([
                 'success' => true,
                 'message' => 'se obtuvieron las selecciones correctamente',
-                'data' => $teams,
+                'data' => $result,
             ], 200);
         } catch (\Exception $e) {
             return response()->json([
@@ -120,10 +129,14 @@ class TeamController extends Controller
                 ->where('team_id', $id)
                 ->first();
 
+            $result = $team->toArray();
+
+            $result['stats'] = $team->stats();
+
             return response()->json([
                 'success' => true,
                 'message' => 'se obtuvo la selección correctamente',
-                'data' => $team,
+                'data' => $result,
             ], 200);
         } catch (\Exception $e) {
             return response()->json([
