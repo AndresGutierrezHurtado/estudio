@@ -24,7 +24,6 @@ class PlayController extends Controller
                 $query->whereHas('teams', function ($query) use ($search) {
                     $query->where('team_name', 'LIKE', "%$search%");
                     $query->orWhere('team_code', 'LIKE', "%$search%");
-                    $query->orWhere('team_id', 'LIKE', "%$search%");
                 });
                 $query->orWhere('play_date', 'LIKE', "%$search%");
                 $query->orWhere('play_start', 'LIKE', "%$search%");

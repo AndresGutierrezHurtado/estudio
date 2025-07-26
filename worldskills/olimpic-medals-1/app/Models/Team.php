@@ -17,7 +17,7 @@ class Team extends Model
         'team_image',
     ];
 
-    public function teams(): BelongsToMany
+    public function plays(): BelongsToMany
     {
         return $this->belongsToMany(Play::class, 'play_teams', 'team_id', 'play_id')
             ->withPivot('team_goals', 'team_local');

@@ -104,6 +104,10 @@ html {
     display: inline-flex;
 }
 
+.grow {
+    flex-grow: 1;
+}
+
 .grid {
     display: grid;
 }
