@@ -29,7 +29,7 @@ class PlayController extends Controller
                 $query->orWhere('play_start', 'LIKE', "%$search%");
             });
 
-            $plays = $plays->get();
+            $plays = $plays->orderBy('play_date', 'desc')->get();
 
             return response()->json([
                 'success' => true,
