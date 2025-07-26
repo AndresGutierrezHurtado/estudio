@@ -51,6 +51,11 @@ class DatabaseSeeder extends Seeder
                 'play_date' => now(),
                 'play_start' => '10:00:00'
             ],
+            [
+                'play_id' => 4,
+                'play_date' => now()->addDays(1),
+                'play_start' => '10:00:00'
+            ],
         ]);
 
         DB::table('play_teams')->insert([
@@ -87,6 +92,18 @@ class DatabaseSeeder extends Seeder
             [
                 'play_id' => 3,
                 'team_id' => 2,
+                'team_goals' => 2,
+                'team_local' => true,
+            ],
+            [
+                'play_id' => 4,
+                'team_id' => 1,
+                'team_goals' => 4,
+                'team_local' => false,
+            ],
+            [
+                'play_id' => 4,
+                'team_id' => 3,
                 'team_goals' => 2,
                 'team_local' => true,
             ],

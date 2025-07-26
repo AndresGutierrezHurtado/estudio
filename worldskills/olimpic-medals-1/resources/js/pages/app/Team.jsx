@@ -72,7 +72,7 @@ export default function Team() {
                 </div>
                 <div className="w-full flex items-center justify-between">
                     <p>Diferencia de goles</p>
-                    <p>{diffGoals >= 0 ? diffGoals : 0}</p>
+                    <p>{diffGoals}</p>
                 </div>
             </div>
         </section>
