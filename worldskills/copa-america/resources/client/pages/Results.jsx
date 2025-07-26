@@ -33,7 +33,7 @@ export default function Results() {
                     />
                 </label>
             </div>
-            <div>
+            <div className="flex flex-col gap-4">
                 {results.map((result) => (
                     <div
                         key={result.play_id}

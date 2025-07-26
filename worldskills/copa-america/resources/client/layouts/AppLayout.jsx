@@ -8,7 +8,7 @@ export default function AppLayout() {
             <main className="app__main">
                 <Outlet />
             </main>
-            <footer className="app__footer container">
+            <footer className="app__footer container max-w-6xl">
                 <nav>
                     <Link to="/">
                         <LibraryIcon size={40} />
