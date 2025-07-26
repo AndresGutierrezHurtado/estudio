@@ -1,19 +1,29 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const API_URL = "http://localhost:8000/api";
 
-async function useFetch(method, endpoint, body = null) {
+async function useFetch(
+    method,
+    endpoint,
+    body = null,
+    contentType = "application/json"
+) {
     try {
         const options = {
             headers: {
-                "Content-type": "application/json",
+                "Content-type": contentType,
                 Accept: "application/json",
             },
             method,
         };
 
-        if (body) options.body = body;
+        if (contentType === "multipart/form-data") {
+            delete options.headers;
+        }
+
+        if (body) options.body = contentType === "multipart/form-data" ? body : JSON.stringify(body);
 
         const response = await fetch(API_URL + endpoint, options);
         const data = await response.json();
@@ -53,4 +63,32 @@ export function useGetData(endpoint) {
         loading,
         reload,
     };
+}
+
+export async function useApi(
+    method,
+    endpoint,
+    body = null,
+    notify = true,
+    contentType = "application/json"
+) {
+    try {
+        const response = await useFetch(method, endpoint, body, contentType);
+
+        if (notify) {
+            Swal.fire({
+                title: response.message,
+                icon: response.success ? "success" : "error",
+                timer: 1500,
+            });
+        }
+
+        return response;
+    } catch (error) {
+        console.error(error);
+        return {
+            success: false,
+            message: "Hubo un error al hacer la petición: " + error.message,
+        };
+    }
 }

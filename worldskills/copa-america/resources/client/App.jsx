@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 // Layouts
 import AppLayout from "./layouts/AppLayout";
-import EmptyLayout from "./layouts/EmptyLayout";
 
 // Pages
 import Menu from "./pages/Menu";
@@ -14,6 +13,8 @@ import Teams from "./pages/Teams";
 import Results from "./pages/Results";
 import Ranking from "./pages/Ranking";
 import Team from "./pages/Team";
+import TeamsManagement from "./pages/TeamsManagement";
+import MatchesManagement from "./pages/MatchesManagement";
 
 // Management Pages
 
@@ -32,10 +33,9 @@ export default function App() {
                 </Route>
 
                 {/* management routes */}
-                <Route element={<EmptyLayout />}>
-                    <Route path="/admin/teams" element={<Menu />} />
-                    <Route path="/admin/matches" element={<Menu />} />
-                    {/*  */}
+                <Route element={<AppLayout />}>
+                    <Route path="/admin/teams" element={<TeamsManagement />} />
+                    <Route path="/admin/matches" element={<MatchesManagement />} />
                 </Route>
 
                 <Route path="*" element={<h1>No se encontro</h1>} />

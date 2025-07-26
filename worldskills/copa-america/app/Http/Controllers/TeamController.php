@@ -60,6 +60,8 @@ class TeamController extends Controller
 
                 $data = $request->only('team_name', 'team_code');
 
+                $data['team_image'] = "placeholder.jpg";
+
                 $new = Team::create($data);
 
                 $request->file('team_image')->storeAs('teams', $new->team_id . '.jpg', 'public');
