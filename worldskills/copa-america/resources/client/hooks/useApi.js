@@ -23,7 +23,11 @@ async function useFetch(
             delete options.headers;
         }
 
-        if (body) options.body = contentType === "multipart/form-data" ? body : JSON.stringify(body);
+        if (body)
+            options.body =
+                contentType === "multipart/form-data"
+                    ? body
+                    : JSON.stringify(body);
 
         const response = await fetch(API_URL + endpoint, options);
         const data = await response.json();
@@ -86,6 +90,14 @@ export async function useApi(
         return response;
     } catch (error) {
         console.error(error);
+        if (notify) {
+            Swal.fire({
+                title: error.message,
+                icon: "error",
+                timer: 1500,
+            });
+        }
+
         return {
             success: false,
             message: "Hubo un error al hacer la petición: " + error.message,

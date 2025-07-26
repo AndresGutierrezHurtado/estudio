@@ -34,7 +34,7 @@ class PlayController extends Controller
                 });
             }
 
-            $plays = $plays->get();
+            $plays = $plays->orderBy('play_date', 'desc')->get();
 
             return response()->json([
                 'success' => true,
@@ -57,12 +57,12 @@ class PlayController extends Controller
         try {
             $request->validate(
                 [
-                    'local_id' => 'required|int',
-                    'local_goals' => 'required|boolean',
-                    'team_id' => 'required|int',
-                    'team_goals' => 'required|boolean',
+                    'local_id' => 'required|integer',
+                    'local_goals' => 'required|integer',
+                    'team_id' => 'required|integer',
+                    'team_goals' => 'required|integer',
                     'play_date' => 'required|date',
-                    'play_start' => 'required|time'
+                    'play_start' => 'required|date_format:H:i'
                 ],
                 []
             );
